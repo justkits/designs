@@ -23,6 +23,10 @@
     "turbo": "^2.8.16"
   },
   "lint-staged": {
-    "*": "prettier --check"
+    "*.{json,md,yml,yaml}": "prettier --check",
+    "*.{ts,tsx,js,jsx}": [
+      "prettier --check",
+      "eslint"
+    ]
   }
 }
