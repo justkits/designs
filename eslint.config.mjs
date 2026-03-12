@@ -9,7 +9,7 @@ import css from "@eslint/css";
 import { defineConfig, globalIgnores } from "eslint/config";
 
 export default defineConfig([
-  globalIgnores(["node_modules", "dist", "build", "coverage"]),
+  globalIgnores([".*/**", "node_modules", "dist", "build", "coverage"]),
   {
     files: ["**/*.{js,mjs,cjs,ts,mts,cts}"],
     extends: [js.configs.recommended, tseslint.configs.recommended],
