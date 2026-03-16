@@ -24,7 +24,13 @@ export default defineConfig({
     include: ["**/tests/**/*.test.{ts,tsx}"],
     coverage: {
       include: ["**/src/**/*.{ts,tsx}"],
-      exclude: ["**/tests/**/*", "**/src/main.tsx"],
+      exclude: [
+        "**/tests/**/*",
+        "**/src/main.tsx",
+        "**/tokens/typography/code.ts",
+        "**/tokens/typography/quote.ts",
+        "**/tokens/typography/text.ts",
+      ],
       provider: "v8",
       reporter: [["text", { skipFull: true }], "clover", "lcov"],
     },
