@@ -1,0 +1,48 @@
+{
+  "name": "@justkits/design-foundations",
+  "description": "JustKits Design System - Foundations",
+  "version": "0.0.0",
+  "private": false,
+  "type": "module",
+  "keywords": [
+    "design tokens",
+    "foundations",
+    "react",
+    "typescript"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./reset.css": "./dist/reset.css"
+  },
+  "files": [
+    "dist",
+    "docs",
+    "README.md",
+    "dist/reset.css"
+  ],
+  "author": "JustWon",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/justkits/design-system.git"
+  },
+  "publishConfig": {
+    "access": "restricted",
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "scripts": {
+    "prebuild": "rm -rf dist",
+    "build": "tsup",
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0"
+  },
+  "devDependencies": {
+    "@justkits/tsconfig": "workspace:*",
+    "tsup": "^8.5.1",
+    "typescript": "~5.9.3"
+  }
+}

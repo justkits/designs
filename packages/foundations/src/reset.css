@@ -1,0 +1,146 @@
+/** 
+ * Reset CSS
+ * 모든 요소의 기본 스타일을 초기화하여 일관된 스타일링을 가능하게 한다.
+ * 기본적인 Reset 외에도, 개인 취향이 반영된 스타일링이 포함되어 있다.
+ */
+
+/* 기본 스타일 초기화 */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+  font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  -webkit-text-size-adjust: 100%;
+  /* 모바일 브라우저에서 텍스트 크기 자동 조정 방지 */
+}
+
+/* ThemeScript가 추가하는 클래스: 초기 페이지 로드 시 전환 애니메이션 방지 */
+html.theme-ready,
+html.theme-ready body {
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+/* 개인 취향에 따른 스타일링: 다크 모드 지원 */
+html {
+  color-scheme: light dark;
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+html[data-theme="light"] {
+  color-scheme: light;
+}
+
+/* 타이포그래피 */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+dl,
+dt,
+dd {
+  margin: 0;
+  padding: 0;
+}
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+code,
+kbd,
+samp,
+pre {
+  font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 1em;
+}
+
+small {
+  font-size: 80%;
+}
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/* Form 관련 */
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit; /* eslint-disable-line css/font-family-fallbacks */
+  font-size: 100%;
+  line-height: 1.5;
+  margin: 0;
+  border: none;
+  background: none;
+}
+
+button,
+input {
+  overflow: visible;
+}
+
+button,
+select {
+  text-transform: none;
+}
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+
+/* 이미지 및 미디어 요소 */
+img,
+video,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 리스트 스타일 초기화 */
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
