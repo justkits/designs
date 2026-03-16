@@ -8,7 +8,7 @@
     "format": "prettier --write --log-level warn .",
     "lint": "eslint .",
     "test": "vitest run",
-    "test:dev": "vitest run --watch",
+    "test:dev": "vitest run --watch --coverage",
     "dev": "turbo run dev",
     "typecheck": "turbo run typecheck",
     "build": "turbo run build",
