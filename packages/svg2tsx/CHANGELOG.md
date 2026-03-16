@@ -1,5 +1,11 @@
 # @justkits/svg2tsx
 
+## 1.1.2
+
+### Patch Changes
+
+- [#4](https://github.com/justkits/design-system/pull/4) [`7a47283`](https://github.com/justkits/design-system/commit/7a47283af918e477d137270627a4960f119676c8) Thanks [@justwon0307](https://github.com/justwon0307)! - Migrate package and remove license file
+
 ## 1.1.1
 
 ### Patch Changes
