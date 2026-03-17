@@ -103,15 +103,9 @@ describe("transition", () => {
 });
 
 describe("resolveDuration", () => {
-  it("resolves 'fast' to 400ms", () => {
+  it("resolves typed durations correctly", () => {
     expect(resolveDuration("fast")).toBe(400);
-  });
-
-  it("resolves 'normal' to 600ms", () => {
     expect(resolveDuration("normal")).toBe(600);
-  });
-
-  it("resolves 'slow' to 800ms", () => {
     expect(resolveDuration("slow")).toBe(800);
   });
 
