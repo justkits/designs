@@ -18,6 +18,9 @@
     },
     "./keyframes.css": "./dist/keyframes.css"
   },
+  "sideEffects": [
+    "./dist/keyframes.css"
+  ],
   "files": [
     "dist",
     "README.md"
@@ -31,6 +34,7 @@
     "access": "restricted",
     "registry": "https://npm.pkg.github.com/"
   },
+  "license": "SEE LICENSE IN REPOSITORY",
   "scripts": {
     "prebuild": "rm -rf dist",
     "build": "tsup",
