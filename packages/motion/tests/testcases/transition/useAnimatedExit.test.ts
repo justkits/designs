@@ -90,6 +90,21 @@ describe("useAnimatedExit", () => {
     expect(onClose2).toHaveBeenCalledOnce();
   });
 
+  it("does not update state when component unmounts during onClose", async () => {
+    let unmountFn: () => void = () => {};
+    const onClose = vi.fn().mockImplementation(() => {
+      unmountFn();
+    });
+
+    const { result, unmount } = renderHook(() => useAnimatedExit(400, onClose));
+    unmountFn = unmount;
+
+    act(() => result.current.startClosing());
+    await act(async () => vi.advanceTimersByTime(400));
+
+    expect(onClose).toHaveBeenCalledOnce();
+  });
+
   it("logs error in dev when onClose throws", async () => {
     const consoleErrorSpy = vi
       .spyOn(console, "error")

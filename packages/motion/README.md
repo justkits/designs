@@ -250,6 +250,75 @@ type AnimationIterations = number | "infinite";
 
 ---
 
+## Future Considerations
+
+### 인터랙티브 단발 애니메이션 API
+
+마운트/언마운트와 무관하게, 이미 렌더링된 요소에 애니메이션을 명령형으로 실행할 수 있는 API가 없다. 폼 검증 실패 시 필드를 흔들거나, 알림 도착 시 아이콘을 울리거나, 버튼 클릭에 반응하는 피드백 애니메이션처럼 사용자 인터랙션에 의해 한 번 재생되는 패턴이 이에 해당한다.
+
+현재 `loop()`의 `iterations` 옵션으로 비슷하게 흉내낼 수 있으나, 개발 환경 경고가 발생하고 의미상으로도 올바르지 않다. `animate()` / `useAnimate()`와 같은 별도 API가 필요하다.
+
+```tsx
+// animate() / useAnimate() 도입 후 (예시)
+import { animate, useAnimate } from "@justkits/motion";
+
+function SubmitButton() {
+  const { playing, play } = useAnimate();
+
+  return (
+    <button style={animate({ name: "shake", playing })} onClick={play}>
+      제출
+    </button>
+  );
+}
+```
+
+### `useAnimatedMount` 훅
+
+현재 진입/퇴장 애니메이션을 사용하려면 `isOpen` 상태 관리와 `useAnimatedExit()` 연결을 직접 구현해야 한다. 이 패턴을 하나의 훅으로 추상화하면 가장 흔한 사용 사례를 훨씬 간결하게 처리할 수 있다.
+
+```tsx
+// 현재
+const [isOpen, setIsOpen] = useState(false);
+const { exiting, startClosing } = useAnimatedExit("normal", () =>
+  setIsOpen(false),
+);
+{
+  isOpen && <div style={transition({ name: "pop", exiting })}>...</div>;
+}
+
+// useAnimatedMount 도입 후 (예시)
+const { mounted, exiting, open, close } = useAnimatedMount("normal");
+{
+  mounted && <div style={transition({ name: "pop", exiting })}>...</div>;
+}
+```
+
+### 퇴장 애니메이션 취소
+
+`startClosing()`은 한 번 호출하면 되돌릴 수 없다. 닫기 애니메이션 도중 다시 열기를 시도하는 경우처럼, 진행 중인 퇴장 애니메이션을 중단하고 원래 상태로 되돌리는 `cancelClosing()` API가 필요할 수 있다.
+
+### 스태거 애니메이션
+
+리스트나 메뉴 항목을 순차적으로 등장시킬 때, 각 항목마다 `delay`를 직접 계산해서 전달해야 한다. 인덱스를 기반으로 지연 시간을 자동으로 산출하는 `stagger()` 유틸리티를 추가하면 이 패턴을 간편하게 처리할 수 있다.
+
+```tsx
+// stagger() 도입 후 (예시)
+items.map((item, i) => (
+  <div style={transition({ name: "slide-up", delay: stagger(i) })}>{item}</div>
+));
+```
+
+### 소스맵
+
+현재 빌드 설정에 소스맵이 포함되어 있지 않다. 소스맵을 추가하면 컨슈머 앱의 디버깅 경험이 개선된다.
+
+### SSR `useReducedMotion` 초기값 지원
+
+현재 알려진 문제인 하이드레이션 불일치를 코드 레벨에서 해결하려면, `useReducedMotion(initialValue?)` 형태로 서버에서 전달받은 초기값을 주입할 수 있어야 한다. 이를 통해 서버와 클라이언트의 초기 렌더 결과를 일치시킬 수 있다.
+
+---
+
 ## Known Issues
 
 ### SSR 환경에서 `useReducedMotion` 하이드레이션 불일치
@@ -257,11 +326,3 @@ type AnimationIterations = number | "infinite";
 `useReducedMotion`은 서버에서 `window`를 사용할 수 없으므로 초기값을 `false`로 설정한다. 사용자가 OS에서 `prefers-reduced-motion: reduce`를 활성화한 경우, 클라이언트는 `false`로 하이드레이션된 직후 `true`로 전환된다. 이 때 한 프레임 동안 애니메이션 스타일이 적용되었다가 제거되는 플래시가 발생할 수 있다.
 
 **우회 방법:** 서버에서 사용자의 모션 설정을 쿠키나 헤더로 전달받아, 초기 렌더링 시 `useReducedMotion()`에만 의존하지 않도록 한다.
-
-### `useAnimatedExit` — 언마운트 후 상태 업데이트
-
-`onClose`가 호출되면 부모 컴포넌트가 해당 컴포넌트를 트리에서 제거하는 것이 일반적인 사용 패턴이다. 이 경우 `onClose` 실행 직후에 내부적으로 `setExiting(false)`가 호출되는데, 이 시점에는 컴포넌트가 이미 언마운트된 상태다. React 18 이상에서는 언마운트된 컴포넌트에 대한 상태 업데이트를 조용히 무시하므로 실제 문제는 발생하지 않는다.
-
-### `useAnimatedExit` — ESLint `exhaustive-deps` 경고 가능성
-
-`useEffect` 내부 클린업 함수에서 호출되는 `clearTimer`는 매 렌더마다 새로 생성되는 함수지만 deps 배열(`[onClose]`)에 포함되지 않는다. `eslint-plugin-react-hooks`의 `exhaustive-deps` 규칙이 이를 경고할 수 있다. `clearTimer`는 안정적인 ref인 `timerRef`만 참조하므로 동작상 문제는 없으며, 경고를 억제하려면 `clearTimer`를 `useCallback`으로 감싸면 된다.

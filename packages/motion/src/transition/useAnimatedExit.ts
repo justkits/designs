@@ -12,14 +12,15 @@ export function useAnimatedExit(
   const exitingRef = useRef(false);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const onCloseRef = useRef(onClose);
+  const mountedRef = useRef(true);
   const reducedMotion = useReducedMotion();
 
-  const clearTimer = () => {
+  const clearTimer = useCallback(() => {
     if (timerRef.current) {
       globalThis.clearTimeout(timerRef.current);
       timerRef.current = null;
     }
-  };
+  }, []);
 
   const startClosing = useCallback(() => {
     if (exitingRef.current) return;
@@ -40,11 +41,13 @@ export function useAnimatedExit(
           }
         }
       }
-      exitingRef.current = false;
-      setExiting(false);
+      if (mountedRef.current) {
+        exitingRef.current = false;
+        setExiting(false);
+      }
       clearTimer();
     }, durationMs);
-  }, [duration, reducedMotion]);
+  }, [duration, reducedMotion, clearTimer]);
 
   useEffect(() => {
     // Update onCloseRef in case it changes
@@ -52,7 +55,13 @@ export function useAnimatedExit(
 
     // Cleanup on unmount
     return () => clearTimer();
-  }, [onClose]);
+  }, [onClose, clearTimer]);
+
+  useEffect(() => {
+    return () => {
+      mountedRef.current = false;
+    };
+  }, []);
 
   return { exiting, startClosing };
 }
