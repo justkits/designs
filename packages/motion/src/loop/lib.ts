@@ -35,6 +35,12 @@ export function resolveDuration(
   if (duration === "normal") return Math.round(800 * scale);
   if (duration === "slow") return Math.round(1000 * scale);
 
+  if (process.env.NODE_ENV !== "production" && duration < 0) {
+    console.warn(
+      `Invalid duration value: ${duration}. Duration must be a non-negative number.`,
+    );
+  }
+
   return Math.round(duration * scale);
 }
 

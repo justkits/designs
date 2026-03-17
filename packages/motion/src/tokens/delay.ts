@@ -14,5 +14,11 @@ export function resolveDelay(delay: AnimationDelay): string {
     return "500ms";
   }
 
+  if (process.env.NODE_ENV !== "production" && delay < 0) {
+    console.warn(
+      `Invalid delay value: ${delay}. Negative delays have unexpected CSS behavior.`,
+    );
+  }
+
   return delay + "ms";
 }

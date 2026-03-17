@@ -29,5 +29,11 @@ export function resolveDuration(duration: AnimationDuration): number {
     return 800;
   }
 
+  if (process.env.NODE_ENV !== "production" && duration < 0) {
+    console.warn(
+      `Invalid duration value: ${duration}. Duration must be a non-negative number.`,
+    );
+  }
+
   return duration;
 }
