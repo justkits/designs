@@ -56,6 +56,21 @@ describe("StandaloneSvgBuilder", () => {
     );
   });
 
+  it("should not write any files in dry-run mode", async () => {
+    const builder = new StandaloneSvgBuilder(
+      defaultOptions,
+      mockBaseDir,
+      "Icon",
+      true,
+      "assets",
+      "src",
+      true,
+    );
+    await builder.generate();
+
+    expect(atomicWrite).not.toHaveBeenCalled();
+  });
+
   it("should not generate barrel files when generateIndex is false", async () => {
     const builder = new StandaloneSvgBuilder(
       defaultOptions,

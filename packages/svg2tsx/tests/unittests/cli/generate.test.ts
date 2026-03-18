@@ -56,6 +56,7 @@ describe("generateAction", () => {
         mockConfigOutput.index,
         "assets",
         "src",
+        false,
       );
       expect(mockGenerate).toHaveBeenCalled();
       expect(logger.info).toHaveBeenCalledWith(
@@ -78,6 +79,7 @@ describe("generateAction", () => {
         false,
         "assets",
         "src",
+        false,
       );
     });
   });
@@ -96,6 +98,7 @@ describe("generateAction", () => {
         false,
         "assets",
         "src",
+        false,
       );
       expect(mockGenerate).toHaveBeenCalled();
       expect(logger.info).toHaveBeenCalledWith(
@@ -117,6 +120,7 @@ describe("generateAction", () => {
         false,
         "assets",
         "src",
+        false,
       );
     });
 
@@ -134,6 +138,7 @@ describe("generateAction", () => {
         false,
         "assets",
         "src",
+        false,
       );
       expect(logger.info).toHaveBeenCalledWith(
         "🚀 Starting generation (type: standalone)...",
@@ -175,6 +180,54 @@ describe("generateAction", () => {
     });
   });
 
+  describe("dry-run mode", () => {
+    it("should pass dryRun: true to family builder", async () => {
+      await generateAction({ dryRun: true });
+
+      expect(FamilySvgBuilder).toHaveBeenCalledWith(
+        expect.any(Object),
+        mockConfigOutput.baseDir,
+        mockConfigOutput.suffix,
+        mockConfigOutput.index,
+        "assets",
+        "src",
+        true,
+      );
+      expect(mockGenerate).toHaveBeenCalled();
+    });
+
+    it("should pass dryRun: true to standalone builder", async () => {
+      vi.mocked(loadConfig).mockResolvedValueOnce(defaultConfig);
+
+      await generateAction({ dryRun: true });
+
+      expect(StandaloneSvgBuilder).toHaveBeenCalledWith(
+        expect.any(Object),
+        defaultConfig.baseDir,
+        "",
+        false,
+        "assets",
+        "src",
+        true,
+      );
+      expect(mockGenerate).toHaveBeenCalled();
+    });
+
+    it("should default dryRun to false when not provided", async () => {
+      await generateAction({});
+
+      expect(FamilySvgBuilder).toHaveBeenCalledWith(
+        expect.any(Object),
+        expect.any(String),
+        expect.anything(),
+        expect.anything(),
+        expect.any(String),
+        expect.any(String),
+        false,
+      );
+    });
+  });
+
   describe("config options merging", () => {
     it("should merge svgr options from config", async () => {
       vi.mocked(loadConfig).mockResolvedValueOnce({
@@ -198,6 +251,7 @@ describe("generateAction", () => {
         false,
         "assets",
         "src",
+        false,
       );
     });
   });
@@ -220,6 +274,7 @@ describe("generateAction", () => {
         false,
         "icons",
         "generated",
+        false,
       );
     });
 
@@ -240,6 +295,7 @@ describe("generateAction", () => {
         false,
         "svg-assets",
         "components",
+        false,
       );
     });
   });

@@ -61,6 +61,21 @@ describe("FamilySvgBuilder", () => {
     );
   });
 
+  it("should not write any files in dry-run mode", async () => {
+    const dryRunBuilder = new FamilySvgBuilder(
+      defaultOptions,
+      mockBaseDir,
+      "Icon",
+      true,
+      "assets",
+      "src",
+      true,
+    );
+    await dryRunBuilder.generate();
+
+    expect(atomicWrite).not.toHaveBeenCalled();
+  });
+
   it("should not generate barrel files when generateIndex is false", async () => {
     const builderWithoutIndex = new FamilySvgBuilder(
       defaultOptions,
