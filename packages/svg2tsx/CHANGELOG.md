@@ -1,5 +1,11 @@
 # @justkits/svg2tsx
 
+## 1.2.0
+
+### Minor Changes
+
+- [#13](https://github.com/justkits/design-system/pull/13) [`d4c1183`](https://github.com/justkits/design-system/commit/d4c1183a3bd41d7d6533b43e50847bbc7529b0ba) Thanks [@justwon0307](https://github.com/justwon0307)! - Add dry-run feature
+
 ## 1.1.2
 
 ### Patch Changes
