@@ -44,17 +44,23 @@ jobs:
           REPO_NAME="${{ github.event.repository.name }}"
 
           REPO_ID=$(gh api graphql \
-            -f query="{ repository(owner: \"${REPO_OWNER}\", name: \"${REPO_NAME}\") { id } }" \
+            -f query='query GetRepo($owner: String!, $name: String!) { repository(owner: $owner, name: $name) { id } }' \
+            -f owner="${REPO_OWNER}" \
+            -f name="${REPO_NAME}" \
             --jq '.data.repository.id')
 
           echo '${{ steps.changesets.outputs.publishedPackages }}' | jq -r '.[].name' | while read -r PACKAGE_NAME; do
             PKG_ID=$(gh api graphql \
-              -f query="{ organization(login: \"${REPO_OWNER}\") { packages(packageType: NPM, names: [\"${PACKAGE_NAME}\"], first: 1) { nodes { id } } } }" \
-              --jq '.data.organization.packages.nodes[0].id // empty' 2>/dev/null)
+              -f query='query GetPackage($login: String!, $name: String!) { repositoryOwner(login: $login) { ... on Organization { packages(packageType: NPM, names: [$name], first: 1) { nodes { id } } } ... on User { packages(packageType: NPM, names: [$name], first: 1) { nodes { id } } } } }' \
+              -f login="${REPO_OWNER}" \
+              -f name="${PACKAGE_NAME}" \
+              --jq '.data.repositoryOwner.packages.nodes[0].id // empty' 2>/dev/null)
 
             if [ -n "${PKG_ID}" ]; then
               gh api graphql \
-                -f query="mutation { linkRepositoryToPackage(input: { packageId: \"${PKG_ID}\", repositoryId: \"${REPO_ID}\" }) { package { name } } }" \
+                -f query='mutation Link($packageId: ID!, $repositoryId: ID!) { linkRepositoryToPackage(input: { packageId: $packageId, repositoryId: $repositoryId }) { package { name } } }' \
+                -f packageId="${PKG_ID}" \
+                -f repositoryId="${REPO_ID}" \
                 && echo "✓ Linked ${PACKAGE_NAME} to ${REPO_OWNER}/${REPO_NAME}" \
                 || echo "✗ Failed to link ${PACKAGE_NAME} (may already be linked)"
             fi
