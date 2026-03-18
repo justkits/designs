@@ -228,6 +228,88 @@ describe("generateAction", () => {
     });
   });
 
+  describe("platform preset", () => {
+    it("should use nativeOptions preset when platform is native", async () => {
+      vi.mocked(loadConfig).mockResolvedValueOnce({
+        type: "standalone",
+        baseDir: "/test",
+        platform: "native",
+      });
+
+      await generateAction({});
+
+      expect(StandaloneSvgBuilder).toHaveBeenCalledWith(
+        expect.objectContaining({ native: true }),
+        "/test",
+        "",
+        false,
+        "assets",
+        "src",
+        false,
+      );
+    });
+
+    it("should use defaultOptions preset when platform is web", async () => {
+      vi.mocked(loadConfig).mockResolvedValueOnce({
+        type: "standalone",
+        baseDir: "/test",
+        platform: "web",
+      });
+
+      await generateAction({});
+
+      expect(StandaloneSvgBuilder).toHaveBeenCalledWith(
+        expect.not.objectContaining({ native: true }),
+        "/test",
+        "",
+        false,
+        "assets",
+        "src",
+        false,
+      );
+    });
+
+    it("should use defaultOptions preset when platform is not specified", async () => {
+      vi.mocked(loadConfig).mockResolvedValueOnce({
+        type: "standalone",
+        baseDir: "/test",
+      });
+
+      await generateAction({});
+
+      expect(StandaloneSvgBuilder).toHaveBeenCalledWith(
+        expect.not.objectContaining({ native: true }),
+        "/test",
+        "",
+        false,
+        "assets",
+        "src",
+        false,
+      );
+    });
+
+    it("should allow user options to override the native preset", async () => {
+      vi.mocked(loadConfig).mockResolvedValueOnce({
+        type: "standalone",
+        baseDir: "/test",
+        platform: "native",
+        options: { expandProps: true },
+      });
+
+      await generateAction({});
+
+      expect(StandaloneSvgBuilder).toHaveBeenCalledWith(
+        expect.objectContaining({ native: true, expandProps: true }),
+        "/test",
+        "",
+        false,
+        "assets",
+        "src",
+        false,
+      );
+    });
+  });
+
   describe("config options merging", () => {
     it("should merge svgr options from config", async () => {
       vi.mocked(loadConfig).mockResolvedValueOnce({
