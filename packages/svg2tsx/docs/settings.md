@@ -16,9 +16,6 @@ export default defineConfig({
   // 빌더 타입: 'standalone' (기본값) 또는 'family'
   type: "standalone",
 
-  // 대상 플랫폼: 'web' (기본값) 또는 'native' (React Native)
-  platform: "web",
-
   // 컴포넌트 이름 뒤에 붙을 접미사 (예: 'Icon')
   suffix: "Icon",
 
@@ -42,16 +39,15 @@ export default defineConfig({
 
 ## 설정 옵션
 
-| 옵션        | 타입                       | 기본값           | 설명                                                                              |
-| ----------- | -------------------------- | ---------------- | --------------------------------------------------------------------------------- |
-| `type`      | `'standalone' \| 'family'` | `'standalone'`   | 컴포넌트 생성 구조를 결정한다.                                                    |
-| `platform`  | `'web' \| 'native'`        | `'web'`          | 대상 플랫폼을 결정한다. `'native'`로 설정하면 React Native용 컴포넌트를 생성한다. |
-| `suffix`    | `string`                   | `""`             | 생성된 컴포넌트 이름 뒤에 추가할 문자열이다.                                      |
-| `index`     | `boolean`                  | `false`          | `index.ts` 배럴 파일 생성 여부를 결정한다.                                        |
-| `options`   | `Config` (SVGR)            | `defaultOptions` | [SVGR 설정](https://react-svgr.com/docs/options/)과 동일한 옵션을 지원한다.       |
-| `baseDir`   | `string`                   | `process.cwd()`  | `assetsDir`와 `srcDir`의 기준 디렉토리다.                                         |
-| `assetsDir` | `string`                   | `"assets"`       | SVG 파일이 위치한 디렉토리 경로다. (baseDir 기준 상대경로 또는 절대경로)          |
-| `srcDir`    | `string`                   | `"src"`          | 변환된 컴포넌트가 출력될 디렉토리 경로다. (baseDir 기준 상대경로 또는 절대경로)   |
+| 옵션        | 타입                       | 기본값           | 설명                                                                            |
+| ----------- | -------------------------- | ---------------- | ------------------------------------------------------------------------------- |
+| `type`      | `'standalone' \| 'family'` | `'standalone'`   | 컴포넌트 생성 구조를 결정한다.                                                  |
+| `suffix`    | `string`                   | `""`             | 생성된 컴포넌트 이름 뒤에 추가할 문자열이다.                                    |
+| `index`     | `boolean`                  | `false`          | `index.ts` 배럴 파일 생성 여부를 결정한다.                                      |
+| `options`   | `Config` (SVGR)            | `defaultOptions` | [SVGR 설정](https://react-svgr.com/docs/options/)과 동일한 옵션을 지원한다.     |
+| `baseDir`   | `string`                   | `process.cwd()`  | `assetsDir`와 `srcDir`의 기준 디렉토리다.                                       |
+| `assetsDir` | `string`                   | `"assets"`       | SVG 파일이 위치한 디렉토리 경로다. (baseDir 기준 상대경로 또는 절대경로)        |
+| `srcDir`    | `string`                   | `"src"`          | 변환된 컴포넌트가 출력될 디렉토리 경로다. (baseDir 기준 상대경로 또는 절대경로) |
 
 ---
 
@@ -141,25 +137,15 @@ export default defineConfig({
 
 ## React Native 지원
 
-React Native에서 사용할 아이콘을 생성하려면 `platform: "native"`를 설정한다. 이 옵션은 SVGR의 `native: true`를 기본값으로 포함한 프리셋을 자동으로 적용한다. 단, 사용하는 프로젝트에서 `react-native-svg` 패키지를 반드시 설치해야 한다.
+React Native에서 사용할 아이콘을 생성하려면, `native` 옵션을 `true`로 설정하면 된다. 단, 사용하는 프로젝트에서 `react-native-svg` 패키지를 반드시 설치해야 한다.
 
 ```typescript
 // svg2tsx.config.ts
 import { defineConfig } from "@justkits/svg2tsx";
 
 export default defineConfig({
-  platform: "native",
-});
-```
-
-추가적인 SVGR 옵션이 필요한 경우 `options`를 통해 프리셋을 덮어쓸 수 있다.
-
-```typescript
-export default defineConfig({
-  platform: "native",
   options: {
-    // 프리셋 위에 추가 옵션을 지정한다
-    expandProps: true,
+    native: true,
   },
 });
 ```

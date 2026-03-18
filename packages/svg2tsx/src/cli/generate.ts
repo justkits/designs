@@ -1,7 +1,7 @@
 import { loadConfig } from "./config-loader";
 import { FamilySvgBuilder } from "@converter/family";
 import { StandaloneSvgBuilder } from "@converter/standalone";
-import { defaultOptions, nativeOptions } from "@converter/options";
+import { defaultOptions } from "@converter/options";
 import { logger } from "@lib/logger";
 
 export async function generateAction(options: {
@@ -11,10 +11,8 @@ export async function generateAction(options: {
   try {
     const config = await loadConfig(options.config);
 
-    const basePreset =
-      config.platform === "native" ? nativeOptions : defaultOptions;
     const svgrOptions = {
-      ...basePreset,
+      ...defaultOptions,
       ...config.options,
     };
 
