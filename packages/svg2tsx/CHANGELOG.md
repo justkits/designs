@@ -1,5 +1,11 @@
 # @justkits/svg2tsx
 
+## 1.2.2
+
+### Patch Changes
+
+- [#17](https://github.com/justkits/design-system/pull/17) [`251247e`](https://github.com/justkits/design-system/commit/251247e9f73d565069cc741f986b15b83392eef2) Thanks [@justwon0307](https://github.com/justwon0307)! - Explicitly support react native option
+
 ## 1.2.1
 
 ### Patch Changes
