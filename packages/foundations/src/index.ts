@@ -4,7 +4,9 @@ export type {
   BreakpointsTokensByDevice,
   BreakpointsTokensBySize,
 } from "./tokens/breakpoints";
-export type { ShadowTokens } from "./tokens/shadows";
+export type { ElevationTokens } from "./tokens/elevation";
+export type { RadiusTokens } from "./tokens/radius";
+export type { SpacingTokens } from "./tokens/spacing";
 
 // Typography types
 export type {
