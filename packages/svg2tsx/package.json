@@ -23,7 +23,8 @@
   "author": "JustWon",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/justkits/design-system.git"
+    "url": "git+https://github.com/justkits/design-system.git",
+    "directory": "packages/svg2tsx"
   },
   "publishConfig": {
     "access": "restricted",

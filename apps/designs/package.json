@@ -17,6 +17,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.29.0",
+    "@justkits/svg2tsx": "workspace:*",
     "@rolldown/plugin-babel": "^0.2.2",
     "@types/babel__core": "^7.20.5",
     "@vitejs/plugin-react": "^6.0.0",

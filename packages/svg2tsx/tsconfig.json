@@ -1,6 +1,7 @@
 {
   "extends": "@justkits/tsconfig/base.json",
   "compilerOptions": {
+    "types": ["vitest/globals", "node"],
     "paths": {
       "@lib/*": ["./src/lib/*"],
       "@converter/*": ["./src/converter/*"],
@@ -8,6 +9,12 @@
       "@tests/*": ["./tests/*"]
     }
   },
-  "include": ["src", "tests", "eslint.config.ts", "vitest.config.ts"],
+  "include": [
+    "src",
+    "tests",
+    "eslint.config.ts",
+    "vitest.config.ts",
+    "tsup.config.ts"
+  ],
   "exclude": ["dist", "node_modules"]
 }
