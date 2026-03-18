@@ -9,9 +9,6 @@ const config = defineProject({
       "@": resolve(__dirname, "src"),
     },
   },
-  test: {
-    exclude: ["src/main.tsx"],
-  },
 });
 
 export default mergeConfig(sharedConfig, config);
