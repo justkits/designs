@@ -1,5 +1,11 @@
 # @justkits/svg2tsx
 
+## 1.2.1
+
+### Patch Changes
+
+- [#15](https://github.com/justkits/design-system/pull/15) [`45b9253`](https://github.com/justkits/design-system/commit/45b92537875107439b400703dcdd3013904e32d3) Thanks [@justwon0307](https://github.com/justwon0307)! - Fix cli version display
+
 ## 1.2.0
 
 ### Minor Changes
