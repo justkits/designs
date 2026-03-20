@@ -9,7 +9,7 @@
 - [x] **제어/비제어 상태 지원**: isOpen, onOpenChange props를 제공하여 사용자가 직접 상태를 제어할 수 있도록 지원
 - [x] **지연 시간 (Delay)**: 마우스가 빠르게 스쳐 지나갈 때 툴팁이 번쩍이는 현상을 막기 위해 (Flickering) delay 기능을 제공
 
-### Events / Triggers
+### Interactions
 
 - [x] **마우스 인터렉션 감지**: 마우스 hover/exit 이벤트 감지
 - [x] **포커스 인터렉션 감지**: 키보드 `Tab`을 이용한 focus/blur 이벤트 감지
@@ -92,7 +92,7 @@
 | ------------------------------------------- | ----------------------------------- |
 | `mouseenter`                                | `delay` ms 후 표시                  |
 | `mouseleave`                                | 즉시 숨김 (대기 중인 타이머도 취소) |
-| `focus`                                     | `delay` ms 후 표시                  |
+| `focus`                                     | 즉시 표시                           |
 | `blur`                                      | 즉시 숨김                           |
 | 트리거 위에서 500ms 이상 터치 유지 (롱터치) | 닫혀있을 때만 즉시 표시             |
 | `touchstart` / `mousedown` (외부 영역)      | 즉시 숨김                           |
