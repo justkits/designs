@@ -5,7 +5,8 @@ import { FloatingPlacement } from "@/_placement";
 const OFFSET = 16; // 요소와 화면 가장자리 사이의 최소 간격
 
 export function useFloatingPosition(
-  ref: RefObject<HTMLDivElement | null>,
+  triggerRef: RefObject<HTMLElement | null>,
+  floatingRef: RefObject<HTMLDivElement | null>,
   defaultPlacement: FloatingPlacement,
   isOpen: boolean = false,
 ) {
@@ -15,30 +16,26 @@ export function useFloatingPosition(
   const [shiftY, setShiftY] = useState<number>(0);
 
   const updatePosition = useCallback(() => {
-    if (!ref.current) return;
+    if (!triggerRef.current || !floatingRef.current) return;
 
-    const wrapperRect = ref.current?.getBoundingClientRect();
-    const elementRect =
-      ref.current?.querySelector("[data-floating]")?.getBoundingClientRect() ??
-      null;
-
-    if (!wrapperRect || !elementRect) return;
+    const triggerRect = triggerRef.current.getBoundingClientRect();
+    const elementRect = floatingRef.current.getBoundingClientRect();
 
     const flipIfNeeded = () => {
       if (defaultPlacement === "top") {
-        const spaceAbove = wrapperRect.top;
+        const spaceAbove = triggerRect.top;
         const spaceNeeded = elementRect.height + OFFSET;
         setPlacement(spaceAbove < spaceNeeded ? "bottom" : "top");
       } else if (defaultPlacement === "bottom") {
-        const spaceBelow = window.innerHeight - wrapperRect.bottom;
+        const spaceBelow = window.innerHeight - triggerRect.bottom;
         const spaceNeeded = elementRect.height + OFFSET;
         setPlacement(spaceBelow < spaceNeeded ? "top" : "bottom");
       } else if (defaultPlacement === "left") {
-        const spaceLeft = wrapperRect.left;
+        const spaceLeft = triggerRect.left;
         const spaceNeeded = elementRect.width + OFFSET;
         setPlacement(spaceLeft < spaceNeeded ? "right" : "left");
       } else {
-        const spaceRight = window.innerWidth - wrapperRect.right;
+        const spaceRight = window.innerWidth - triggerRect.right;
         const spaceNeeded = elementRect.width + OFFSET;
         setPlacement(spaceRight < spaceNeeded ? "left" : "right");
       }
@@ -46,7 +43,7 @@ export function useFloatingPosition(
 
     const shiftIfNeeded = () => {
       if (defaultPlacement === "top" || defaultPlacement === "bottom") {
-        const center = wrapperRect.left + wrapperRect.width / 2;
+        const center = triggerRect.left + triggerRect.width / 2;
         const halfWidth = elementRect.width / 2;
         let newShiftX = 0;
         if (center - halfWidth < OFFSET) {
@@ -57,7 +54,7 @@ export function useFloatingPosition(
         setShiftX(newShiftX);
       } else {
         const tooltipTop =
-          wrapperRect.top + (wrapperRect.height - elementRect.height) / 2;
+          triggerRect.top + (triggerRect.height - elementRect.height) / 2;
         const tooltipBottom = tooltipTop + elementRect.height;
         let newShiftY = 0;
         if (tooltipTop < OFFSET) {
@@ -71,20 +68,20 @@ export function useFloatingPosition(
 
     flipIfNeeded();
     shiftIfNeeded();
-  }, [defaultPlacement, ref]);
+  }, [defaultPlacement, triggerRef, floatingRef]);
 
   useLayoutEffect(() => {
-    if (!isOpen || !ref.current) return;
+    if (!isOpen || !triggerRef.current || !floatingRef.current) return;
 
-    const element = ref.current;
     const observer = new ResizeObserver(() => {
       updatePosition();
     });
 
-    observer.observe(element);
+    observer.observe(triggerRef.current);
+    observer.observe(floatingRef.current);
 
     return () => observer.disconnect();
-  }, [isOpen, updatePosition]);
+  }, [isOpen, updatePosition, triggerRef, floatingRef]);
 
   useLayoutEffect(() => {
     if (!isOpen) return;
