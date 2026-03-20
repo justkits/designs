@@ -9,6 +9,11 @@ const config = defineProject({
       "@": resolve(__dirname, "src"),
     },
   },
+  test: {
+    root: __dirname,
+    environment: "jsdom",
+    setupFiles: ["./tests/setup.tsx"],
+  },
 });
 
 export default mergeConfig(sharedConfig, config);
