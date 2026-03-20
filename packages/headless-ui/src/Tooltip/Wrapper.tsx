@@ -38,7 +38,7 @@ export function Wrapper({
     isOpen,
     show: showTooltip,
     hide: hideTooltip,
-  } = useOpenState(controlledOpen, onOpenChange, false); // closeDelay는 0으로 고정
+  } = useOpenState(controlledOpen, onOpenChange, false);
   const wrapperRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLElement>(null);
   const floatingRef = useRef<HTMLDivElement>(null);
