@@ -1,4 +1,4 @@
-import { createContext, useContext } from "react";
+import { type RefObject, createContext, useContext } from "react";
 
 import { FloatingPlacement } from "@/_placement";
 
@@ -10,6 +10,8 @@ type TooltipContextType = {
   placement: FloatingPlacement;
   shiftX: number;
   shiftY: number;
+  triggerRef: RefObject<HTMLElement | null>;
+  floatingRef: RefObject<HTMLDivElement | null>;
 };
 
 export const TooltipContext = createContext<TooltipContextType | undefined>(

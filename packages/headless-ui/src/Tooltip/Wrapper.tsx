@@ -47,10 +47,13 @@ export function Wrapper({
     hide: hideTooltip,
   } = useOpenState(controlledOpen, onOpenChange, false); // closeDelay는 0으로 고정
   const wrapperRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLElement>(null);
+  const floatingRef = useRef<HTMLDivElement>(null);
   const tooltipId = useId();
 
   const { placement, shiftX, shiftY, updatePosition } = useFloatingPosition(
-    wrapperRef,
+    triggerRef,
+    floatingRef,
     position,
     isOpen,
   );
@@ -75,8 +78,20 @@ export function Wrapper({
       placement,
       shiftX,
       shiftY,
+      triggerRef,
+      floatingRef,
     }),
-    [isOpen, showWithDelay, hideTooltip, tooltipId, placement, shiftX, shiftY],
+    [
+      isOpen,
+      showWithDelay,
+      hideTooltip,
+      tooltipId,
+      placement,
+      shiftX,
+      shiftY,
+      triggerRef,
+      floatingRef,
+    ],
   );
 
   return (

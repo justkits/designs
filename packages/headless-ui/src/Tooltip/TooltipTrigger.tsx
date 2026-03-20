@@ -1,7 +1,12 @@
 import {
   type ButtonHTMLAttributes,
+  type FocusEvent,
+  type HTMLAttributes,
+  type MouseEvent,
   type ReactElement,
+  type RefObject,
   cloneElement,
+  forwardRef,
   isValidElement,
 } from "react";
 
@@ -23,6 +28,16 @@ type TooltipTriggerProps = Omit<
   asChild?: boolean;
 };
 
+type AsChildTriggerProps = HTMLAttributes<HTMLElement> & {
+  children: ReactElement<Record<string, unknown>>;
+};
+
+const AsChildTrigger = forwardRef<HTMLElement, AsChildTriggerProps>(
+  function AsChildTrigger({ children, ...props }, ref) {
+    return cloneElement(children, { ...props, ref });
+  },
+);
+
 /**
  * 툴팁을 트리거하는 요소. 기본적으로 `<button>`으로 렌더된다.
  *
@@ -36,46 +51,70 @@ export function TooltipTrigger({
   asChild = false,
   ...rest
 }: Readonly<TooltipTriggerProps>) {
-  const { showTooltip, hideTooltip, tooltipId } = useTooltip();
+  const { showTooltip, hideTooltip, tooltipId, triggerRef } = useTooltip();
 
-  const triggerProps = {
-    "aria-describedby": tooltipId,
-    onMouseEnter: showTooltip,
-    onMouseLeave: hideTooltip,
-    onFocus: showTooltip,
-    onBlur: hideTooltip,
-  };
-
-  if (asChild && isValidElement(children)) {
-    const child = children as ReactElement<Record<string, unknown>>;
-    return cloneElement(child, {
-      ...rest,
-      ...triggerProps,
-      onMouseEnter: (e: MouseEvent) => {
-        (child.props.onMouseEnter as ((e: MouseEvent) => void) | undefined)?.(
-          e,
-        );
-        showTooltip();
-      },
-      onMouseLeave: (e: MouseEvent) => {
-        (child.props.onMouseLeave as ((e: MouseEvent) => void) | undefined)?.(
-          e,
-        );
-        hideTooltip();
-      },
-      onFocus: (e: FocusEvent) => {
-        (child.props.onFocus as ((e: FocusEvent) => void) | undefined)?.(e);
-        showTooltip();
-      },
-      onBlur: (e: FocusEvent) => {
-        (child.props.onBlur as ((e: FocusEvent) => void) | undefined)?.(e);
-        hideTooltip();
-      },
-    });
+  if (asChild) {
+    if (isValidElement(children)) {
+      const child = children as ReactElement<Record<string, unknown>>;
+      return (
+        <AsChildTrigger
+          ref={triggerRef}
+          aria-describedby={tooltipId}
+          onMouseEnter={(e: MouseEvent<HTMLElement>) => {
+            (
+              child.props.onMouseEnter as
+                | ((e: MouseEvent<HTMLElement>) => void)
+                | undefined
+            )?.(e);
+            showTooltip();
+          }}
+          onMouseLeave={(e: MouseEvent<HTMLElement>) => {
+            (
+              child.props.onMouseLeave as
+                | ((e: MouseEvent<HTMLElement>) => void)
+                | undefined
+            )?.(e);
+            hideTooltip();
+          }}
+          onFocus={(e: FocusEvent<HTMLElement>) => {
+            (
+              child.props.onFocus as
+                | ((e: FocusEvent<HTMLElement>) => void)
+                | undefined
+            )?.(e);
+            showTooltip();
+          }}
+          onBlur={(e: FocusEvent<HTMLElement>) => {
+            (
+              child.props.onBlur as
+                | ((e: FocusEvent<HTMLElement>) => void)
+                | undefined
+            )?.(e);
+            hideTooltip();
+          }}
+          {...rest}
+        >
+          {child}
+        </AsChildTrigger>
+      );
+    } else if (process.env.NODE_ENV !== "production") {
+      console.warn(
+        "[Tooltip.Trigger] `asChild` was set but the child is not a valid React element. Falling back to <button>.",
+      );
+    }
   }
 
   return (
-    <button {...rest} {...triggerProps} type="button">
+    <button
+      ref={triggerRef as RefObject<HTMLButtonElement>}
+      aria-describedby={tooltipId}
+      onMouseEnter={showTooltip}
+      onMouseLeave={hideTooltip}
+      onFocus={showTooltip}
+      onBlur={hideTooltip}
+      type="button"
+      {...rest}
+    >
       {children}
     </button>
   );

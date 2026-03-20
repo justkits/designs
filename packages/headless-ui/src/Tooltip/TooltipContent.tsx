@@ -16,19 +16,21 @@ export function TooltipContent({
   style,
   ...rest
 }: Readonly<HTMLAttributes<HTMLDivElement>>) {
-  const { isOpen, tooltipId, placement, shiftX, shiftY } = useTooltip();
+  const { isOpen, tooltipId, placement, shiftX, shiftY, floatingRef } =
+    useTooltip();
 
   if (!isOpen) return null;
 
   return (
     <TooltipContentContext.Provider value={true}>
       <div
-        data-floating
+        ref={floatingRef}
         id={tooltipId}
         role="tooltip"
+        aria-live="polite"
         style={{
-          ...style,
           ...styles.tooltip(placement, shiftX, shiftY),
+          ...style,
         }}
         className={className}
         {...rest}
