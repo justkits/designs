@@ -63,12 +63,8 @@ describe("Tooltip - events", () => {
     expect(queryByRole("tooltip")).toBeNull();
     expect(trigger).toBeTruthy();
 
-    // 포커스 + delay가 되면 콘텐츠를 보여준다
+    // 포커스가 되면 즉시 콘텐츠를 보여준다
     fireEvent.focus(trigger);
-    act(() => vi.advanceTimersByTime(200));
-    expect(queryByRole("tooltip")).toBeNull();
-
-    act(() => vi.advanceTimersByTime(100));
     expect(getByRole("tooltip")).toBeTruthy();
 
     // 블러가 되면 콘텐츠를 숨긴다
