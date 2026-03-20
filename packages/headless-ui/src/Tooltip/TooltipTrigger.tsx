@@ -51,7 +51,8 @@ export function TooltipTrigger({
   asChild = false,
   ...rest
 }: Readonly<TooltipTriggerProps>) {
-  const { showTooltip, hideTooltip, tooltipId, triggerRef } = useTooltip();
+  const { showTooltip, hideTooltip, tooltipId, delay, triggerRef } =
+    useTooltip();
 
   if (asChild) {
     if (isValidElement(children)) {
@@ -66,7 +67,7 @@ export function TooltipTrigger({
                 | ((e: MouseEvent<HTMLElement>) => void)
                 | undefined
             )?.(e);
-            showTooltip();
+            showTooltip(delay);
           }}
           onMouseLeave={(e: MouseEvent<HTMLElement>) => {
             (
@@ -108,9 +109,9 @@ export function TooltipTrigger({
     <button
       ref={triggerRef as RefObject<HTMLButtonElement>}
       aria-describedby={tooltipId}
-      onMouseEnter={showTooltip}
+      onMouseEnter={() => showTooltip(delay)}
       onMouseLeave={hideTooltip}
-      onFocus={showTooltip}
+      onFocus={() => showTooltip()}
       onBlur={hideTooltip}
       type="button"
       {...rest}

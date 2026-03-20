@@ -1,11 +1,4 @@
-import {
-  type ReactNode,
-  useCallback,
-  useId,
-  useLayoutEffect,
-  useMemo,
-  useRef,
-} from "react";
+import { type ReactNode, useId, useLayoutEffect, useMemo, useRef } from "react";
 
 import { useClickOutside } from "@/_hooks/useClickOutside";
 import { useFloatingPosition } from "@/_hooks/useFloatingPosition";
@@ -43,7 +36,7 @@ export function Wrapper({
 }: Readonly<TooltipProps>) {
   const {
     isOpen,
-    show,
+    show: showTooltip,
     hide: hideTooltip,
   } = useOpenState(controlledOpen, onOpenChange, false); // closeDelay는 0으로 고정
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -62,9 +55,7 @@ export function Wrapper({
     if (isOpen) updatePosition();
   }, [isOpen, updatePosition]);
 
-  const showWithDelay = useCallback(() => show(delay), [show, delay]);
-
-  useLongTouch(wrapperRef, show, { isActive: !isOpen, delay: 500 }); // 롱터치는 터치 자체에 delay가 있기 때문에, show에 delay를 주지 않는다.
+  useLongTouch(wrapperRef, showTooltip, { isActive: !isOpen, delay: 500 }); // 롱터치는 터치 자체에 delay가 있기 때문에, show에 delay를 주지 않는다.
   useClickOutside(wrapperRef, hideTooltip, isOpen);
   useTouchOutside(wrapperRef, hideTooltip, isOpen);
   useKeyboardEvent("Escape", hideTooltip, isOpen);
@@ -72,9 +63,10 @@ export function Wrapper({
   const contextValue = useMemo(
     () => ({
       isOpen,
-      showTooltip: showWithDelay,
+      showTooltip,
       hideTooltip,
       tooltipId,
+      delay,
       placement,
       shiftX,
       shiftY,
@@ -83,9 +75,10 @@ export function Wrapper({
     }),
     [
       isOpen,
-      showWithDelay,
+      showTooltip,
       hideTooltip,
       tooltipId,
+      delay,
       placement,
       shiftX,
       shiftY,

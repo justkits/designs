@@ -4,9 +4,10 @@ import { FloatingPlacement } from "@/_placement";
 
 type TooltipContextType = {
   isOpen: boolean;
-  showTooltip: () => void;
+  showTooltip: (delay?: number) => void;
   hideTooltip: () => void;
   tooltipId: string;
+  delay: number;
   placement: FloatingPlacement;
   shiftX: number;
   shiftY: number;
