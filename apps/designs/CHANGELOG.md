@@ -1,5 +1,12 @@
 # @justkits/designs
 
+## 0.0.4
+
+### Patch Changes
+
+- Updated dependencies [[`a1f6a6c`](https://github.com/justkits/design-system/commit/a1f6a6ca9fe62e79d40c55a38602542b37f5df7a)]:
+  - @justkits/headless-ui@0.0.3
+
 ## 0.0.3
 
 ### Patch Changes

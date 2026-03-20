@@ -1,5 +1,11 @@
 # @justkits/headless-ui
 
+## 0.0.3
+
+### Patch Changes
+
+- [#28](https://github.com/justkits/design-system/pull/28) [`a1f6a6c`](https://github.com/justkits/design-system/commit/a1f6a6ca9fe62e79d40c55a38602542b37f5df7a) Thanks [@justwon0307](https://github.com/justwon0307)! - Tooltip: Minor bugfix - zindex on arrow
+
 ## 0.0.2
 
 ### Patch Changes
