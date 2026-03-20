@@ -1,5 +1,11 @@
 # @justkits/headless-ui
 
+## 0.0.2
+
+### Patch Changes
+
+- [#26](https://github.com/justkits/design-system/pull/26) [`a5d1838`](https://github.com/justkits/design-system/commit/a5d1838dacca7f7576f5301fd187a3226cb3757f) Thanks [@justwon0307](https://github.com/justwon0307)! - Bugfix: Remove delay on focus to open tooltip
+
 ## 0.0.1
 
 ### Patch Changes
