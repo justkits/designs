@@ -1,0 +1,51 @@
+{
+  "name": "@justkits/feedback",
+  "description": "JustKits Design System - Feedback",
+  "version": "0.0.0",
+  "private": false,
+  "type": "module",
+  "keywords": [
+    "feedback apis",
+    "alert",
+    "toast",
+    "components",
+    "react",
+    "typescript"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "author": "JustWon",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/justkits/design-system.git",
+    "directory": "packages/headless-ui"
+  },
+  "publishConfig": {
+    "access": "restricted",
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "scripts": {
+    "prebuild": "rm -rf dist",
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@justkits/tsconfig": "workspace:*",
+    "tsup": "^8.5.1",
+    "typescript": "~5.9.3"
+  }
+}
