@@ -1,7 +1,7 @@
 {
   "name": "@justkits/feedback",
   "description": "JustKits Design System - Feedback",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": false,
   "type": "module",
   "keywords": [
