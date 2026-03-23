@@ -1,7 +1,7 @@
-import { ComponentType } from "react";
+import { ComponentType, Fragment, useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
 
-import { useAlert } from "./manager";
+import { getSnapshot, subscribe } from "./state";
 import { AlertComponentProps, ConfirmComponentProps } from "./types";
 
 type AlerterProps = {
@@ -13,18 +13,24 @@ export function Alerter({
   AlertComponent,
   ConfirmComponent,
 }: Readonly<AlerterProps>) {
-  const { alert, closeAlert } = useAlert();
+  const alert = useSyncExternalStore(subscribe, getSnapshot, () => null);
 
-  if (!alert || typeof document === "undefined") return null;
+  if (
+    !alert ||
+    globalThis.window === undefined ||
+    typeof document === "undefined"
+  ) {
+    return null;
+  }
 
   return createPortal(
-    <>
+    <Fragment>
       {alert.type === "alert" ? (
-        <AlertComponent alert={alert} closeAlert={closeAlert} />
+        <AlertComponent alert={alert} />
       ) : (
-        <ConfirmComponent confirm={alert} closeAlert={closeAlert} />
+        <ConfirmComponent confirm={alert} />
       )}
-    </>,
+    </Fragment>,
     document.body,
   );
 }

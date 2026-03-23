@@ -1,5 +1,5 @@
 export { Alerter } from "./alert/Alerter";
-export { showAlert, showConfirm } from "./alert/manager";
+export { showAlert, showConfirm } from "./alert/api";
 
 export { Toaster } from "./toast/Toaster";
 export { toast } from "./toast/api";

@@ -1,0 +1,58 @@
+import { dispatch } from "./state";
+import { AlertObject, ConfirmObject } from "./types";
+
+type AlertOptions = Partial<Pick<AlertObject, "onClose" | "closeText">>;
+
+export function showAlert(
+  title: string,
+  message: string,
+  options?: AlertOptions,
+): void {
+  const finalOnClose = async () => {
+    await options?.onClose?.();
+    dispatch(null);
+  };
+
+  const alert: AlertObject = {
+    type: "alert",
+    title,
+    message,
+    onClose: finalOnClose,
+    closeText: options?.closeText ?? "닫기",
+  };
+
+  dispatch(alert);
+}
+
+type ConfirmOptions = Partial<
+  Pick<ConfirmObject, "onCancel" | "confirmText" | "cancelText">
+>;
+
+export function showConfirm(
+  title: string,
+  message: string,
+  onConfirm: () => void | Promise<void>,
+  options?: ConfirmOptions,
+): void {
+  const finalOnCancel = async () => {
+    await options?.onCancel?.();
+    dispatch(null);
+  };
+
+  const finalOnConfirm = async () => {
+    await onConfirm();
+    dispatch(null);
+  };
+
+  const confirm: ConfirmObject = {
+    type: "confirm",
+    title,
+    message,
+    onConfirm: finalOnConfirm,
+    onCancel: finalOnCancel,
+    confirmText: options?.confirmText ?? "확인",
+    cancelText: options?.cancelText ?? "취소",
+  };
+
+  dispatch(confirm);
+}
