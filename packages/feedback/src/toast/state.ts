@@ -1,6 +1,6 @@
-import { ToastStateObject } from "./types";
+import { ToastObject } from "./types";
 
-let toasts: ToastStateObject[] = [];
+let toasts: ToastObject[] = [];
 const listeners = new Set<() => void>();
 
 function notify(): void {
@@ -12,11 +12,11 @@ export function subscribe(listener: () => void): () => void {
   return () => listeners.delete(listener);
 }
 
-export function getSnapshot(): ToastStateObject[] {
+export function getSnapshot(): ToastObject[] {
   return toasts;
 }
 
-export function addToast(toast: ToastStateObject): void {
+export function addToast(toast: ToastObject): void {
   toasts = [...toasts, toast];
   notify();
 }
