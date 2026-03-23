@@ -1,5 +1,6 @@
-import { useLayoutEffect, useState } from "react";
+import { useCallback, useState } from "react";
 
+import { useIsomorphicLayoutEffect } from "@/_useIsomorphicLayoutEffect";
 import { AlerterObject } from "./types";
 
 const ALERT_EVENT_NAME = "SHOW_ALERT";
@@ -8,11 +9,15 @@ let alerterMounted = false;
 let alertActive = false; // 한번에 하나의 알림만 표시하도록 제어
 
 function dispatch(options: AlerterObject): void {
+  if (typeof document === "undefined") return;
+
   if (!alerterMounted) {
-    console.warn(
-      "[Alert] called without an <Alerter> mounted in the tree. " +
-        "Add <Alerter /> to your app root so alerts are displayed.",
-    );
+    if (process.env.NODE_ENV !== "production") {
+      console.warn(
+        "[Alert] called without an <Alerter> mounted in the tree. " +
+          "Add <Alerter /> to your app root so alerts are displayed.",
+      );
+    }
     return;
   }
 
@@ -33,9 +38,12 @@ function dispatch(options: AlerterObject): void {
 export function showAlert(
   title: string,
   message: string,
-  onClose?: () => void | Promise<void>,
-  closeText: string = "Close",
+  options?: {
+    onClose?: () => void | Promise<void>;
+    closeText?: string;
+  },
 ): void {
+  const { onClose, closeText = "Close" } = options ?? {};
   dispatch({ type: "alert", title, message, onClose, closeText });
 }
 
@@ -43,10 +51,17 @@ export function showConfirm(
   title: string,
   message: string,
   onConfirm: () => void | Promise<void>,
-  onCancel?: () => void | Promise<void>,
-  confirmText: string = "Confirm",
-  cancelText: string = "Cancel",
+  options?: {
+    onCancel?: () => void | Promise<void>;
+    confirmText?: string;
+    cancelText?: string;
+  },
 ): void {
+  const {
+    onCancel,
+    confirmText = "Confirm",
+    cancelText = "Cancel",
+  } = options ?? {};
   dispatch({
     type: "confirm",
     title,
@@ -63,12 +78,23 @@ export function showConfirm(
 export function useAlert() {
   const [alert, setAlert] = useState<AlerterObject | null>(null);
 
-  const closeAlert = async () => {
+  const closeAlert = useCallback(async () => {
     setAlert(null);
-    alertActive = false;
-  };
+    // alertActive is reset in the layout effect below, after React commits the null
+    // state. This prevents a new alert from being dispatched before the old one
+    // has finished unmounting.
+  }, []);
 
-  useLayoutEffect(() => {
+  // Reset alertActive only after React has committed the null state so that
+  // callers cannot dispatch a new alert before the old one has been removed
+  // from the DOM.
+  useIsomorphicLayoutEffect(() => {
+    if (alert === null) {
+      alertActive = false;
+    }
+  }, [alert]);
+
+  useIsomorphicLayoutEffect(() => {
     const handleShowAlert = (event: Event) => {
       const newAlert = (event as CustomEvent<AlerterObject>).detail;
 
@@ -83,7 +109,7 @@ export function useAlert() {
     };
   }, []);
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     // register
     alerterMounted = true;
 

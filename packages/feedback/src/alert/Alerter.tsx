@@ -15,7 +15,7 @@ export function Alerter({
 }: Readonly<AlerterProps>) {
   const { alert, closeAlert } = useAlert();
 
-  if (!alert) return null;
+  if (!alert || typeof document === "undefined") return null;
 
   return createPortal(
     <>

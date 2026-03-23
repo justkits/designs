@@ -3,7 +3,7 @@ export type AlertObject = {
   title: string;
   message: string;
   onClose?: () => void | Promise<void>;
-  closeText?: string;
+  closeText: string;
 };
 
 export type AlertComponentProps = {
@@ -17,8 +17,8 @@ export type ConfirmObject = {
   message: string;
   onConfirm: () => void | Promise<void>;
   onCancel?: () => void | Promise<void>;
-  confirmText?: string;
-  cancelText?: string;
+  confirmText: string;
+  cancelText: string;
 };
 
 export type ConfirmComponentProps = {
