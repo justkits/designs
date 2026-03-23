@@ -28,7 +28,8 @@
   "author": "JustWon",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/justkits/design-system.git"
+    "url": "git+https://github.com/justkits/design-system.git",
+    "directory": "packages/motion"
   },
   "publishConfig": {
     "access": "restricted",
