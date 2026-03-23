@@ -9,6 +9,15 @@ type AlerterProps = {
   ConfirmComponent: ComponentType<ConfirmComponentProps>;
 };
 
+/**
+ * Portal component that renders the active alert or confirm dialog into `document.body`.
+ *
+ * Mount this once near the root of your app and pass your own styled components for
+ * `AlertComponent` and `ConfirmComponent`. Renders nothing during SSR or when no dialog is active.
+ *
+ * **Required:** `showAlert` and `showConfirm` will only work if this provider component is mounted
+ * at the root of your application.
+ */
 export function Alerter({
   AlertComponent,
   ConfirmComponent,

@@ -81,6 +81,18 @@ function error(
   showToast("error", message, duration, extras);
 }
 
+/**
+ * Imperative API for showing toasts.
+ *
+ * **Requires** the `Toaster` provider component to be mounted at the root of your application.
+ *
+ * Call `toast(message)` for a default toast, or use a typed sub-method for semantic variants.
+ *
+ * @example
+ * toast("Saved");
+ * toast.success("File uploaded");
+ * toast.error("Something went wrong", { duration: "infinite" });
+ */
 export const toast = Object.assign(defaultToast, {
   info,
   success,
