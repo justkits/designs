@@ -95,6 +95,29 @@ export function updateData() {
 
 더 많은 활용 예시는 [toast API 문서](./toast-api.md)를 참고하면 된다.
 
+### Exit 애니메이션 처리
+
+`<Toaster />`는 `toast.dismiss()`가 호출되는 즉시 해당 toast를 상태에서 제거한다. 따라서 exit 애니메이션을 재생하려면 **`toast.dismiss`를 직접 닫기 핸들러로 전달하지 말고**, 애니메이션이 완료된 후에 호출되도록 지연시켜야 한다.
+
+```tsx
+function ToastItem({ toast }: ToastItemProps) {
+  const handleDismiss = () => {
+    // 애니메이션 재생 후 dismiss 호출
+    // (애니메이션 라이브러리의 onAnimationEnd 콜백, setTimeout 등을 활용)
+    runExitAnimation(() => toast.dismiss());
+  };
+
+  return (
+    <div>
+      <span>{toast.message}</span>
+      <button onClick={handleDismiss}>×</button>
+    </div>
+  );
+}
+```
+
+`@justkits/motion`을 사용하면 이 패턴을 `useAnimatedExit`으로 간편하게 처리할 수 있다. 자세한 내용은 [With `@justkits/motion`](#with-justkitsmotion) 섹션을 참고.
+
 ---
 
 ## With `@justkits/headless-ui`
