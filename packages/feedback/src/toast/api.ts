@@ -44,7 +44,9 @@ function showToast(
   addToast(toast);
 }
 
-type ToastOptions = Partial<Omit<ToastObject, "id" | "message" | "type">>;
+type ToastOptions = Partial<
+  Omit<ToastObject, "id" | "message" | "type" | "dismiss">
+>;
 
 function defaultToast(
   message: string,
