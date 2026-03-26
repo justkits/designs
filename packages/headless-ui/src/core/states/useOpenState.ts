@@ -14,6 +14,7 @@ type UseOpenStateReturnType = {
  * @param controlledOpen 외부에서 주입하는 열림 상태. `undefined`이면 Uncontrolled 모드.
  * @param setOpenState Controlled 모드에서 상태 변경을 전파할 외부 setter.
  * @param initialState Uncontrolled 모드의 초기 열림 상태. 기본값은 `false`.
+ * @return { isOpen: boolean, show: (delay?: number) => void, hide: () => void } 열림 상태와 상태 변경 함수들
  */
 export function useOpenState(
   controlledOpen: boolean | undefined,
