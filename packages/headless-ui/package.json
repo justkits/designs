@@ -38,11 +38,12 @@
     "test": "vitest run"
   },
   "peerDependencies": {
-    "react": "^19.0.0"
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@justkits/tsconfig": "workspace:*",
-    "tsup": "^8.5.1",
-    "typescript": "~5.9.3"
+    "tsup": "catalog:",
+    "typescript": "catalog:"
   }
 }

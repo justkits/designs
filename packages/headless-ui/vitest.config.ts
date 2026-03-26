@@ -12,7 +12,7 @@ const config = defineProject({
   test: {
     root: __dirname,
     environment: "jsdom",
-    setupFiles: ["./tests/setup.ts"],
+    setupFiles: ["./tests/mocks.ts"],
   },
 });
 

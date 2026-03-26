@@ -14,70 +14,67 @@ pnpm add @justkits/headless-ui
 
 ---
 
+## Imports
+
+각 컴포넌트는 배럴 경로로부터 가져올 수 있다.
+
+```ts
+import { Alert } from "@justkits/headless-ui";
+```
+
+---
+
 ## Components
 
-| 컴포넌트  | 상태   | 문서                                 |
-| --------- | ------ | ------------------------------------ |
-| `Tooltip` | Stable | [docs/Tooltip.md](./docs/Tooltip.md) |
-| `Popover` | Stable | [docs/Popover.md](./docs/Popover.md) |
+| 컴포넌트 | 상태   | 문서                             |
+| -------- | ------ | -------------------------------- |
+| `Alert`  | Stable | [docs/Alert.md](./docs/alert.md) |
 
 ---
 
-## Quick Start
+## Styling
 
-### Tooltip
+이 라이브러리는 스타일을 포함하지 않는다. 모든 컴포넌트는 DOM 구조와 동작만 제공하며, 스타일은 사용하는 팀이 직접 적용한다.
 
-```tsx
-import { Tooltip } from "@justkits/headless-ui";
-
-function Example() {
-  return (
-    <Tooltip>
-      <Tooltip.Trigger>마우스를 올려보세요</Tooltip.Trigger>
-      <Tooltip.Content>툴팁 내용</Tooltip.Content>
-    </Tooltip>
-  );
-}
-```
-
-스타일은 `className` 또는 `style`로 `Tooltip.Content`에 직접 적용한다.
+`className` 또는 `style` prop으로 원하는 요소에 직접 스타일을 적용한다.
 
 ```tsx
-<Tooltip.Content className="tooltip-content">
-  툴팁 내용
-  <Tooltip.Arrow className="tooltip-arrow" />
-</Tooltip.Content>
+<Alert.Content className="my-alert" style={{ background: "black" }}>
+  Alert 내용
+</Alert.Content>
 ```
 
-### Popover
+각 컴포넌트가 렌더링하는 DOM 요소는 컴포넌트 문서의 **Anatomy** 섹션을 참고한다.
 
-```tsx
-import { Popover } from "@justkits/headless-ui";
+### Structural Styles
 
-function Example() {
-  return (
-    <Popover>
-      <Popover.Trigger>열기</Popover.Trigger>
-      <Popover.Content aria-label="사용자 메뉴">팝오버 내용</Popover.Content>
-    </Popover>
-  );
-}
-```
+일부 컴포넌트는 레이아웃 또는 스태킹에 필요한 구조적 기본 스타일을 주입한다. 이 스타일들은 `style` prop을 통해 덮어쓸 수 있다.
 
-스타일은 `className` 또는 `style`로 `Popover.Content`에 직접 적용한다.
+> **Note:** 구조적 스타일은 인라인 스타일(`style` prop)로 적용되므로 CSS 명시도(specificity)가 가장 높다. 재정의하려면 `style` prop을 사용하거나 Tailwind, vanilla-extract 등 `className` 기반 방식에서는 `!important`를 사용해야 한다.
 
-```tsx
-<Popover.Content className="popover-content" aria-label="사용자 메뉴">
-  팝오버 내용
-  <Popover.Arrow className="popover-arrow" />
-</Popover.Content>
-```
+각 컴포넌트의 구체적인 구조적 스타일 값은 해당 컴포넌트 문서의 **API Reference** 섹션을 참고한다. [예시: Alert](./docs/alert.md#api-reference-props)
+
+### Z-Index Scale
+
+라이브러리 전체에서 사용하는 z-index 값이다. 프로젝트의 stacking context에 맞게 재정의할 수 있다.
+
+> **Note:** z-index 역시 인라인 스타일로 적용되므로, `style` prop을 사용하거나 `className`에서 `!important`를 사용해야 재정의할 수 있다.
+
+| Token      | Value | 사용 컴포넌트   |
+| ---------- | ----- | --------------- |
+| `hide`     | -1    | —               |
+| `sticky`   | 100   | —               |
+| `menu`     | 200   | —               |
+| `dropdown` | 200   | —               |
+| `popover`  | 200   | `Popover`       |
+| `tooltip`  | 300   | `Tooltip`       |
+| `overlay`  | 700   | `Alert.Overlay` |
+| `modal`    | 800   | —               |
+| `toast`    | 900   | `Toast`         |
+| `alert`    | 1000  | `Alert.Content` |
 
 ---
 
-## Notes
+## Future Considerations
 
-- 모든 컴포넌트는 포털 없이 DOM 트리 내에 렌더된다. `overflow: hidden` 또는 stacking context가 적용된 컨테이너 안에 배치할 경우 클리핑이 발생할 수 있다.
-- `asChild` prop은 현재 지원되지 않는다. 향후 릴리즈에서 추가될 예정이다.
-- `Tooltip.Content` 안에 인터랙티브 요소(링크, 버튼 등)를 넣는 것은 접근성 가이드라인상 권장되지 않는다.
-- `Popover`는 `position` prop을 지원하지 않는다. 항상 트리거 아래(`bottom`)에 배치되며 공간이 부족하면 위(`top`)로만 전환된다.
+- **서브패스 임포트 지원** - 현재는 `import { Alert } from "@justkits/headless-ui";` 처럼 배럴 임포트만 지원하지만, 번들 사이즈를 줄이기 위해 `import { Alert } from "@justkits/headless-ui/alert";`처럼 서브패스 임포트 지원을 고려하고 있다.
