@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites name="vitest tests" tests="200" failures="0" errors="0" time="0.986744203">
+    <testsuite name="apps/designs/tests/App.test.tsx" timestamp="2026-03-26T07:09:20.938Z" hostname="jeongseung-won-ui-Macmini.local" tests="1" failures="0" errors="0" skipped="0" time="0.027563292">
+        <testcase classname="apps/designs/tests/App.test.tsx" name="App &gt; should render" time="0.026130667">
+        </testcase>
+    </testsuite>
+    <testsuite name="packages/foundations/tests/ThemeProvider.test.tsx" timestamp="2026-03-26T07:09:20.940Z" hostname="jeongseung-won-ui-Macmini.local" tests="5" failures="0" errors="0" skipped="0" time="0.093378791">
+        <testcase classname="packages/foundations/tests/ThemeProvider.test.tsx" name="ThemeProvider &gt; should render children correctly (default)" time="0.01945175">
+        </testcase>
+        <testcase classname="packages/foundations/tests/ThemeProvider.test.tsx" name="ThemeProvider &gt; should handle local storage correctly" time="0.008298583">
+        </testcase>
+        <testcase classname="packages/foundations/tests/ThemeProvider.test.tsx" name="ThemeProvider &gt; should handle system-preference correctly" time="0.01809925">
+        </testcase>
+        <testcase classname="packages/foundations/tests/ThemeProvider.test.tsx" name="ThemeProvider &gt; should do nothing when mode is not system, and system-preference changes" time="0.041653334">
+        </testcase>
+        <testcase classname="packages/foundations/tests/ThemeProvider.test.tsx" name="useTheme hook outside ThemeProvider &gt; should throw an error when used outside ThemeProvider" time="0.003566541">
+        </testcase>
+    </testsuite>
+    <testsuite name="packages/foundations/tests/ThemeScript.test.tsx" timestamp="2026-03-26T07:09:20.940Z" hostname="jeongseung-won-ui-Macmini.local" tests="1" failures="0" errors="0" skipped="0" time="0.02528025">
+        <testcase classname="packages/foundations/tests/ThemeScript.test.tsx" name="ThemeScript &gt; should render children correctly (default)" time="0.023233667">
+        </testcase>
+    </testsuite>
+    <testsuite name="packages/foundations/tests/cornercases.test.ts" timestamp="2026-03-26T07:09:20.940Z" hostname="jeongseung-won-ui-Macmini.local" tests="9" failures="0" errors="0" skipped="0" time="0.006277333">
+        <testcase classname="packages/foundations/tests/cornercases.test.ts" name="core manager cornercases &gt; getSystemTheme should return &apos;light&apos; when window is undefined" time="0.000809042">
+        </testcase>
+        <testcase classname="packages/foundations/tests/cornercases.test.ts" name="core manager cornercases &gt; subscribeToSystemTheme should return undefined when window is undefined" time="0.00045625">
+        </testcase>
+        <testcase classname="packages/foundations/tests/cornercases.test.ts" name="core manager cornercases &gt; loadStoredMode should return &apos;system&apos; when window is undefined" time="0.001090167">
+        </testcase>
+        <testcase classname="packages/foundations/tests/cornercases.test.ts" name="core manager cornercases &gt; saveStoredMode should not throw when window is undefined" time="0.000914292">
+        </testcase>
+        <testcase classname="packages/foundations/tests/cornercases.test.ts" name="core manager cornercases &gt; getServerSnapshot should always return &apos;system&apos;" time="0.0001685">
+        </testcase>
+        <testcase classname="packages/foundations/tests/cornercases.test.ts" name="core manager cornercases &gt; subscribe should not re-read storage when listeners already exist" time="0.000111667">
+        </testcase>
+        <testcase classname="packages/foundations/tests/cornercases.test.ts" name="loadStoredMode with valid stored value &gt; should return &apos;system&apos; when localStorage has that value" time="0.00047675">
+        </testcase>
+        <testcase classname="packages/foundations/tests/cornercases.test.ts" name="loadStoredMode with valid stored value &gt; should return &apos;light&apos; when localStorage has that value" time="0.000375042">
+        </testcase>
+        <testcase classname="packages/foundations/tests/cornercases.test.ts" name="loadStoredMode with valid stored value &gt; should return &apos;dark&apos; when localStorage has that value" time="0.000799833">
+        </testcase>
+    </testsuite>
+    <testsuite name="packages/feedback/tests/alert/Alerter.test.tsx" timestamp="2026-03-26T07:09:20.941Z" hostname="jeongseung-won-ui-Macmini.local" tests="3" failures="0" errors="0" skipped="0" time="0.0312465">
+        <testcase classname="packages/feedback/tests/alert/Alerter.test.tsx" name="alert - renders &gt; renders nothing initially" time="0.010787333">
+        </testcase>
+        <testcase classname="packages/feedback/tests/alert/Alerter.test.tsx" name="alert - renders &gt; renders AlertComponent when alert type is &apos;alert&apos;" time="0.014910084">
+        </testcase>
+        <testcase classname="packages/feedback/tests/alert/Alerter.test.tsx" name="alert - renders &gt; renders ConfirmComponent when alert type is &apos;confirm&apos;" time="0.003592167">
+        </testcase>
+    </testsuite>
+    <testsuite name="packages/feedback/tests/alert/api.test.tsx" timestamp="2026-03-26T07:09:20.941Z" hostname="jeongseung-won-ui-Macmini.local" tests="6" failures="0" errors="0" skipped="0" time="0.030022333">
+        <testcase classname="packages/feedback/tests/alert/api.test.tsx" name="alert - api corner cases &gt; should warn if alert is called in a non-browser environment" time="0.001494167">
+        </testcase>
+        <testcase classname="packages/feedback/tests/alert/api.test.tsx" name="alert - api corner cases &gt; should not warn in production environment (non-browser)" time="0.000396042">
+        </testcase>
+        <testcase classname="packages/feedback/tests/alert/api.test.tsx" name="alert - api corner cases &gt; should warn if showAlert is called while another alert is active" time="0.020638875">
+        </testcase>
+        <testcase classname="packages/feedback/tests/alert/api.test.tsx" name="alert - api corner cases &gt; should warn if showConfirm is called while another alert is active" time="0.003021708">
+        </testcase>
+        <testcase classname="packages/feedback/tests/alert/api.test.tsx" name="alert - api corner cases &gt; should warn if showAlert is called while another confirm is active" time="0.00208225">
+        </testcase>
+        <testcase classname="packages/feedback/tests/alert/api.test.tsx" name="alert - api corner cases &gt; should not warn in production environment even if multiple alerts are triggered" time="0.001151">
+        </testcase>
+    </testsuite>
+    <testsuite name="packages/feedback/tests/alert/showAlert.test.tsx" timestamp="2026-03-26T07:09:20.941Z" hostname="jeongseung-won-ui-Macmini.local" tests="2" failures="0" errors="0" skipped="0" time="0.031684208">
+        <testcase classname="packages/feedback/tests/alert/showAlert.test.tsx" name="alert - showAlert &gt; should handle close correctly (default options)" time="0.0249865">
+        </testcase>
+        <testcase classname="packages/feedback/tests/alert/showAlert.test.tsx" name="alert - showAlert &gt; should handle close correctly (custom options)" time="0.004654709">
+        </testcase>
+    </testsuite>
+    <testsuite name="packages/feedback/tests/alert/showConfirm.test.tsx" timestamp="2026-03-26T07:09:20.941Z" hostname="jeongseung-won-ui-Macmini.local" tests="4" failures="0" errors="0" skipped="0" time="0.057429416">
+        <testcase classname="packages/feedback/tests/alert/showConfirm.test.tsx" name="alert - showConfirm &gt; should handle confirm correctly (default confirm text)" time="0.037866959">
+        </testcase>
+        <testcase classname="packages/feedback/tests/alert/showConfirm.test.tsx" name="alert - showConfirm &gt; should handle confirm correctly (custom confirm text)" time="0.00820325">
+        </testcase>
+        <testcase classname="packages/feedback/tests/alert/showConfirm.test.tsx" name="alert - showConfirm &gt; should handle cancel correctly (default cancel text)" time="0.003312667">
+        </testcase>
+        <testcase classname="packages/feedback/tests/alert/showConfirm.test.tsx" name="alert - showConfirm &gt; should handle cancel correctly (custom options)" time="0.005489625">
+        </testcase>
+    </testsuite>
+    <testsuite name="packages/feedback/tests/alert/ssr.test.tsx" timestamp="2026-03-26T07:09:20.942Z" hostname="jeongseung-won-ui-Macmini.local" tests="1" failures="0" errors="0" skipped="0" time="0.005080166">
+        <testcase classname="packages/feedback/tests/alert/ssr.test.tsx" name="alert - SSR &gt; should not render anything in non-browser environment" time="0.00414275">
+        </testcase>
+    </testsuite>
+    <testsuite name="packages/feedback/tests/toast/Toaster.test.tsx" timestamp="2026-03-26T07:09:20.942Z" hostname="jeongseung-won-ui-Macmini.local" tests="4" failures="0" errors="0" skipped="0" time="0.0417185">
+        <testcase classname="packages/feedback/tests/toast/Toaster.test.tsx" name="toast - renders &gt; should render all types of toasts" time="0.032560334">
+        </testcase>
+        <testcase classname="packages/feedback/tests/toast/Toaster.test.tsx" name="toast - renders &gt; should remove toast from queue on dismiss" time="0.004117833">
+        </testcase>
+        <testcase classname="packages/feedback/tests/toast/Toaster.test.tsx" name="toast - renders &gt; should warn if maxToasts is set to 0 or less" time="0.002057333">
+        </testcase>
+        <testcase classname="packages/feedback/tests/toast/Toaster.test.tsx" name="toast - renders &gt; should not warn in production environment" time="0.000890958">
+        </testcase>
+    </testsuite>
+    <testsuite name="packages/feedback/tests/toast/ssr.test.tsx" timestamp="2026-03-26T07:09:20.942Z" hostname="jeongseung-won-ui-Macmini.local" tests="1" failures="0" errors="0" skipped="0" time="0.004356916">
+        <testcase classname="packages/feedback/tests/toast/ssr.test.tsx" name="toast - SSR &gt; should not render anything in non-browser environment" time="0.003345875">
+        </testcase>
+    </testsuite>
+    <testsuite name="packages/feedback/tests/toast/toast.test.tsx" timestamp="2026-03-26T07:09:20.942Z" hostname="jeongseung-won-ui-Macmini.local" tests="4" failures="0" errors="0" skipped="0" time="0.003116416">
+        <testcase classname="packages/feedback/tests/toast/toast.test.tsx" name="toast - api corner cases &gt; should warn if duration is an invalid number" time="0.001552292">
+        </testcase>
+        <testcase classname="packages/feedback/tests/toast/toast.test.tsx" name="toast - api corner cases &gt; should not warn in production environment (invalid duration)" time="0.000233875">
+        </testcase>
+        <testcase classname="packages/feedback/tests/toast/toast.test.tsx" name="toast - api corner cases &gt; should not register toast in non-browser environment" time="0.000128958">
+        </testcase>
+        <testcase classname="packages/feedback/tests/toast/toast.test.tsx" name="toast - api corner cases &gt; should not log warning in production environment (non-browser)" time="0.000126458">
+        </testcase>
+    </testsuite>
+    <testsuite name="packages/headless-ui/tests/testcases/core/useFocusTrap.test.ts" timestamp="2026-03-26T07:09:20.942Z" hostname="jeongseung-won-ui-Macmini.local" tests="2" failures="0" errors="0" skipped="0" time="0.024537292">
+        <testcase classname="packages/headless-ui/tests/testcases/core/useFocusTrap.test.ts" name="useFocusTrap - cornercases &gt; when Tab is pressed on a middle element" time="0.019664833">
+        </testcase>
+        <testcase classname="packages/headless-ui/tests/testcases/core/useFocusTrap.test.ts" name="useFocusTrap - cornercases &gt; does not intercept Tab when focus is outside the container" time="0.002372">
+        </testcase>
+    </testsuite>
+    <testsuite name="packages/headless-ui/tests/testcases/core/useOutsideInert.test.ts" timestamp="2026-03-26T07:09:20.942Z" hostname="jeongseung-won-ui-Macmini.local" tests="1" failures="0" errors="0" skipped="0" time="0.01120675">
+        <testcase classname="packages/headless-ui/tests/testcases/core/useOutsideInert.test.ts" name="useOutsideInert - cornercases &gt; does not throw when container is a direct child of &lt;html&gt;" time="0.009793291">
+        </testcase>
+    </testsuite>
+    <testsuite name="packages/headless-ui/tests/testcases/Alert/aria.test.tsx" timestamp="2026-03-26T07:09:20.942Z" hostname="jeongseung-won-ui-Macmini.local" tests="6" failures="0" errors="0" skipped="0" time="0.052602625">
+        <testcase classname="packages/headless-ui/tests/testcases/Alert/aria.test.tsx" name="Alert - aria &gt; ID &gt; Alert.Content&apos;s ID matches Alert.Trigger&apos;s aria-controls" time="0.033062708">
+        </testcase>
+        <testcase classname="packages/headless-ui/tests/testcases/Alert/aria.test.tsx" name="Alert - aria &gt; ID &gt; Alert.Title&apos;s ID matches Alert.Content&apos;s aria-labelledby" time="0.003344292">
+        </testcase>
+        <testcase classname="packages/headless-ui/tests/testcases/Alert/aria.test.tsx" name="Alert - aria &gt; ID &gt; Alert.Description&apos;s ID matches Alert.Content&apos;s aria-describedby" time="0.002334292">
+        </testcase>
+        <testcase classname="packages/headless-ui/tests/testcases/Alert/aria.test.tsx" name="Alert - aria &gt; Attributes &gt; Alert.Trigger has aria-haspopup=dialog" time="0.002173">
+        </testcase>
+        <testcase classname="packages/headless-ui/tests/testcases/Alert/aria.test.tsx" name="Alert - aria &gt; Attributes &gt; Alert.Content has role=alertdialog and aria-modal=true" time="0.005096041">
+        </testcase>
+        <testcase classname="packages/headless-ui/tests/testcases/Alert/aria.test.tsx" name="Alert - aria &gt; Attributes &gt; should apply `inert` to outside DOM tree when Alert is open and should remove it when Alert is closed" time="0.005353708">
+        </testcase>
+    </testsuite>
+    <testsuite name="packages/headless-ui/tests/testcases/Alert/cornercases.test.tsx" timestamp="2026-03-26T07:09:20.943Z" hostname="jeongseung-won-ui-Macmini.local" tests="3" failures="0" errors="0" skipped="0" time="0.041972041">
+        <testcase classname="packages/headless-ui/tests/testcases/Alert/cornercases.test.tsx" name="Alert - corner cases &gt; asChild onClick chaining &gt; fires both the child onClick and the slot onClick" time="0.020992292">
+        </testcase>
+        <testcase classname="packages/headless-ui/tests/testcases/Alert/cornercases.test.tsx" name="Alert - corner cases &gt; does not log warnings for missing Alert.Content in production environment" time="0.003470833">
+        </testcase>
+        <testcase classname="packages/headless-ui/tests/testcases/Alert/cornercases.test.tsx" name="Alert - corner cases &gt; does not log warnings for missing Alert.Title or Alert.Button in production environment" time="0.015261709">
+        </testcase>
+    </testsuite>
+    <testsuite name="packages/headless-ui/tests/testcases/Alert/interactions.test.tsx" timestamp="2026-03-26T07:09:20.943Z" hostname="jeongseung-won-ui-Macmini.local" tests="12" failures="0" errors="0" skipped="0" time="0.120446875">
+        <testcase classname="packages/headless-ui/tests/testcases/Alert/interactions.test.tsx" name="Alert - interactions &gt; Clicks &gt; trigger click opens the alert, button click closes it" time="0.038168083">
+        </testcase>
+        <testcase classname="packages/headless-ui/tests/testcases/Alert/interactions.test.tsx" name="Alert - interactions &gt; Clicks &gt; overlay click does not close the alert" time="0.003963334">
+        </testcase>
+        <testcase classname="packages/headless-ui/tests/testcases/Alert/interactions.test.tsx" name="Alert - interactions &gt; Keyboard &gt; escape key does not close the alert" time="0.002786083">
+        </testcase>
+        <testcase classname="packages/headless-ui/tests/testcases/Alert/interactions.test.tsx" name="Alert - interactions &gt; Focus &gt; Initial Focus &gt; focuses the first focusable element when alert opens" time="0.002315375">
+        </testcase>
+        <testcase classname="packages/headless-ui/tests/testcases/Alert/interactions.test.tsx" name="Alert - interactions &gt; Focus &gt; Initial Focus &gt; focuses Alert.Content itself when there are no focusable elements" time="0.010732584">
+        </testcase>
+        <testcase classname="packages/headless-ui/tests/testcases/Alert/interactions.test.tsx" name="Alert - interactions &gt; Focus &gt; Focus Trap &gt; Tab/Shift+Tab cycles focus within Alert.Content and cannot escape" time="0.017443833">
+        </testcase>
+        <testcase classname="packages/headless-ui/tests/testcases/Alert/interactions.test.tsx" name="Alert - interactions &gt; Focus &gt; Return Focus &gt; returns focus to Alert.Trigger when alert closes" time="0.003280416">
+        </testcase>
+        <testcase classname="packages/headless-ui/tests/testcases/Alert/interactions.test.tsx" name="Alert - interactions &gt; Focus &gt; Return Focus &gt; returns focus to the previously focused element when there is no trigger" time="0.006716583">
+        </testcase>
+        <testcase classname="packages/headless-ui/tests/testcases/Alert/interactions.test.tsx" name="Alert - interactions &gt; Others &gt; background scroll is locked while open and restored on close" time="0.012130709">
+        </testcase>
+        <testcase classname="packages/headless-ui/tests/testcases/Alert/interactions.test.tsx" name="Alert - interactions &gt; Others &gt; Async Button Actions &gt; stays open while pending and sets correct properties" time="0.003921125">
+        </testcase>
+        <testcase classname="packages/headless-ui/tests/testcases/Alert/interactions.test.tsx" name="Alert - interactions &gt; Others &gt; Async Button Actions &gt; closes on resolve" time="0.012047333">
+        </testcase>
+        <testcase classname="packages/headless-ui/tests/testcases/Alert/interactions.test.tsx" name="Alert - interactions &gt; Others &gt; Async Button Actions &gt; stays open on reject" time="0.004402417">
+        </testcase>
+    </testsuite>
+    <testsuite name="packages/headless-ui/tests/testcases/Alert/state.test.tsx" timestamp="2026-03-26T07:09:20.943Z" hostname="jeongseung-won-ui-Macmini.local" tests="2" failures="0" errors="0" skipped="0" time="0.0549585">
+        <testcase classname="packages/headless-ui/tests/testcases/Alert/state.test.tsx" name="Alert - state &gt; supports uncontrolled mode" time="0.046323041">
+        </testcase>
+        <testcase classname="packages/headless-ui/tests/testcases/Alert/state.test.tsx" name="Alert - state &gt; supports controlled mode with isOpen and onOpenChange" time="0.00735925">
+        </testcase>
+    </testsuite>
+    <testsuite name="packages/headless-ui/tests/testcases/Alert/structure.test.tsx" timestamp="2026-03-26T07:09:20.943Z" hostname="jeongseung-won-ui-Macmini.local" tests="15" failures="0" errors="0" skipped="0" time="0.104574625">
+        <testcase classname="packages/headless-ui/tests/testcases/Alert/structure.test.tsx" name="Alert - structure &gt; SSR environment &gt; renders in-place when portal prop is set (portal bypassed before mount)" time="0.006171542">
+        </testcase>
+        <testcase classname="packages/headless-ui/tests/testcases/Alert/structure.test.tsx" name="Alert - structure &gt; supports portal mode" time="0.037108666">
+        </testcase>
+        <testcase classname="packages/headless-ui/tests/testcases/Alert/structure.test.tsx" name="Alert - structure &gt; Alert.Content &gt; must be used within the Alert wrapper" time="0.002493042">
+        </testcase>
+        <testcase classname="packages/headless-ui/tests/testcases/Alert/structure.test.tsx" name="Alert - structure &gt; Alert.Content &gt; renders in place when portal prop is not set" time="0.012823208">
+        </testcase>
+        <testcase classname="packages/headless-ui/tests/testcases/Alert/structure.test.tsx" name="Alert - structure &gt; Alert.Title &gt; must be used within Alert.Content" time="0.00137475">
+        </testcase>
+        <testcase classname="packages/headless-ui/tests/testcases/Alert/structure.test.tsx" name="Alert - structure &gt; Alert.Title &gt; should support `asChild` property" time="0.0194445">
+        </testcase>
+        <testcase classname="packages/headless-ui/tests/testcases/Alert/structure.test.tsx" name="Alert - structure &gt; Alert.Message &gt; must be used within Alert.Content" time="0.007376542">
+        </testcase>
+        <testcase classname="packages/headless-ui/tests/testcases/Alert/structure.test.tsx" name="Alert - structure &gt; Alert.Message &gt; should support `asChild` property" time="0.002753875">
+        </testcase>
+        <testcase classname="packages/headless-ui/tests/testcases/Alert/structure.test.tsx" name="Alert - structure &gt; Alert.Button &gt; must be used within Alert.Content" time="0.000870875">
+        </testcase>
+        <testcase classname="packages/headless-ui/tests/testcases/Alert/structure.test.tsx" name="Alert - structure &gt; Alert.Button &gt; should support `asChild` property" time="0.003643">
+        </testcase>
+        <testcase classname="packages/headless-ui/tests/testcases/Alert/structure.test.tsx" name="Alert - structure &gt; Alert.Trigger &gt; must be used within the Alert wrapper" time="0.00082725">
+        </testcase>
+        <testcase classname="packages/headless-ui/tests/testcases/Alert/structure.test.tsx" name="Alert - structure &gt; Alert.Trigger &gt; should render outside Alert.Content" time="0.004116583">
+        </testcase>
+        <testcase classname="packages/headless-ui/tests/testcases/Alert/structure.test.tsx" name="Alert - structure &gt; Alert.Trigger &gt; should support `asChild` property" time="0.000936458">
+        </testcase>
+        <testcase classname="packages/headless-ui/tests/testcases/Alert/structure.test.tsx" name="Alert - structure &gt; Alert.Overlay &gt; must be used within the Alert wrapper" time="0.00047975">
+        </testcase>
+        <testcase classname="packages/headless-ui/tests/testcases/Alert/structure.test.tsx" name="Alert - structure &gt; Alert.Overlay &gt; should render outside Alert.Content" time="0.001462459">
+        </testcase>
+    </testsuite>
+    <testsuite name="packages/motion/tests/testcases/loop/loop.test.ts" timestamp="2026-03-26T07:09:20.944Z" hostname="jeongseung-won-ui-Macmini.local" tests="16" failures="0" errors="0" skipped="0" time="0.006539875">
+        <testcase classname="packages/motion/tests/testcases/loop/loop.test.ts" name="loop &gt; returns correct style for looping animation with default options" time="0.0022155">
+        </testcase>
+        <testcase classname="packages/motion/tests/testcases/loop/loop.test.ts" name="loop &gt; returns correct style for looping animation with custom options" time="0.00041175">
+        </testcase>
+        <testcase classname="packages/motion/tests/testcases/loop/loop.test.ts" name="loop &gt; returns empty style when isLooping is false" time="0.000248291">
+        </testcase>
+        <testcase classname="packages/motion/tests/testcases/loop/loop.test.ts" name="loop &gt; returns empty style when reduced motion is preferred" time="0.000463625">
+        </testcase>
+        <testcase classname="packages/motion/tests/testcases/loop/loop.test.ts" name="loop &gt; handles numeric duration with no scale for rotate animations" time="0.000147167">
+        </testcase>
+        <testcase classname="packages/motion/tests/testcases/loop/loop.test.ts" name="loop &gt; gracefully handles invalid iteration values" time="0.000333625">
+        </testcase>
+        <testcase classname="packages/motion/tests/testcases/loop/loop.test.ts" name="loop &gt; doesn&apos;t warn if environment is production (invalid iteration)" time="0.000281875">
+        </testcase>
+        <testcase classname="packages/motion/tests/testcases/loop/loop.test.ts" name="loop &gt; warns when iteration value of 1 is used" time="0.000247083">
+        </testcase>
+        <testcase classname="packages/motion/tests/testcases/loop/loop.test.ts" name="loop &gt; doesn&apos;t warn when iteration value of 1 is used in production" time="0.000322958">
+        </testcase>
+        <testcase classname="packages/motion/tests/testcases/loop/loop.test.ts" name="resolveDuration &gt; returns correct bounce durations" time="0.000169833">
+        </testcase>
+        <testcase classname="packages/motion/tests/testcases/loop/loop.test.ts" name="resolveDuration &gt; returns correct swing durations" time="0.000117083">
+        </testcase>
+        <testcase classname="packages/motion/tests/testcases/loop/loop.test.ts" name="resolveDuration &gt; returns correct durations for other animations" time="0.0000975">
+        </testcase>
+        <testcase classname="packages/motion/tests/testcases/loop/loop.test.ts" name="resolveDuration &gt; warns in dev when a negative numeric duration is used" time="0.000065125">
+        </testcase>
+        <testcase classname="packages/motion/tests/testcases/loop/loop.test.ts" name="resolveDuration &gt; does not warn in production when a negative numeric duration is used" time="0.000050375">
+        </testcase>
+        <testcase classname="packages/motion/tests/testcases/loop/loop.test.ts" name="resolveTiming &gt; returns correct timing function for animations without custom easing" time="0.000052875">
+        </testcase>
+        <testcase classname="packages/motion/tests/testcases/loop/loop.test.ts" name="resolveTiming &gt; returns correct timing function for animations with custom easing" time="0.000023334">
+        </testcase>
+    </testsuite>
+    <testsuite name="packages/motion/tests/testcases/loop/useLoop.test.ts" timestamp="2026-03-26T07:09:20.945Z" hostname="jeongseung-won-ui-Macmini.local" tests="4" failures="0" errors="0" skipped="0" time="0.0155295">
+        <testcase classname="packages/motion/tests/testcases/loop/useLoop.test.ts" name="useLoop &gt; returns isLooping and 2 callbacks" time="0.009393916">
+        </testcase>
+        <testcase classname="packages/motion/tests/testcases/loop/useLoop.test.ts" name="useLoop &gt; handles startAnimation and stopAnimation correctly" time="0.001747375">
+        </testcase>
+        <testcase classname="packages/motion/tests/testcases/loop/useLoop.test.ts" name="useLoop &gt; handles multiple start/stop cycles correctly" time="0.001611667">
+        </testcase>
+        <testcase classname="packages/motion/tests/testcases/loop/useLoop.test.ts" name="useLoop &gt; returns stable callback references across re-renders" time="0.0008585">
+        </testcase>
+    </testsuite>
+    <testsuite name="packages/motion/tests/testcases/tokens/helpers.test.ts" timestamp="2026-03-26T07:09:20.945Z" hostname="jeongseung-won-ui-Macmini.local" tests="6" failures="0" errors="0" skipped="0" time="0.005178708">
+        <testcase classname="packages/motion/tests/testcases/tokens/helpers.test.ts" name="resolveDelay &gt; should return correct delay for predefined values" time="0.001818584">
+        </testcase>
+        <testcase classname="packages/motion/tests/testcases/tokens/helpers.test.ts" name="resolveDelay &gt; should return correct delay for numeric values" time="0.00074925">
+        </testcase>
+        <testcase classname="packages/motion/tests/testcases/tokens/helpers.test.ts" name="resolveDelay &gt; warns in dev when a negative numeric delay is used" time="0.001085541">
+        </testcase>
+        <testcase classname="packages/motion/tests/testcases/tokens/helpers.test.ts" name="resolveDelay &gt; does not warn in production when a negative numeric delay is used" time="0.000238833">
+        </testcase>
+        <testcase classname="packages/motion/tests/testcases/tokens/helpers.test.ts" name="resolveEasing &gt; should return correct easing for predefined values" time="0.000124084">
+        </testcase>
+        <testcase classname="packages/motion/tests/testcases/tokens/helpers.test.ts" name="resolveEasing &gt; should return the same value for standard easing options" time="0.000075917">
+        </testcase>
+    </testsuite>
+    <testsuite name="packages/motion/tests/testcases/utils/reduced-motion.test.ts" timestamp="2026-03-26T07:09:20.945Z" hostname="jeongseung-won-ui-Macmini.local" tests="4" failures="0" errors="0" skipped="0" time="0.011746791">
+        <testcase classname="packages/motion/tests/testcases/utils/reduced-motion.test.ts" name="prefersReducedMotion &gt; returns false when window is not defined" time="0.001282291">
+        </testcase>
+        <testcase classname="packages/motion/tests/testcases/utils/reduced-motion.test.ts" name="prefersReducedMotion &gt; returns true when the media query matches" time="0.000470167">
+        </testcase>
+        <testcase classname="packages/motion/tests/testcases/utils/reduced-motion.test.ts" name="prefersReducedMotion &gt; returns false when the media query does not match" time="0.000161833">
+        </testcase>
+        <testcase classname="packages/motion/tests/testcases/utils/reduced-motion.test.ts" name="useReducedMotion &gt; updates state when the media query change event fires" time="0.008142833">
+        </testcase>
+    </testsuite>
+    <testsuite name="packages/motion/tests/testcases/transition/transition.test.ts" timestamp="2026-03-26T07:09:20.945Z" hostname="jeongseung-won-ui-Macmini.local" tests="10" failures="0" errors="0" skipped="0" time="0.003993958">
+        <testcase classname="packages/motion/tests/testcases/transition/transition.test.ts" name="transition &gt; entry animations &gt; returns correct default style for entry animation" time="0.001273208">
+        </testcase>
+        <testcase classname="packages/motion/tests/testcases/transition/transition.test.ts" name="transition &gt; entry animations &gt; returns correct style for entry animation with custom options" time="0.000309708">
+        </testcase>
+        <testcase classname="packages/motion/tests/testcases/transition/transition.test.ts" name="transition &gt; entry animations &gt; returns empty style when reduced motion is preferred" time="0.000369833">
+        </testcase>
+        <testcase classname="packages/motion/tests/testcases/transition/transition.test.ts" name="transition &gt; exit animations &gt; returns correct default style for exit animation" time="0.000206417">
+        </testcase>
+        <testcase classname="packages/motion/tests/testcases/transition/transition.test.ts" name="transition &gt; exit animations &gt; returns correct style for exit animation with custom options" time="0.000159875">
+        </testcase>
+        <testcase classname="packages/motion/tests/testcases/transition/transition.test.ts" name="transition &gt; exit animations &gt; returns empty style for exit animation when reduced motion is preferred" time="0.000080833">
+        </testcase>
+        <testcase classname="packages/motion/tests/testcases/transition/transition.test.ts" name="resolveDuration &gt; resolves typed durations correctly" time="0.000090416">
+        </testcase>
+        <testcase classname="packages/motion/tests/testcases/transition/transition.test.ts" name="resolveDuration &gt; returns numeric duration as is" time="0.000039834">
+        </testcase>
+        <testcase classname="packages/motion/tests/testcases/transition/transition.test.ts" name="resolveDuration &gt; warns in dev when a negative numeric duration is used" time="0.000454">
+        </testcase>
+        <testcase classname="packages/motion/tests/testcases/transition/transition.test.ts" name="resolveDuration &gt; does not warn in production when a negative numeric duration is used" time="0.000125709">
+        </testcase>
+    </testsuite>
+    <testsuite name="packages/motion/tests/testcases/transition/useAnimatedExit.test.ts" timestamp="2026-03-26T07:09:20.946Z" hostname="jeongseung-won-ui-Macmini.local" tests="9" failures="0" errors="0" skipped="0" time="0.052733041">
+        <testcase classname="packages/motion/tests/testcases/transition/useAnimatedExit.test.ts" name="useAnimatedExit &gt; handles startClosing correctly" time="0.017651375">
+        </testcase>
+        <testcase classname="packages/motion/tests/testcases/transition/useAnimatedExit.test.ts" name="useAnimatedExit &gt; respects preset duration string value" time="0.003787334">
+        </testcase>
+        <testcase classname="packages/motion/tests/testcases/transition/useAnimatedExit.test.ts" name="useAnimatedExit &gt; works without an onClose callback" time="0.004586709">
+        </testcase>
+        <testcase classname="packages/motion/tests/testcases/transition/useAnimatedExit.test.ts" name="useAnimatedExit &gt; clears the timer on unmount and does not call onClose" time="0.003580417">
+        </testcase>
+        <testcase classname="packages/motion/tests/testcases/transition/useAnimatedExit.test.ts" name="useAnimatedExit &gt; calls the latest onClose when it changes between renders" time="0.007991167">
+        </testcase>
+        <testcase classname="packages/motion/tests/testcases/transition/useAnimatedExit.test.ts" name="useAnimatedExit &gt; does not update state when component unmounts during onClose" time="0.00183425">
+        </testcase>
+        <testcase classname="packages/motion/tests/testcases/transition/useAnimatedExit.test.ts" name="useAnimatedExit &gt; logs error in dev when onClose throws" time="0.00330225">
+        </testcase>
+        <testcase classname="packages/motion/tests/testcases/transition/useAnimatedExit.test.ts" name="useAnimatedExit &gt; does not log error in production when onClose throws" time="0.003678167">
+        </testcase>
+        <testcase classname="packages/motion/tests/testcases/transition/useAnimatedExit.test.ts" name="useAnimatedExit &gt; respects reduced motion preference" time="0.004026834">
+        </testcase>
+    </testsuite>
+    <testsuite name="packages/svg2tsx/tests/unittests/converter/base.test.ts" timestamp="2026-03-26T07:09:20.946Z" hostname="jeongseung-won-ui-Macmini.local" tests="13" failures="0" errors="0" skipped="0" time="0.0270335">
+        <testcase classname="packages/svg2tsx/tests/unittests/converter/base.test.ts" name="BaseSvgBuilder &gt; should generate components successfully" time="0.013696458">
+        </testcase>
+        <testcase classname="packages/svg2tsx/tests/unittests/converter/base.test.ts" name="BaseSvgBuilder &gt; should generate components successfully with index and suffix" time="0.001838542">
+        </testcase>
+        <testcase classname="packages/svg2tsx/tests/unittests/converter/base.test.ts" name="BaseSvgBuilder &gt; should fail invalid kebab-case filename" time="0.001531333">
+        </testcase>
+        <testcase classname="packages/svg2tsx/tests/unittests/converter/base.test.ts" name="BaseSvgBuilder &gt; should throw error for duplicate component names" time="0.000860042">
+        </testcase>
+        <testcase classname="packages/svg2tsx/tests/unittests/converter/base.test.ts" name="BaseSvgBuilder &gt; should throw error for duplicate SVG content" time="0.000713833">
+        </testcase>
+        <testcase classname="packages/svg2tsx/tests/unittests/converter/base.test.ts" name="BaseSvgBuilder - dry-run mode &gt; should not write any files" time="0.000900125">
+        </testcase>
+        <testcase classname="packages/svg2tsx/tests/unittests/converter/base.test.ts" name="BaseSvgBuilder - dry-run mode &gt; should not delete any files" time="0.000496125">
+        </testcase>
+        <testcase classname="packages/svg2tsx/tests/unittests/converter/base.test.ts" name="BaseSvgBuilder - dry-run mode &gt; should log a dry-run banner" time="0.000829084">
+        </testcase>
+        <testcase classname="packages/svg2tsx/tests/unittests/converter/base.test.ts" name="BaseSvgBuilder - dry-run mode &gt; should log would-write messages instead of writing" time="0.001741959">
+        </testcase>
+        <testcase classname="packages/svg2tsx/tests/unittests/converter/base.test.ts" name="BaseSvgBuilder - dry-run mode &gt; should log a would-generate summary message" time="0.00081275">
+        </testcase>
+        <testcase classname="packages/svg2tsx/tests/unittests/converter/base.test.ts" name="BaseSvgBuilder - dry-run mode &gt; should log would-delete messages instead of deleting when manifest exists" time="0.000866834">
+        </testcase>
+        <testcase classname="packages/svg2tsx/tests/unittests/converter/base.test.ts" name="BaseSvgBuilder - dry-run mode &gt; should still validate naming rules in dry-run mode" time="0.000523584">
+        </testcase>
+        <testcase classname="packages/svg2tsx/tests/unittests/converter/base.test.ts" name="BaseSvgBuilder - dry-run mode &gt; should still detect duplicate component names in dry-run mode" time="0.0005265">
+        </testcase>
+    </testsuite>
+    <testsuite name="packages/svg2tsx/tests/unittests/converter/family.test.ts" timestamp="2026-03-26T07:09:20.947Z" hostname="jeongseung-won-ui-Macmini.local" tests="4" failures="0" errors="0" skipped="0" time="0.012398875">
+        <testcase classname="packages/svg2tsx/tests/unittests/converter/family.test.ts" name="FamilySvgBuilder &gt; should generate icons with barrel files when generateIndex is true" time="0.008651334">
+        </testcase>
+        <testcase classname="packages/svg2tsx/tests/unittests/converter/family.test.ts" name="FamilySvgBuilder &gt; should not write any files in dry-run mode" time="0.00036725">
+        </testcase>
+        <testcase classname="packages/svg2tsx/tests/unittests/converter/family.test.ts" name="FamilySvgBuilder &gt; should not generate barrel files when generateIndex is false" time="0.000523292">
+        </testcase>
+        <testcase classname="packages/svg2tsx/tests/unittests/converter/family.test.ts" name="FamilySvgBuilder &gt; should throw error for icons without family folder" time="0.001424708">
+        </testcase>
+    </testsuite>
+    <testsuite name="packages/svg2tsx/tests/unittests/converter/manifest.test.ts" timestamp="2026-03-26T07:09:20.947Z" hostname="jeongseung-won-ui-Macmini.local" tests="3" failures="0" errors="0" skipped="0" time="0.027582334">
+        <testcase classname="packages/svg2tsx/tests/unittests/converter/manifest.test.ts" name="Manifest Generation and Cleanup &gt; should generate manifest file with list of generated files" time="0.023771791">
+        </testcase>
+        <testcase classname="packages/svg2tsx/tests/unittests/converter/manifest.test.ts" name="Manifest Generation and Cleanup &gt; should clean up files based on manifest" time="0.001120791">
+        </testcase>
+        <testcase classname="packages/svg2tsx/tests/unittests/converter/manifest.test.ts" name="Manifest Generation and Cleanup &gt; should not delete files outside SRC_DIR even if in manifest" time="0.001143584">
+        </testcase>
+    </testsuite>
+    <testsuite name="packages/svg2tsx/tests/unittests/converter/standalone.test.ts" timestamp="2026-03-26T07:09:20.947Z" hostname="jeongseung-won-ui-Macmini.local" tests="3" failures="0" errors="0" skipped="0" time="0.0298805">
+        <testcase classname="packages/svg2tsx/tests/unittests/converter/standalone.test.ts" name="StandaloneSvgBuilder &gt; should generate icons with barrel files when generateIndex is true" time="0.022077">
+        </testcase>
+        <testcase classname="packages/svg2tsx/tests/unittests/converter/standalone.test.ts" name="StandaloneSvgBuilder &gt; should not write any files in dry-run mode" time="0.000888292">
+        </testcase>
+        <testcase classname="packages/svg2tsx/tests/unittests/converter/standalone.test.ts" name="StandaloneSvgBuilder &gt; should not generate barrel files when generateIndex is false" time="0.001936875">
+        </testcase>
+    </testsuite>
+    <testsuite name="packages/svg2tsx/tests/unittests/lib/atomicWrite.test.ts" timestamp="2026-03-26T07:09:20.947Z" hostname="jeongseung-won-ui-Macmini.local" tests="3" failures="0" errors="0" skipped="0" time="0.00285275">
+        <testcase classname="packages/svg2tsx/tests/unittests/lib/atomicWrite.test.ts" name="atomicWrite &gt; should write content to a temporary file and then rename it" time="0.001468709">
+        </testcase>
+        <testcase classname="packages/svg2tsx/tests/unittests/lib/atomicWrite.test.ts" name="atomicWrite &gt; should delete temporary file and throw error if rename fails" time="0.000549">
+        </testcase>
+        <testcase classname="packages/svg2tsx/tests/unittests/lib/atomicWrite.test.ts" name="atomicWrite &gt; should handle nested directories" time="0.000287458">
+        </testcase>
+    </testsuite>
+    <testsuite name="packages/svg2tsx/tests/unittests/lib/kebabToPascal.test.ts" timestamp="2026-03-26T07:09:20.947Z" hostname="jeongseung-won-ui-Macmini.local" tests="9" failures="0" errors="0" skipped="0" time="0.003345667">
+        <testcase classname="packages/svg2tsx/tests/unittests/lib/kebabToPascal.test.ts" name="Kebab-case validation &gt; should accept valid kebab-case filenames" time="0.000977625">
+        </testcase>
+        <testcase classname="packages/svg2tsx/tests/unittests/lib/kebabToPascal.test.ts" name="Kebab-case validation &gt; should reject filename with uppercase letters" time="0.000374542">
+        </testcase>
+        <testcase classname="packages/svg2tsx/tests/unittests/lib/kebabToPascal.test.ts" name="Kebab-case validation &gt; should reject filename with underscores" time="0.000087958">
+        </testcase>
+        <testcase classname="packages/svg2tsx/tests/unittests/lib/kebabToPascal.test.ts" name="Kebab-case validation &gt; should reject filename starting with number" time="0.000071583">
+        </testcase>
+        <testcase classname="packages/svg2tsx/tests/unittests/lib/kebabToPascal.test.ts" name="Kebab-case validation &gt; should reject filename containing numbers" time="0.000074375">
+        </testcase>
+        <testcase classname="packages/svg2tsx/tests/unittests/lib/kebabToPascal.test.ts" name="Kebab-case validation &gt; should reject filename with numbers in middle" time="0.000103917">
+        </testcase>
+        <testcase classname="packages/svg2tsx/tests/unittests/lib/kebabToPascal.test.ts" name="Kebab-case validation &gt; should reject filename starting with dash" time="0.000104167">
+        </testcase>
+        <testcase classname="packages/svg2tsx/tests/unittests/lib/kebabToPascal.test.ts" name="Kebab-case validation &gt; should reject filename ending with dash" time="0.000066416">
+        </testcase>
+        <testcase classname="packages/svg2tsx/tests/unittests/lib/kebabToPascal.test.ts" name="Kebab-case validation &gt; should reject filename with double dashes" time="0.000282625">
+        </testcase>
+    </testsuite>
+    <testsuite name="packages/svg2tsx/tests/unittests/lib/logger.test.ts" timestamp="2026-03-26T07:09:20.948Z" hostname="jeongseung-won-ui-Macmini.local" tests="5" failures="0" errors="0" skipped="0" time="0.003432334">
+        <testcase classname="packages/svg2tsx/tests/unittests/lib/logger.test.ts" name="logger &gt; should log info messages in cyan" time="0.001461916">
+        </testcase>
+        <testcase classname="packages/svg2tsx/tests/unittests/lib/logger.test.ts" name="logger &gt; should log detail messages in gray" time="0.000345">
+        </testcase>
+        <testcase classname="packages/svg2tsx/tests/unittests/lib/logger.test.ts" name="logger &gt; should log warning messages in yellow with a warning icon" time="0.000450333">
+        </testcase>
+        <testcase classname="packages/svg2tsx/tests/unittests/lib/logger.test.ts" name="logger &gt; should log error messages in red with an error icon" time="0.000247166">
+        </testcase>
+        <testcase classname="packages/svg2tsx/tests/unittests/lib/logger.test.ts" name="logger &gt; should log success messages in green with a success icon" time="0.000313292">
+        </testcase>
+    </testsuite>
+    <testsuite name="packages/svg2tsx/tests/unittests/cli/config-loader.test.ts" timestamp="2026-03-26T07:09:20.948Z" hostname="jeongseung-won-ui-Macmini.local" tests="7" failures="0" errors="0" skipped="0" time="0.009166958">
+        <testcase classname="packages/svg2tsx/tests/unittests/cli/config-loader.test.ts" name="loadConfig &gt; config file from configPath path &gt; should load config from configPath path" time="0.002272083">
+        </testcase>
+        <testcase classname="packages/svg2tsx/tests/unittests/cli/config-loader.test.ts" name="loadConfig &gt; config file from configPath path &gt; should return default config when file does not exist" time="0.001617875">
+        </testcase>
+        <testcase classname="packages/svg2tsx/tests/unittests/cli/config-loader.test.ts" name="loadConfig &gt; config file from default path &gt; should load config from default path" time="0.001051166">
+        </testcase>
+        <testcase classname="packages/svg2tsx/tests/unittests/cli/config-loader.test.ts" name="loadConfig &gt; config file from default path &gt; should return default config when no config file exists" time="0.000791208">
+        </testcase>
+        <testcase classname="packages/svg2tsx/tests/unittests/cli/config-loader.test.ts" name="loadConfig &gt; config file corner cases &gt; should handle config file without default export" time="0.000628583">
+        </testcase>
+        <testcase classname="packages/svg2tsx/tests/unittests/cli/config-loader.test.ts" name="loadConfig &gt; config file corner cases &gt; should allow config to override baseDir when specified" time="0.00042725">
+        </testcase>
+        <testcase classname="packages/svg2tsx/tests/unittests/cli/config-loader.test.ts" name="loadConfig &gt; config file corner cases &gt; should throw error when config file fails to load" time="0.001220833">
+        </testcase>
+    </testsuite>
+    <testsuite name="packages/svg2tsx/tests/unittests/cli/defineConfig.test.ts" timestamp="2026-03-26T07:09:20.948Z" hostname="jeongseung-won-ui-Macmini.local" tests="4" failures="0" errors="0" skipped="0" time="0.00215675">
+        <testcase classname="packages/svg2tsx/tests/unittests/cli/defineConfig.test.ts" name="defineConfig &gt; should return the same config object passed to it" time="0.000884916">
+        </testcase>
+        <testcase classname="packages/svg2tsx/tests/unittests/cli/defineConfig.test.ts" name="defineConfig &gt; should work with minimal config" time="0.000121208">
+        </testcase>
+        <testcase classname="packages/svg2tsx/tests/unittests/cli/defineConfig.test.ts" name="defineConfig &gt; should work with full config" time="0.000325459">
+        </testcase>
+        <testcase classname="packages/svg2tsx/tests/unittests/cli/defineConfig.test.ts" name="defineConfig &gt; should work with empty config object" time="0.000191542">
+        </testcase>
+    </testsuite>
+    <testsuite name="packages/svg2tsx/tests/unittests/cli/generate.test.ts" timestamp="2026-03-26T07:09:20.948Z" hostname="jeongseung-won-ui-Macmini.local" tests="18" failures="0" errors="0" skipped="0" time="0.005719833">
+        <testcase classname="packages/svg2tsx/tests/unittests/cli/generate.test.ts" name="generateAction &gt; family type generation &gt; should generate with family builder" time="0.001930667">
+        </testcase>
+        <testcase classname="packages/svg2tsx/tests/unittests/cli/generate.test.ts" name="generateAction &gt; family type generation &gt; should use default values when config values are missing" time="0.000295458">
+        </testcase>
+        <testcase classname="packages/svg2tsx/tests/unittests/cli/generate.test.ts" name="generateAction &gt; standalone type generation &gt; should generate with standalone builder" time="0.00029625">
+        </testcase>
+        <testcase classname="packages/svg2tsx/tests/unittests/cli/generate.test.ts" name="generateAction &gt; standalone type generation &gt; should use process.cwd() when baseDir is not specified" time="0.000203708">
+        </testcase>
+        <testcase classname="packages/svg2tsx/tests/unittests/cli/generate.test.ts" name="generateAction &gt; standalone type generation &gt; should default to standalone when type is undefined" time="0.00025475">
+        </testcase>
+        <testcase classname="packages/svg2tsx/tests/unittests/cli/generate.test.ts" name="generateAction &gt; error handling &gt; should handle config loading error" time="0.000208833">
+        </testcase>
+        <testcase classname="packages/svg2tsx/tests/unittests/cli/generate.test.ts" name="generateAction &gt; error handling &gt; should handle generation error" time="0.000103458">
+        </testcase>
+        <testcase classname="packages/svg2tsx/tests/unittests/cli/generate.test.ts" name="generateAction &gt; error handling &gt; should handle non-Error objects" time="0.000098875">
+        </testcase>
+        <testcase classname="packages/svg2tsx/tests/unittests/cli/generate.test.ts" name="generateAction &gt; dry-run mode &gt; should pass dryRun: true to family builder" time="0.000322583">
+        </testcase>
+        <testcase classname="packages/svg2tsx/tests/unittests/cli/generate.test.ts" name="generateAction &gt; dry-run mode &gt; should pass dryRun: true to standalone builder" time="0.000210958">
+        </testcase>
+        <testcase classname="packages/svg2tsx/tests/unittests/cli/generate.test.ts" name="generateAction &gt; dry-run mode &gt; should default dryRun to false when not provided" time="0.000161458">
+        </testcase>
+        <testcase classname="packages/svg2tsx/tests/unittests/cli/generate.test.ts" name="generateAction &gt; platform preset &gt; should use nativeOptions preset when platform is native" time="0.000250458">
+        </testcase>
+        <testcase classname="packages/svg2tsx/tests/unittests/cli/generate.test.ts" name="generateAction &gt; platform preset &gt; should use defaultOptions preset when platform is web" time="0.000085625">
+        </testcase>
+        <testcase classname="packages/svg2tsx/tests/unittests/cli/generate.test.ts" name="generateAction &gt; platform preset &gt; should use defaultOptions preset when platform is not specified" time="0.000056541">
+        </testcase>
+        <testcase classname="packages/svg2tsx/tests/unittests/cli/generate.test.ts" name="generateAction &gt; platform preset &gt; should allow user options to override the native preset" time="0.000081375">
+        </testcase>
+        <testcase classname="packages/svg2tsx/tests/unittests/cli/generate.test.ts" name="generateAction &gt; config options merging &gt; should merge svgr options from config" time="0.000139666">
+        </testcase>
+        <testcase classname="packages/svg2tsx/tests/unittests/cli/generate.test.ts" name="generateAction &gt; custom directories &gt; should use custom assetsDir and srcDir from config" time="0.000068458">
+        </testcase>
+        <testcase classname="packages/svg2tsx/tests/unittests/cli/generate.test.ts" name="generateAction &gt; custom directories &gt; should use custom directories with family builder" time="0.000066375">
+        </testcase>
+    </testsuite>
+</testsuites>

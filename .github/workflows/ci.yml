@@ -99,6 +99,15 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
           fail_ci_if_error: true
 
+      - name: Create JUnit Test Report
+        run: pnpm test --reporter=junit --outputFile=test-report.junit.xml
+
+      - name: Upload test results to Codecov
+        if: ${{ !cancelled() }}
+        uses: codecov/test-results-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+
   sonar-scan:
     name: SonarCloud Scan
     needs: [quality, build-and-test]
