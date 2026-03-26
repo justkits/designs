@@ -5,14 +5,7 @@ export function TestComponent({
   isOpen,
   portal = false,
 }: Readonly<{
-  omit?:
-    | "portal"
-    | "trigger"
-    | "overlay"
-    | "content"
-    | "title"
-    | "message"
-    | "button";
+  omit?: "trigger" | "overlay" | "content" | "title" | "message" | "button";
   isOpen?: boolean;
   portal?: boolean;
 }>) {
