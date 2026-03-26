@@ -34,7 +34,6 @@ export function AlertContent({
         aria-modal="true"
         aria-labelledby={titleId}
         aria-describedby={descriptionId}
-        data-state="open"
         data-pending={isPending ? "true" : undefined}
         aria-busy={isPending ? "true" : undefined}
         {...rest}

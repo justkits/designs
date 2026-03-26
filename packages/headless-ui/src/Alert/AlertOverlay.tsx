@@ -27,7 +27,6 @@ export function AlertOverlay({
     <div
       className={className}
       style={{ ...style, ...styles.overlay }}
-      data-state="open"
       {...rest}
     />
   );
