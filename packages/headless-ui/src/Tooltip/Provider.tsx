@@ -6,7 +6,6 @@ import { type FloatingPlacement } from "@/core/placement/types";
 import { useFloatingPosition } from "@/core/placement/useFloatingPosition";
 import { useOpenState } from "@/core/states/useOpenState";
 import { useLongTouch } from "@/core/touch/useLongTouch";
-import { useTouchOutside } from "@/core/touch/useTouchOutside";
 import { TooltipContext } from "./internals/contexts";
 
 type TooltipProps = {
@@ -53,7 +52,6 @@ export function Provider({
 
   useClickOutside(floatingRef, hideTooltip, isOpen);
   useKeyboardEvent("Escape", hideTooltip, isOpen);
-  useTouchOutside(floatingRef, hideTooltip, isOpen); // 모바일 환경에서 터치는 Trigger를 다시 누르더라도 닫혀야 한다.
   useLongTouch(triggerRef, showTooltip, longTouchDuration, !isOpen); // 롱터치는 터치 자체에 delay가 있기 때문에, show에 delay를 주지 않는다.
 
   const contextValue = useMemo(
@@ -88,8 +86,6 @@ export function Provider({
       y,
       shiftX,
       shiftY,
-      triggerRef,
-      floatingRef,
     ],
   );
 

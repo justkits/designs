@@ -30,7 +30,8 @@
 
 - Clicks
   - [x] Tooltip.Trigger를 클릭한다고 해서 Tooltip이 열리지는 않는다.
-  - [x] Tooltip이 열려있는 상태에서, Tooltip.Content 바깥을 아무데나 클릭하면 Tooltip이 닫힌다.
+  - [x] Tooltip이 열려있는 상태에서, Tooltip 바깥을 아무데나 클릭하면 Tooltip이 닫힌다.
+  - [x] Tooltip이 열려있는 상태에서, Tooltip.Trigger를 클릭해도 Tooltip이 닫힌다.
 - Hover
   - [x] Tooltip.Trigger위를 Hover/Exit하면, 주어진 각 delay 이후 Tooltip이 열리고 닫힌다
   - [x] 마우스가 Trigger에서 Tooltip.Content로 이동하고 Tooltip.Content에 머물러도 툴팁이 닫히지 않는다.
@@ -40,8 +41,6 @@
   - [x] 포커스는 Tooltip.Content 안으로 trap되지 않는다. (`Tab` 키는 정상적으로 다음 요소로 이동하며, Tooltip은 닫힌다.)
 - Touch
   - [x] Trigger를 길게 누르면 (Long Press - `longTouchDuration`만큼) 툴팁이 열린다.
-  - [x] 열려 있는 상태에서 Tooltip.Content 바깥을 터치하면 툴팁이 닫힌다.
-  - [x] 열려 있는 상태에서 Trigger를 터치해도 툴팁이 닫힌다.
 - Keyboard
   - [x] `Escape` 키를 누르면 툴팁이 닫힌다.
 
