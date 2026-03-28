@@ -1,11 +1,11 @@
 import { type HTMLAttributes, useContext } from "react";
 
 import { AsChild } from "@/core/asChild";
-import { ContentContext, useTooltip } from "./internals/contexts";
+import { ContentContext } from "./internals/contexts";
 
 type TooltipMessageProps = {
   asChild?: boolean;
-} & Omit<HTMLAttributes<HTMLParagraphElement>, "id" | "aria-describedby">;
+} & HTMLAttributes<HTMLParagraphElement>;
 
 export function TooltipMessage({
   children,
@@ -14,9 +14,6 @@ export function TooltipMessage({
   asChild = false,
   ...rest
 }: Readonly<TooltipMessageProps>) {
-  // Tooltip 내부에서 렌더링 되는지 확인
-  const { messageId } = useTooltip();
-
   const isInsideContent = useContext(ContentContext);
 
   if (!isInsideContent) {
@@ -25,14 +22,14 @@ export function TooltipMessage({
 
   if (asChild) {
     return (
-      <AsChild className={className} style={style} {...rest} id={messageId}>
+      <AsChild className={className} style={style} {...rest}>
         {children}
       </AsChild>
     );
   }
 
   return (
-    <p className={className} style={style} {...rest} id={messageId}>
+    <p className={className} style={style} {...rest}>
       {children}
     </p>
   );

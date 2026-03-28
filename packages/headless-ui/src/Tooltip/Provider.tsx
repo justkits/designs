@@ -41,7 +41,7 @@ export function Provider({
   } = useOpenState(controlledOpen, onOpenChange, false);
   const triggerRef = useRef<HTMLElement | null>(null);
   const floatingRef = useRef<HTMLDivElement | null>(null);
-  const messageId = useId();
+  const tooltipId = useId();
 
   const { placement, x, y, shiftX, shiftY } = useFloatingPosition(
     triggerRef,
@@ -63,7 +63,7 @@ export function Provider({
       showTooltip,
       hideTooltip,
       isPortalMode: portal,
-      messageId,
+      tooltipId,
       openDelay,
       closeDelay,
       placement,
@@ -80,7 +80,7 @@ export function Provider({
       showTooltip,
       hideTooltip,
       portal,
-      messageId,
+      tooltipId,
       openDelay,
       closeDelay,
       placement,

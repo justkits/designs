@@ -4,10 +4,7 @@ import { Portal } from "@/core/portal";
 import { ContentContext, useTooltip } from "./internals/contexts";
 import { styles } from "./internals/styles";
 
-type TooltipContentProps = Omit<
-  HTMLAttributes<HTMLDivElement>,
-  "id" | "role" | "aria-live"
->;
+type TooltipContentProps = Omit<HTMLAttributes<HTMLDivElement>, "id" | "role">;
 
 export function TooltipContent({
   children,
@@ -17,6 +14,7 @@ export function TooltipContent({
 }: Readonly<TooltipContentProps>) {
   const {
     isOpen,
+    tooltipId,
     x,
     y,
     floatingRef,
@@ -38,6 +36,7 @@ export function TooltipContent({
           }}
           className={className}
           {...rest}
+          id={tooltipId}
           role="tooltip"
           ref={floatingRef}
           onMouseEnter={() => showTooltip(0)}

@@ -11,7 +11,7 @@ type TooltipContextType = {
   // Portal 관련 상태
   isPortalMode: boolean;
   // ARIA 연결을 위한 id
-  messageId: string;
+  tooltipId: string;
   // 툴팁 동작 관련 상태
   openDelay: number;
   closeDelay: number;

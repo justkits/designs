@@ -28,7 +28,7 @@ export function TooltipTrigger({
     disabled,
     showTooltip,
     hideTooltip,
-    messageId,
+    tooltipId,
     openDelay,
     closeDelay,
     triggerRef,
@@ -48,7 +48,7 @@ export function TooltipTrigger({
         type="button"
         {...rest}
         ref={triggerRef as RefObject<HTMLButtonElement>}
-        aria-describedby={messageId}
+        aria-describedby={tooltipId}
         disabled={disabled}
         onMouseEnter={() => showTooltip(openDelay)}
         onMouseLeave={() => hideTooltip(closeDelay)}
@@ -65,7 +65,7 @@ export function TooltipTrigger({
       type="button"
       {...rest}
       ref={triggerRef as RefObject<HTMLButtonElement>}
-      aria-describedby={messageId}
+      aria-describedby={tooltipId}
       disabled={disabled}
       onMouseEnter={() => showTooltip(openDelay)}
       onMouseLeave={() => hideTooltip(closeDelay)}
