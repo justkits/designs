@@ -1,4 +1,4 @@
-import { RefObject, useEffect } from "react";
+import { type RefObject, useEffect } from "react";
 
 /**
  * 주어진 컨테이너 요소 외부의 모든 요소에 inert 속성을 적용하는 훅.

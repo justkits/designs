@@ -1,4 +1,4 @@
-import { RefObject, useEffect } from "react";
+import { type RefObject, useEffect } from "react";
 
 /**
  * 주어진 target 요소 내부로 Focus를 가두는 훅.

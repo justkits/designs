@@ -1,4 +1,4 @@
-import { FloatingPlacement } from "./types";
+import { type FloatingPlacement } from "./types";
 
 export function flipIfNeeded(
   triggerRect: DOMRect,

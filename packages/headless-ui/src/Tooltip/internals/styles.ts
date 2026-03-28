@@ -1,6 +1,6 @@
-import { CSSProperties } from "react";
+import { type CSSProperties } from "react";
 
-import { FloatingPlacement } from "@/core/placement/types";
+import { type FloatingPlacement } from "@/core/placement/types";
 import { zIndices } from "@/core/zindex";
 
 function tooltip(x: number, y: number): CSSProperties {
