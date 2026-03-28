@@ -224,4 +224,3 @@ Extends `ButtonHTMLAttributes<HTMLButtonElement>`. (`onClick` 제외 — 아래 
 ## Future Considerations
 
 - **Confirm 전용 컴포넌트 분리**: `Alert`과 `Confirm`을 별도 컴포넌트로 분리하여 타입 안전성을 높이는 방안
-- **data-state property**: data-state="open"|"close"를 제공하여 CSS 트랜지션 및 애니메이션에 활용할 수 있도록 지원. 현재는 `@justkits/motion`을 사용할 것을 권장한다.
