@@ -21,7 +21,7 @@
 ## Aria
 
 - ID
-  - [x] `Tooltip.Content`의 ID와 `Tooltip.Trigger`의 `aria-describedby` 자동 연결.
+  - [x] `Tooltip.Content`(`role="tooltip"`)의 ID와 `Tooltip.Trigger`의 `aria-describedby` 자동 연결.
 - Attributes
   - [x] `Tooltip.Content`가 `role="tooltip"`을 가진다.
   - [x] `Tooltip.Trigger`는 `aria-haspopup`을 가지지 않는다. (tooltip은 dialog가 아님)
