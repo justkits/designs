@@ -1,7 +1,7 @@
 import { type ButtonHTMLAttributes, type RefObject, useContext } from "react";
 
 import { AsChild } from "@/core/asChild";
-import { ContentContext, useAlert } from "./internals/context";
+import { ContentContext, useAlert } from "./internals/contexts";
 
 type AlertTriggerProps = {
   asChild?: boolean;

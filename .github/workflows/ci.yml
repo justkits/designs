@@ -91,7 +91,7 @@ jobs:
         run: pnpm typecheck
 
       - name: Test
-        run: pnpm test --coverage --coverage.all --coverage.reporter=clover --coverage.reporter=lcov
+        run: pnpm test --coverage --coverage.include="**/*/src/**/*.{ts,tsx}" --coverage.reporter=clover --coverage.reporter=lcov
 
       - name: Upload Coverage
         uses: codecov/codecov-action@v5

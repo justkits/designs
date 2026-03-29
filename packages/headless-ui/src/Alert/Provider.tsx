@@ -4,7 +4,7 @@ import { useFocusTrap } from "@/core/focus/useFocusTrap";
 import { useOutsideInert } from "@/core/inert/useOutsideInert";
 import { useBackgroundScrollLock } from "@/core/scroll-lock/useBackgroundScrollLock";
 import { useOpenState } from "@/core/states/useOpenState";
-import { AlertContext } from "./internals/context";
+import { AlertContext } from "./internals/contexts";
 
 type AlertProps = {
   children: ReactNode;

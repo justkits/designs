@@ -26,9 +26,10 @@ import { Alert } from "@justkits/headless-ui";
 
 ## Components
 
-| 컴포넌트 | 상태   | 문서                             |
-| -------- | ------ | -------------------------------- |
-| `Alert`  | Stable | [docs/Alert.md](./docs/alert.md) |
+| 컴포넌트  | 상태   | 문서                                 |
+| --------- | ------ | ------------------------------------ |
+| `Alert`   | Stable | [docs/alert.md](./docs/alert.md)     |
+| `Tooltip` | Stable | [docs/tooltip.md](./docs/tooltip.md) |
 
 ---
 
@@ -78,3 +79,5 @@ import { Alert } from "@justkits/headless-ui";
 ## Future Considerations
 
 - **서브패스 임포트 지원** - 현재는 `import { Alert } from "@justkits/headless-ui";` 처럼 배럴 임포트만 지원하지만, 번들 사이즈를 줄이기 위해 `import { Alert } from "@justkits/headless-ui/alert";`처럼 서브패스 임포트 지원을 고려하고 있다.
+- **data-state 속성** - `data-state="open"|"closed"`를 제공하여 CSS 트랜지션 및 애니메이션에 활용할 수 있도록 지원.
+  - 현재는 `@justkits/motion`의 `useAnimatedExit()` 훅을 사용할 것을 권장한다.

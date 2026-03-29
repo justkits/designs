@@ -1,4 +1,4 @@
-import { RefObject, useEffect } from "react";
+import { type RefObject, useEffect } from "react";
 
 /**
  * 주어진 target 요소 내부로 Focus를 가두는 훅.
@@ -8,6 +8,7 @@ import { RefObject, useEffect } from "react";
  * @param targetRef Focus를 가둘 target 요소의 Ref
  * @param isOpen Focus Trap의 활성화 여부
  * @param triggerRef Focus Trap이 활성화될 때, Focus가 이동하기 전의 요소의 Ref. Focus Trap이 비활성화될 때, 이 요소로 Focus가 복귀된다. 지정하지 않으면, 자동으로 Focus가 이동하기 전의 요소로 Focus가 복귀된다.
+ * @returns void
  */
 export function useFocusTrap(
   targetRef: RefObject<HTMLElement | null>,

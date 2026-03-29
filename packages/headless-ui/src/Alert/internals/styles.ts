@@ -1,6 +1,6 @@
 import { type CSSProperties } from "react";
 
-import { ZIndices } from "@/core/zindex";
+import { zIndices } from "@/core/zindex";
 
 const overlay: CSSProperties = {
   position: "fixed",
@@ -8,12 +8,12 @@ const overlay: CSSProperties = {
   left: 0,
   width: "100%",
   height: "100%",
-  zIndex: ZIndices.overlay,
+  zIndex: zIndices.overlay,
 };
 
 const alert: CSSProperties = {
   position: "relative",
-  zIndex: ZIndices.alert,
+  zIndex: zIndices.alert,
 };
 
 export const styles = { overlay, alert };

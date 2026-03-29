@@ -11,7 +11,7 @@ type ZIndexTokens = {
   alert: number;
 };
 
-export const ZIndices: ZIndexTokens = {
+export const zIndices: ZIndexTokens = {
   hide: -1,
   sticky: 100,
   menu: 200,

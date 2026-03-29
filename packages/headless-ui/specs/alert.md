@@ -4,10 +4,10 @@
 
 - `Alert`
   - [x] SSR 환경에서도 문제없이 동작해야 한다.
-  - [x] "portal" property를 지원해야 한다.
+  - [x] "portal" 모드를 지원해야 한다.
   - `Alert.Content`
     - [x] `Alert` 안에서 사용해야 한다.
-    - [x] 그렇지 않다면, `Alert`의 직접 자식이어야 한다.
+    - [x] Portal 모드가 아니라면, `Alert`의 직접 자식이어야 한다.
     - `Alert.Title`
       - [x] `Alert.Content` 안에서 사용해야 한다.
       - [x] `asChild` 패턴을 지원한다.
@@ -24,6 +24,17 @@
   - `Alert.Overlay`
     - [x] `Alert` 안에서 사용해야 한다.
     - [x] `Alert.Content` 안에서 사용하면 dev mode에서는 경고를 발생시킨다.
+
+## Aria
+
+- ID
+  - [x] `Alert.Content`의 ID와 `Alert.Trigger`의 `aria-controls`가 자동으로 연결된다.
+  - [x] `Alert.Title`의 ID와 `Alert.Content`의 `aria-labelledby`가 자동으로 연결된다.
+  - [x] `Alert.Message`의 ID와 `Alert.Content`의 `aria-describedby`가 자동으로 연결된다.
+- Attributes
+  - [x] `Alert.Trigger`가 `aria-haspopup=dialog`를 가진다.
+  - [x] `Alert.Content`가 `role="alertdialog"`와 `aria-modal="true"`를 가진다.
+  - [x] Alert가 열리면 `Alert.Content` 외부의 DOM 트리에 `inert` 속성이 적용되어 스크린 리더가 배경 콘텐츠를 읽지 못하도록 한다. Alert가 닫히면 `inert`를 제거한다.
 
 ## Interactions
 
@@ -52,14 +63,3 @@
 
 - [x] `Alert.Trigger`와 `Alert.Button`이 내부적으로 열기/닫기를 처리하는 비제어 방식을 지원한다.
 - [x] `isOpen`과 `onOpenChange` prop을 통한 제어 컴포넌트 방식도 지원한다.
-
-## Aria
-
-- ID
-  - [x] `Alert.Content`의 ID와 `Alert.Trigger`의 `aria-controls`가 자동으로 연결된다.
-  - [x] `Alert.Title`의 ID와 `Alert.Content`의 `aria-labelledby`가 자동으로 연결된다.
-  - [x] `Alert.Message`의 ID와 `Alert.Content`의 `aria-describedby`가 자동으로 연결된다.
-- Attributes
-  - [x] `Alert.Trigger`가 `aria-haspopup=dialog`를 가진다.
-  - [x] `Alert.Content`가 `role="alertdialog"`와 `aria-modal="true"`를 가진다.
-  - [x] Alert가 열리면 `Alert.Content` 외부의 DOM 트리에 `inert` 속성이 적용되어 스크린 리더가 배경 콘텐츠를 읽지 못하도록 한다. Alert가 닫히면 `inert`를 제거한다.

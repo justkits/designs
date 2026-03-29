@@ -1,7 +1,7 @@
 import { type HTMLAttributes, useContext } from "react";
 
 import { Portal } from "@/core/portal";
-import { ContentContext, useAlert } from "./internals/context";
+import { ContentContext, useAlert } from "./internals/contexts";
 import { styles } from "./internals/styles";
 
 type AlertOverlayProps = Omit<HTMLAttributes<HTMLDivElement>, "children">;

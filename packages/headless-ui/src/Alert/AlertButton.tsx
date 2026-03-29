@@ -6,7 +6,7 @@ import {
 } from "react";
 
 import { AsChild } from "@/core/asChild";
-import { ContentContext, useAlert } from "./internals/context";
+import { ContentContext, useAlert } from "./internals/contexts";
 
 type AlertButtonProps = {
   asChild?: boolean;

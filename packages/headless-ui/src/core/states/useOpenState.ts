@@ -3,7 +3,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 type UseOpenStateReturnType = {
   isOpen: boolean;
   show: (delay?: number) => void;
-  hide: () => void;
+  hide: (delay?: number) => void;
 };
 
 /**
@@ -14,6 +14,7 @@ type UseOpenStateReturnType = {
  * @param controlledOpen 외부에서 주입하는 열림 상태. `undefined`이면 Uncontrolled 모드.
  * @param setOpenState Controlled 모드에서 상태 변경을 전파할 외부 setter.
  * @param initialState Uncontrolled 모드의 초기 열림 상태. 기본값은 `false`.
+ * @return { isOpen: boolean, show: (delay?: number) => void, hide: () => void } 열림 상태와 상태 변경 함수들
  */
 export function useOpenState(
   controlledOpen: boolean | undefined,
@@ -47,15 +48,26 @@ export function useOpenState(
     [isControlled, setOpenState],
   );
 
-  const hide = useCallback(() => {
-    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+  const hide = useCallback(
+    (delay: number = 0) => {
+      const hideAction = () => {
+        if (isControlled) {
+          setOpenState?.(false);
+        } else {
+          setInternalOpen(false);
+        }
+      };
 
-    if (isControlled) {
-      setOpenState?.(false);
-    } else {
-      setInternalOpen(false);
-    }
-  }, [isControlled, setOpenState]);
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+
+      if (delay) {
+        timeoutRef.current = setTimeout(() => hideAction(), delay);
+      } else {
+        hideAction();
+      }
+    },
+    [isControlled, setOpenState],
+  );
 
   useEffect(() => {
     return () => {

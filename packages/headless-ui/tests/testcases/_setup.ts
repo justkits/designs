@@ -13,12 +13,26 @@ export function setupConsoleSpy(env: string) {
 }
 
 export function setupSSR() {
+  const originalWindow = globalThis.window;
+  const originalDocument = globalThis.document;
+
   beforeEach(() => {
     vi.stubGlobal("window", undefined);
     vi.stubGlobal("document", undefined);
   });
 
   afterEach(() => {
-    vi.unstubAllGlobals();
+    vi.stubGlobal("window", originalWindow);
+    vi.stubGlobal("document", originalDocument);
+  });
+}
+
+export function setupTimer() {
+  beforeEach(() => {
+    vi.useFakeTimers();
+  });
+
+  afterEach(() => {
+    vi.useRealTimers();
   });
 }
