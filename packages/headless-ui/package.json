@@ -1,7 +1,7 @@
 {
   "name": "@justkits/headless-ui",
   "description": "JustKits Design System - Headless UI",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "private": false,
   "type": "module",
   "keywords": [
