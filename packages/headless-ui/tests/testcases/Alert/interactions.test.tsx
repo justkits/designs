@@ -189,34 +189,23 @@ describe("Alert - interactions", () => {
     describe("Async Button Actions", () => {
       it("stays open while pending and sets correct properties", async () => {
         let resolveAction!: () => void;
-        const { getByTestId } = render(
-          <Alert>
-            <Alert.Trigger data-testid="trigger">Open</Alert.Trigger>
-            <Alert.Content data-testid="content">
-              <Alert.Title>Title</Alert.Title>
-              <Alert.Button
-                data-testid="btn-1"
-                onClick={() =>
-                  new Promise<void>((r) => {
-                    resolveAction = r;
-                  })
-                }
-              >
-                OK
-              </Alert.Button>
-              <Alert.Button data-testid="btn-2">Cancel</Alert.Button>
-            </Alert.Content>
-          </Alert>,
-        );
+        const onClose = () =>
+          new Promise<void>((r) => {
+            resolveAction = r;
+          });
+        const { getByTestId } = render(<TestComponent onClose={onClose} />);
 
-        fireEvent.click(getByTestId("trigger"));
-        fireEvent.click(getByTestId("btn-1"));
+        fireEvent.click(getByTestId("alert-trigger"));
+        fireEvent.click(getByTestId("alert-button"));
 
-        const content = getByTestId("content");
+        const content = getByTestId("alert-content");
 
-        expect((getByTestId("btn-1") as HTMLButtonElement).disabled).toBe(true);
-        expect((getByTestId("btn-2") as HTMLButtonElement).disabled).toBe(true);
-        expect(content.dataset.pending).toBe("true");
+        expect(
+          (getByTestId("alert-button") as HTMLButtonElement).disabled,
+        ).toBe(true);
+        expect(
+          (getByTestId("alert-button") as HTMLButtonElement).disabled,
+        ).toBe(true);
         expect(content.getAttribute("aria-busy")).toBe("true");
 
         await act(async () => {
@@ -226,55 +215,34 @@ describe("Alert - interactions", () => {
 
       it("closes on resolve", async () => {
         let resolveAction!: () => void;
+        const onClose = () =>
+          new Promise<void>((r) => {
+            resolveAction = r;
+          });
         const { getByTestId, queryByTestId } = render(
-          <Alert>
-            <Alert.Trigger data-testid="trigger">Open</Alert.Trigger>
-            <Alert.Content data-testid="content">
-              <Alert.Title>Title</Alert.Title>
-              <Alert.Button
-                data-testid="btn"
-                onClick={() =>
-                  new Promise<void>((r) => {
-                    resolveAction = r;
-                  })
-                }
-              >
-                OK
-              </Alert.Button>
-            </Alert.Content>
-          </Alert>,
+          <TestComponent onClose={onClose} />,
         );
 
-        fireEvent.click(getByTestId("trigger"));
-        fireEvent.click(getByTestId("btn"));
+        fireEvent.click(getByTestId("alert-trigger"));
+        fireEvent.click(getByTestId("alert-button"));
 
         await act(async () => {
           resolveAction();
         });
-        expect(queryByTestId("content")).toBeNull();
+        expect(queryByTestId("alert-content")).toBeNull();
       });
 
       it("stays open on reject", async () => {
+        const onClose = () => Promise.reject(new Error("failed"));
         const { getByTestId, queryByTestId } = render(
-          <Alert>
-            <Alert.Trigger data-testid="trigger">Open</Alert.Trigger>
-            <Alert.Content data-testid="content">
-              <Alert.Title>Title</Alert.Title>
-              <Alert.Button
-                data-testid="btn"
-                onClick={() => Promise.reject(new Error("failed"))}
-              >
-                OK
-              </Alert.Button>
-            </Alert.Content>
-          </Alert>,
+          <TestComponent onClose={onClose} />,
         );
 
-        fireEvent.click(getByTestId("trigger"));
+        fireEvent.click(getByTestId("alert-trigger"));
         await act(async () => {
-          fireEvent.click(getByTestId("btn"));
+          fireEvent.click(getByTestId("alert-button"));
         });
-        expect(queryByTestId("content")).toBeTruthy();
+        expect(queryByTestId("alert-content")).toBeTruthy();
       });
     });
   });

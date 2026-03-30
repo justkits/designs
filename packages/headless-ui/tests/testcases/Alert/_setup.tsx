@@ -4,10 +4,12 @@ export function TestComponent({
   omit = undefined,
   isOpen,
   portal = false,
+  onClose,
 }: Readonly<{
   omit?: "trigger" | "overlay" | "content" | "title" | "message" | "button";
   isOpen?: boolean;
   portal?: boolean;
+  onClose?: () => void | Promise<void>;
 }>) {
   return (
     <>
@@ -27,7 +29,9 @@ export function TestComponent({
               </Alert.Message>
             )}
             {omit !== "button" && (
-              <Alert.Button data-testid="alert-button">확인</Alert.Button>
+              <Alert.Button data-testid="alert-button" onClick={onClose}>
+                확인
+              </Alert.Button>
             )}
           </Alert.Content>
         )}
