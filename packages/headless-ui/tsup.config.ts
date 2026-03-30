@@ -19,5 +19,5 @@ export default defineConfig({
   treeshake: true,
   minify: false,
   sourcemap: false,
-  external: ["react"],
+  external: ["react", "react-dom"],
 });
