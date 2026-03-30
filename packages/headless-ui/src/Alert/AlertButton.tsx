@@ -11,7 +11,7 @@ import { ContentContext, useAlert } from "./internals/contexts";
 type AlertButtonProps = {
   asChild?: boolean;
   onClick?: (e: MouseEvent<HTMLButtonElement>) => void | Promise<void>;
-} & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "onClick">;
+} & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "onClick" | "type">;
 
 export function AlertButton({
   children,
@@ -19,6 +19,7 @@ export function AlertButton({
   style,
   onClick,
   asChild = false,
+  disabled,
   ...rest
 }: Readonly<AlertButtonProps>) {
   const { closeAlert, isPending, setPending } = useAlert();
@@ -33,16 +34,21 @@ export function AlertButton({
     return () => setPending(false);
   }, [setPending]);
 
-  const handleClick = async (e: MouseEvent<HTMLButtonElement>) => {
-    setPending(true);
-    try {
-      await onClick?.(e);
-      setPending(false);
+  const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
+    const result = onClick?.(e);
+    if (!(result instanceof Promise)) {
       closeAlert();
-    } catch {
-      // onClick rejected: dialog stays open, developer handles the error
-      setPending(false);
+      return;
     }
+    setPending(true);
+    result
+      .then(() => {
+        setPending(false);
+        closeAlert();
+      })
+      .catch(() => {
+        setPending(false);
+      });
   };
 
   if (asChild) {
@@ -50,9 +56,9 @@ export function AlertButton({
       <AsChild
         className={className}
         style={style}
-        onClick={handleClick}
-        disabled={isPending}
         {...rest}
+        disabled={isPending || disabled}
+        onClick={handleClick}
       >
         {children}
       </AsChild>
@@ -64,9 +70,9 @@ export function AlertButton({
       type="button"
       className={className}
       style={style}
-      onClick={handleClick}
-      disabled={isPending}
       {...rest}
+      disabled={isPending || disabled}
+      onClick={handleClick}
     >
       {children}
     </button>
