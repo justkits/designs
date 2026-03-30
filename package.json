@@ -21,13 +21,13 @@
     "@eslint/css": "^1.0.0",
     "@eslint/js": "^9.39.4",
     "@eslint/json": "^1.2.0",
-    "@eslint/markdown": "^7.5.1",
+    "@eslint/markdown": "^8.0.0",
     "@justkits/vitest-config": "workspace:*",
     "@testing-library/react": "^16.3.2",
     "@types/node": "^25.5.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
-    "@vitest/coverage-v8": "^4.1.1",
+    "@vitest/coverage-v8": "^4.1.2",
     "eslint": "^9.39.4",
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.5.2",
@@ -36,10 +36,10 @@
     "jsdom": "^29.0.1",
     "lint-staged": "^16.4.0",
     "prettier": "^3.8.1",
-    "turbo": "^2.8.20",
+    "turbo": "^2.8.21",
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.57.2",
-    "vitest": "^4.1.1"
+    "vitest": "^4.1.2"
   },
   "lint-staged": {
     "*.{json,md,yml,yaml}": "prettier --check",
@@ -50,8 +50,7 @@
   },
   "pnpm": {
     "overrides": {
-      "picomatch": "4.0.4",
-      "yaml": "2.8.3"
+      "brace-expansion": "1.1.13"
     }
   }
 }
