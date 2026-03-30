@@ -1,5 +1,11 @@
 # @justkits/headless-ui
 
+## 0.1.1
+
+### Patch Changes
+
+- [#44](https://github.com/justkits/design-system/pull/44) [`8fee51a`](https://github.com/justkits/design-system/commit/8fee51a8d6454b65df751d6c421035fe7178aadf) Thanks [@justwon0307](https://github.com/justwon0307)! - Rework placement logic for reuse
+
 ## 0.1.0
 
 ### Minor Changes
