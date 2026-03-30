@@ -1,5 +1,11 @@
 # @justkits/headless-ui
 
+## 0.2.2
+
+### Patch Changes
+
+- [#54](https://github.com/justkits/design-system/pull/54) [`fef18cd`](https://github.com/justkits/design-system/commit/fef18cdb6417a8f67abc378065265c2895840895) Thanks [@justwon0307](https://github.com/justwon0307)! - Add aria-label fallback on Alert, in case Alert.Title is missing
+
 ## 0.2.1
 
 ### Patch Changes
