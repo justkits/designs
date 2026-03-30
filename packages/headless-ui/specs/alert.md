@@ -29,8 +29,10 @@
 
 - ID
   - [x] `Alert.Content`의 ID와 `Alert.Trigger`의 `aria-controls`가 자동으로 연결된다.
-  - [x] `Alert.Title`의 ID와 `Alert.Content`의 `aria-labelledby`가 자동으로 연결된다. `Alert.Title`이 없으면 `aria-labelledby`는 설정하지 않는다.
-  - [x] `Alert.Message`의 ID와 `Alert.Content`의 `aria-describedby`가 자동으로 연결된다. `Alert.Message`가 없으면 `aria-describedby`는 설정하지 않는다.
+  - [x] `Alert.Title`의 ID와 `Alert.Content`의 `aria-labelledby`가 자동으로 연결된다.
+  - [x] `Alert.Title`이 없으면 `aria-labelledby`는 설정하지 않고, `aria-label="Alert"`가 자동으로 설정된다.
+  - [x] `Alert.Message`의 ID와 `Alert.Content`의 `aria-describedby`가 자동으로 연결된다.
+  - [x] `Alert.Message`가 없으면 `aria-describedby`와 `aria-description`은 둘 다 설정하지 않는다.
 - Attributes
   - [x] `Alert.Trigger`가 `aria-haspopup=dialog`를 가진다.
   - [x] `Alert.Content`가 `role="alertdialog"`와 `aria-modal="true"`를 가진다.

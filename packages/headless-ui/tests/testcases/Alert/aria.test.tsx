@@ -22,12 +22,34 @@ describe("Alert - aria", () => {
       expect(content.getAttribute("aria-labelledby")).toBe(title.id);
     });
 
-    it("Alert.Description's ID matches Alert.Content's aria-describedby", () => {
+    it("Alert.Content's aria-label is 'Alert' if Alert.Title is not rendered", () => {
+      const { getByTestId } = render(<TestComponent omit="title" isOpen />);
+
+      // Trigger를 클릭하여 Alert를 연다
+      fireEvent.click(getByTestId("alert-trigger"));
+
+      const content = getByTestId("alert-content");
+      expect(content.getAttribute("aria-labelledby")).toBeNull();
+      expect(content.getAttribute("aria-label")).toBe("Alert");
+    });
+
+    it("Alert.Message's ID matches Alert.Content's aria-describedby", () => {
       const { getByTestId } = render(<TestComponent isOpen />);
 
       const content = getByTestId("alert-content");
-      const description = getByTestId("alert-description");
-      expect(content.getAttribute("aria-describedby")).toBe(description.id);
+      const message = getByTestId("alert-message");
+      expect(content.getAttribute("aria-describedby")).toBe(message.id);
+    });
+
+    it("Alert.Content's aria-describedby and aria-description is null if Alert.Message is not rendered", () => {
+      const { getByTestId } = render(<TestComponent omit="message" isOpen />);
+
+      // Trigger를 클릭하여 Alert를 연다
+      fireEvent.click(getByTestId("alert-trigger"));
+
+      const content = getByTestId("alert-content");
+      expect(content.getAttribute("aria-describedby")).toBeNull();
+      expect(content.getAttribute("aria-description")).toBeNull();
     });
   });
 

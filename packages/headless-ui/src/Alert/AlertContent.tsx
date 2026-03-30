@@ -45,6 +45,7 @@ export function AlertContent({
           role="alertdialog"
           tabIndex={-1}
           aria-modal="true"
+          aria-label={titleId ? undefined : "Alert"}
           aria-labelledby={titleId}
           aria-describedby={descriptionId}
           aria-busy={isPending}
