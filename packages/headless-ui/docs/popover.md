@@ -2,7 +2,9 @@
 
 클릭으로 트리거되는 Popover 컴포넌트. Trigger 요소에 대한 추가 정보나 액션을 제공하며, 포커스를 Content 내부에 가두고 Trigger 위에 떠 있는 형태로 렌더링된다. 뷰포트 경계를 고려한 자동 위치 조정을 기본으로 제공한다.
 
-- **WAI-ARIA Reference**: [Dialog (Modal) Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/), [Disclosure (Show/Hide) Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/)
+- **WAI-ARIA References**: [Dialog (Modal) Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/), [Disclosure (Show/Hide) Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/)
+- **MDN References**: [Popover API — Using the Popover API](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API/Using), [aria-haspopup](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-haspopup)
+- **Open UI Reference**: [Popover Research Explainer](https://open-ui.org/components/popover.research.explainer/)
 
 ## Anatomy
 
@@ -136,7 +138,7 @@ export function TableRowPopover() {
 | -------------- | ---------------------------------------- | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `children`     | `ReactNode`                              | —          | Popover를 구성하는 하위 컴포넌트들                                                                                                                                      |
 | `isOpen`       | `boolean`                                | —          | Controlled 모드에서 열림/닫힘 상태. 생략하면 Uncontrolled 모드로 동작한다.                                                                                              |
-| `onOpenChange` | `(open: boolean) => void`                | —          | 열림/닫힘 상태가 변경될 때 호출되는 콜백                                                                                                                                |
+| `onOpenChange` | `(open: boolean) => void`                | —          | 열림/닫힘 상태가 변경될 때 호출되는 콜백. `isOpen`을 지정하면 반드시 함께 지정해야 한다.                                                                                |
 | `portal`       | `boolean`                                | `false`    | `true`이면 `Popover.Content`를 `document.body`에 Portal로 렌더링한다.                                                                                                   |
 | `position`     | `"top" \| "bottom" \| "left" \| "right"` | `"bottom"` | 팝오버가 Trigger 기준으로 표시될 방향. 공간이 부족하면 자동으로 flip/shift된다.                                                                                         |
 | `offset`       | `number`                                 | `16`       | Trigger와 팝오버 사이의 간격, 그리고 팝오버와 뷰포트 가장자리 사이의 최소 간격을 동시에 제어한다 (픽셀 단위). 두 간격은 같은 값으로 연동되어 독립적으로 설정할 수 없다. |
@@ -226,6 +228,7 @@ Extends `HTMLAttributes<HTMLDivElement>`. (`aria-hidden` 제외) `aria-hidden="t
 
 ## Notes
 
+- **Controlled 모드에서 `isOpen`과 `onOpenChange`는 항상 함께 지정해야 한다.** TypeScript 타입 수준에서 discriminated union으로 강제된다.
 - `Popover.Trigger`를 `Popover.Content` 내부에 렌더링하면 개발 모드에서 경고가 발생한다. 포커스 트랩으로 인해 예기치 않은 동작이 발생할 수 있으므로 반드시 `Popover.Content` 외부에 배치해야 한다.
 - `Popover.Title`, `Popover.Close`, `Popover.Arrow`는 반드시 `Popover.Content` 내부에서 사용해야 한다. 외부에서 사용하면 에러가 발생한다.
 - Tooltip과 달리 Popover는 인터랙티브 콘텐츠(버튼, 링크, 폼 요소 등)를 포함할 수 있다. 포커스 트랩이 적용되어 키보드 사용자도 Content 내부의 모든 요소에 접근할 수 있다.

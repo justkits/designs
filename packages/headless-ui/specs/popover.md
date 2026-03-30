@@ -26,7 +26,7 @@
 - ID
   - [x] `Popover.Content`의 ID와 `Popover.Trigger`의 `aria-controls`가 자동으로 연결된다.
   - [x] `Popover.Title`의 ID와 `Popover.Content`의 `aria-labelledby`가 자동으로 연결된다.
-  - [x] `Popover.Title`이 없으면 `aria-labelledby`는 설정하지 않고, `aria-label="Popover Content`가 자동으로 설정된다.
+  - [x] `Popover.Title`이 없으면 `aria-labelledby`는 설정하지 않고, `aria-label="Popover Content"`가 자동으로 설정된다.
 - Attributes
   - [x] `Popover.Trigger`가 `aria-haspopup="dialog"`를 가진다.
   - [x] `Popover.Trigger`가 `aria-expanded`를 가지며, 팝오버가 열리면 `"true"`, 닫히면 `"false"`가 된다.
@@ -73,11 +73,3 @@
     - [x] 상하 공간이 부족할 경우 shiftY한다.
 - Offset
   - [x] `offset` prop을 지원하며, default는 `16`이고 단위는 픽셀이다.
-
-## References
-
-- [WAI-ARIA APG: Dialog (Modal) Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/) — focus trap, initial/return focus, `role="dialog"` semantics
-- [WAI-ARIA APG: Disclosure (Show/Hide) Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/) — `aria-expanded`, `aria-controls` wiring for toggle triggers
-- [MDN: Popover API — Using the Popover API](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API/Using) — light dismiss, Escape key, focus return, `auto` vs `manual`
-- [MDN: aria-haspopup](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-haspopup) — valid values and when to omit
-- [Open UI: Popover Research Explainer](https://open-ui.org/components/popover.research.explainer/) — design rationale, taxonomy vs tooltip and modal dialog
