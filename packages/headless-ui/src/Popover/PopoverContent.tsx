@@ -1,4 +1,9 @@
-import { type DialogHTMLAttributes, type RefObject } from "react";
+import {
+  type DialogHTMLAttributes,
+  type RefObject,
+  useId,
+  useLayoutEffect,
+} from "react";
 
 import { Portal } from "@/core/portal";
 import { zIndices } from "@/core/zindex";
@@ -6,25 +11,30 @@ import { ContentContext, usePopover } from "./internals/contexts";
 
 type PopoverContentProps = Omit<
   DialogHTMLAttributes<HTMLDialogElement>,
-  "role" | "id" | "aria-labelledby" | "open" | "tabIndex"
+  "role" | "id" | "aria-labelledby" | "aria-label" | "open" | "tabIndex"
 >;
 
 export function PopoverContent({
   children,
   className,
   style,
-  "aria-label": ariaLabel = "Popover Content",
   ...rest
 }: Readonly<PopoverContentProps>) {
   const {
     isOpen,
     isPortalMode,
     isPending,
-    contentId,
     titleId,
-    floatingStyles,
+    setContentId,
     floatingRef,
+    containerStyles,
   } = usePopover();
+  const id = useId();
+
+  useLayoutEffect(() => {
+    setContentId(id);
+    return () => setContentId(undefined);
+  }, [id, setContentId]);
 
   if (!isOpen) return null;
 
@@ -33,14 +43,14 @@ export function PopoverContent({
       <ContentContext.Provider value={true}>
         <dialog
           style={{
-            ...floatingStyles.container,
+            ...containerStyles,
             zIndex: zIndices.popover,
             ...style,
           }}
           className={className}
-          aria-label={ariaLabel}
           {...rest}
-          id={contentId}
+          id={id}
+          aria-label={titleId ? undefined : "Popover Content"}
           aria-labelledby={titleId}
           aria-busy={isPending}
           open

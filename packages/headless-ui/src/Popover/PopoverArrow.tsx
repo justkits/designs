@@ -9,7 +9,7 @@ export function PopoverArrow({
   style,
   ...rest
 }: Readonly<PopoverArrowProps>) {
-  const { floatingStyles } = usePopover();
+  const { arrowStyles } = usePopover();
 
   const isInsideContent = useContext(ContentContext);
 
@@ -20,7 +20,7 @@ export function PopoverArrow({
   return (
     <div
       style={{
-        ...floatingStyles.arrow,
+        ...arrowStyles,
         ...style,
       }}
       className={className}

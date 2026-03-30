@@ -55,9 +55,9 @@ export function PopoverClose({
       <AsChild
         className={className}
         style={style}
-        onClick={handleClick}
-        disabled={isPending}
         {...rest}
+        disabled={isPending || rest.disabled}
+        onClick={handleClick}
       >
         {children}
       </AsChild>
@@ -69,9 +69,9 @@ export function PopoverClose({
       type="button"
       className={className}
       style={style}
-      onClick={handleClick}
-      disabled={isPending}
       {...rest}
+      disabled={isPending || rest.disabled}
+      onClick={handleClick}
     >
       {children}
     </button>

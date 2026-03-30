@@ -1,4 +1,4 @@
-import { type ReactNode, useId, useMemo, useRef, useState } from "react";
+import { type ReactNode, useMemo, useRef, useState } from "react";
 
 import { useClickOutside } from "@/core/clicks/useClickOutside";
 import { useFocusTrap } from "@/core/focus/useFocusTrap";
@@ -33,15 +33,15 @@ export function Provider({
   } = useOpenState(controlledOpen, onOpenChange, false);
   const triggerRef = useRef<HTMLElement | null>(null);
   const floatingRef = useRef<HTMLDialogElement | null>(null);
-  const contentId = useId();
   const [titleId, setTitleId] = useState<string | undefined>(undefined);
+  const [contentId, setContentId] = useState<string | undefined>(undefined);
   const [isPending, setPending] = useState(false);
 
   useClickOutside(floatingRef, hidePopover, isOpen, triggerRef);
   useKeyboardEvent("Escape", hidePopover, isOpen);
   useFocusTrap(floatingRef, isOpen, triggerRef);
 
-  const floatingStyles = useFloatingPosition(
+  const { container, arrow } = useFloatingPosition(
     triggerRef,
     floatingRef,
     position,
@@ -57,12 +57,14 @@ export function Provider({
       isPending,
       setPending,
       isPortalMode: portal,
-      floatingStyles,
-      contentId,
       titleId,
       setTitleId,
+      contentId,
+      setContentId,
       triggerRef,
       floatingRef,
+      containerStyles: container,
+      arrowStyles: arrow,
     }),
     [
       isOpen,
@@ -70,10 +72,12 @@ export function Provider({
       hidePopover,
       isPending,
       portal,
-      floatingStyles,
-      contentId,
       titleId,
       setTitleId,
+      contentId,
+      setContentId,
+      container,
+      arrow,
     ],
   );
 

@@ -12,12 +12,14 @@ type PopoverContextValue = {
   isPending: boolean;
   setPending: (pending: boolean) => void;
   isPortalMode: boolean;
-  floatingStyles: { container: CSSProperties; arrow: CSSProperties };
-  contentId: string;
   titleId: string | undefined;
   setTitleId: (id: string | undefined) => void;
+  contentId: string | undefined;
+  setContentId: (id: string | undefined) => void;
   triggerRef: RefObject<HTMLElement | null>;
   floatingRef: RefObject<HTMLDialogElement | null>;
+  containerStyles: CSSProperties;
+  arrowStyles: CSSProperties;
 };
 
 export const PopoverContext = createContext<PopoverContextValue | null>(null);

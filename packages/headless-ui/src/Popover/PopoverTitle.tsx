@@ -5,7 +5,7 @@ import { ContentContext, usePopover } from "./internals/contexts";
 
 type PopoverTitleProps = {
   asChild?: boolean;
-} & HTMLAttributes<HTMLHeadingElement>;
+} & Omit<HTMLAttributes<HTMLHeadingElement>, "id">;
 
 export function PopoverTitle({
   children,
@@ -30,14 +30,14 @@ export function PopoverTitle({
 
   if (asChild) {
     return (
-      <AsChild id={titleId} className={className} style={style} {...rest}>
+      <AsChild className={className} style={style} {...rest} id={titleId}>
         {children}
       </AsChild>
     );
   }
 
   return (
-    <h2 id={titleId} className={className} style={style} {...rest}>
+    <h2 className={className} style={style} {...rest} id={titleId}>
       {children}
     </h2>
   );
