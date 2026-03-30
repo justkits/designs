@@ -1,43 +1,6 @@
 import { fireEvent, render } from "@testing-library/react";
 
-import { AlwaysOpenTestComponent } from "./_setup";
-import { type FloatingPlacement } from "@/core/placement/types";
-
-function checkArrowPosition(
-  arrow: HTMLElement,
-  expectedPosition: FloatingPlacement,
-  offset: number = 0,
-) {
-  if (expectedPosition === "top") {
-    expect(arrow.style.bottom).toBe("0px");
-    expect(arrow.style.left).toBe("50%");
-    expect(arrow.style.marginBottom).toBe("-4px");
-    expect(arrow.style.transform).toContain(
-      `translateX(calc(-50% - ${offset}px)) translateY(0px) rotate(45deg)`,
-    );
-  } else if (expectedPosition === "bottom") {
-    expect(arrow.style.top).toBe("0px");
-    expect(arrow.style.left).toBe("50%");
-    expect(arrow.style.marginTop).toBe("-4px");
-    expect(arrow.style.transform).toContain(
-      `translateX(calc(-50% - ${offset}px)) translateY(0px) rotate(45deg)`,
-    );
-  } else if (expectedPosition === "left") {
-    expect(arrow.style.right).toBe("0px");
-    expect(arrow.style.top).toBe("50%");
-    expect(arrow.style.marginRight).toBe("-8px");
-    expect(arrow.style.transform).toContain(
-      `translateX(0px) translateY(calc(-50% - ${offset}px))`,
-    );
-  } else {
-    expect(arrow.style.left).toBe("0px");
-    expect(arrow.style.top).toBe("50%");
-    expect(arrow.style.marginLeft).toBe("-8px");
-    expect(arrow.style.transform).toContain(
-      `translateX(0px) translateY(calc(-50% - ${offset}px)) rotate(45deg)`,
-    );
-  }
-}
+import { AlwaysOpenTestComponent, checkArrowPosition } from "./_setup";
 
 describe("Popover - corner cases", () => {
   describe("positions - flip and shift cases", () => {
