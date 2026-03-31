@@ -30,6 +30,7 @@ import { Alert } from "@justkits/headless-ui";
 | --------- | ------ | ------------------------------------ |
 | `Alert`   | Stable | [docs/alert.md](./docs/alert.md)     |
 | `Popover` | Stable | [docs/popover.md](./docs/popover.md) |
+| `Toast`   | Stable | [docs/toast.md](./docs/toast.md)     |
 | `Tooltip` | Stable | [docs/tooltip.md](./docs/tooltip.md) |
 
 ---

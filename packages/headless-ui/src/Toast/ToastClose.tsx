@@ -6,28 +6,29 @@ import {
 } from "react";
 
 import { AsChild } from "@/core/asChild";
-import { ContentContext, useAlert } from "./internals/contexts";
+import { ContentContext, useToast } from "./internals/contexts";
 
-type AlertButtonProps = {
+type ToastCloseProps = {
   asChild?: boolean;
   onClick?: (e: MouseEvent<HTMLButtonElement>) => void | Promise<void>;
 } & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "onClick" | "type">;
 
-export function AlertButton({
-  children,
+export function ToastClose({
   className,
   style,
+  children,
   onClick,
   asChild = false,
   disabled,
   ...rest
-}: Readonly<AlertButtonProps>) {
-  const { closeAlert, isPending, setPending } = useAlert();
+}: Readonly<ToastCloseProps>) {
+  const { dismissToast, isPending, setPending, pauseTimer, resumeTimer } =
+    useToast();
 
   const isInsideContent = useContext(ContentContext);
 
   if (!isInsideContent) {
-    throw new Error("Alert.Button must be used within Alert.Content");
+    throw new Error("Toast.Close must be used within Toast.Content.");
   }
 
   useEffect(() => {
@@ -37,15 +38,19 @@ export function AlertButton({
   const handleClick = async (e: MouseEvent<HTMLButtonElement>) => {
     const result = onClick?.(e);
     if (!(result instanceof Promise)) {
-      closeAlert();
+      dismissToast();
       return;
     }
+
     setPending(true);
+    pauseTimer();
+
     try {
       await result;
-      closeAlert();
+      dismissToast();
     } catch {
-      // Promise가 거부되면, Alert는 닫히지 않고 pending 상태도 해제되어야 한다.
+      // Promise가 거부되면, Toast는 닫히지 않고 pending 상태도 해제되어야 한다.
+      resumeTimer();
     } finally {
       setPending(false);
     }
@@ -67,12 +72,12 @@ export function AlertButton({
 
   return (
     <button
-      type="button"
       className={className}
       style={style}
       {...rest}
       disabled={isPending || disabled}
       onClick={handleClick}
+      type="button"
     >
       {children}
     </button>

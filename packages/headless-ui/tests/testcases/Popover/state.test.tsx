@@ -1,7 +1,7 @@
 import { fireEvent, render, waitFor } from "@testing-library/react";
 
-import { TestComponent } from "./_setup";
 import { Popover } from "@/Popover";
+import { TestComponent } from "./_setup";
 
 describe("Popover - state", () => {
   it("supports uncontrolled mode", () => {

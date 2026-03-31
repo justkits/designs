@@ -193,10 +193,10 @@ Extends `ButtonHTMLAttributes<HTMLButtonElement>`. (`type`, `onClick` 제외)
 - `onClick`: 콜백 실행 후 팝오버를 닫는 동작이 내부에서 처리. async 지원.
 - `Popover.Content` 외부에서 사용하면 에러가 발생한다.
 
-| Prop      | Type                                                          | Default | Description                                                                                                                |
-| --------- | ------------------------------------------------------------- | ------- | -------------------------------------------------------------------------------------------------------------------------- |
-| `asChild` | `boolean`                                                     | `false` | `true`이면 자식 엘리먼트에 닫기 동작을 위임한다.                                                                           |
-| `onClick` | `(e: MouseEvent<HTMLButtonElement>) => void \| Promise<void>` | —       | 팝오버가 닫히기 전에 실행할 콜백. async를 지원하며, Promise가 resolve될 때까지 버튼이 비활성화되고 팝오버가 닫히지 않는다. |
+| Prop      | Type                                                          | Default | Description                                                                                                                                                                    |
+| --------- | ------------------------------------------------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `asChild` | `boolean`                                                     | `false` | `true`이면 자식 엘리먼트에 닫기 동작을 위임한다.                                                                                                                               |
+| `onClick` | `(e: MouseEvent<HTMLButtonElement>) => void \| Promise<void>` | —       | 팝오버가 닫히기 전에 실행할 콜백. async를 지원하며, Promise가 resolve될 때까지 버튼이 비활성화되고 팝오버가 닫히지 않는다. Promise가 reject되면 팝오버가 열린 상태로 유지된다. |
 
 ### `Popover.Arrow`
 
@@ -227,6 +227,21 @@ Extends `HTMLAttributes<HTMLDivElement>`. (`aria-hidden` 제외) `aria-hidden="t
 - **asChild** - `Popover.Trigger`, `Popover.Title`, `Popover.Close`에서 지원한다.
 
 ## Notes
+
+- **`Popover.Close`의 `onClick`이 reject되면 팝오버가 닫히지 않는다.** 에러를 직접 처리한 뒤에도 팝오버를 열린 상태로 유지하려면 에러를 다시 throw해야 한다. throw하지 않으면 Promise가 resolve된 것으로 간주되어 팝오버가 닫힌다.
+
+  ```tsx
+  <Popover.Close
+    onClick={async () => {
+      try {
+        await save();
+      } catch (e) {
+        showError(e); // 에러를 직접 처리
+        throw e; // 팝오버를 열린 상태로 유지하려면 반드시 다시 throw
+      }
+    }}
+  />
+  ```
 
 - **Controlled 모드에서 `isOpen`과 `onOpenChange`는 항상 함께 지정해야 한다.** TypeScript 타입 수준에서 discriminated union으로 강제된다.
 - `Popover.Trigger`를 `Popover.Content` 내부에 렌더링하면 개발 모드에서 경고가 발생한다. 포커스 트랩으로 인해 예기치 않은 동작이 발생할 수 있으므로 반드시 `Popover.Content` 외부에 배치해야 한다.

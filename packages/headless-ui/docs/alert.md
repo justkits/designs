@@ -206,10 +206,10 @@ Extends `ButtonHTMLAttributes<HTMLButtonElement>`. (`onClick`, `type` 제외)
 - `onClick`: async 지원 및 pending 상태 관리, 자동 닫기 동작을 위해 별도로 재정의
 - `disabled`: 외부에서 전달한 값이 존중되며, 버튼 pending 중에는 항상 비활성화된다.
 
-| Prop      | Type                                                          | Default | Description                                                                                                                                                    |
-| --------- | ------------------------------------------------------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `asChild` | `boolean`                                                     | `false` | `true`이면 자식 엘리먼트에 버튼 동작을 위임한다.                                                                                                               |
-| `onClick` | `(e: MouseEvent<HTMLButtonElement>) => void \| Promise<void>` | —       | 버튼 클릭 핸들러. async이면 Promise resolve 전까지 다이얼로그를 닫지 않으며 pending 중 모든 버튼을 비활성화한다. reject되면 다이얼로그가 열린 상태로 유지된다. |
+| Prop      | Type                                                          | Default | Description                                                                                                                                                              |
+| --------- | ------------------------------------------------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `asChild` | `boolean`                                                     | `false` | `true`이면 자식 엘리먼트에 버튼 동작을 위임한다.                                                                                                                         |
+| `onClick` | `(e: MouseEvent<HTMLButtonElement>) => void \| Promise<void>` | —       | 버튼 클릭 핸들러. async이면 Promise resolve 전까지 다이얼로그를 닫지 않으며 pending 중 모든 버튼을 비활성화한다. Promise가 reject되면 다이얼로그가 열린 상태로 유지된다. |
 
 ## Features
 
@@ -222,6 +222,23 @@ Extends `ButtonHTMLAttributes<HTMLButtonElement>`. (`onClick`, `type` 제외)
 - **asChild** - `Alert.Trigger`, `Alert.Button`, `Alert.Title`, `Alert.Message`에서 지원한다.
 
 ## Notes
+
+- **`Alert.Button`의 `onClick`이 reject되면 다이얼로그가 닫히지 않는다.** 에러를 직접 처리한 뒤에도 다이얼로그를 열린 상태로 유지하려면 에러를 다시 throw해야 한다. throw하지 않으면 Promise가 resolve된 것으로 간주되어 다이얼로그가 닫힌다.
+
+  ```tsx
+  <Alert.Button
+    onClick={async () => {
+      try {
+        await deleteUser();
+      } catch (e) {
+        showError(e); // 에러를 직접 처리
+        throw e; // 다이얼로그를 열린 상태로 유지하려면 반드시 다시 throw
+      }
+    }}
+  >
+    삭제
+  </Alert.Button>
+  ```
 
 - `Alert.Content` 내 첫 번째 포커스 가능한 요소에 자동으로 포커스가 이동한다. 첫 번째 또는 유일한 인터랙티브 요소가 삭제·비가역적 작업을 수행하는 버튼인 경우, Alert가 열리자마자 해당 버튼에 포커스가 이동하여 의도치 않은 실행이 발생할 수 있다. 이 경우 취소 버튼이나 안전한 요소에 `autoFocus`를 지정하는 것을 권장한다.
 

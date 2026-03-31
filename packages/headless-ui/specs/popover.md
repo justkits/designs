@@ -8,14 +8,14 @@
   - `Popover.Content`
     - [x] `Popover` 안에서 사용해야 한다.
     - [x] Portal 모드가 아니라면, `Popover`의 직접 자식이어야 한다.
-  - `Popover.Title`
-    - [x] `Popover.Content` 안에서 사용해야 한다.
-    - [x] `asChild` 패턴을 지원한다.
-  - `Popover.Close`
-    - [x] `Popover.Content` 안에서 사용해야 한다.
-    - [x] `asChild` 패턴을 지원한다.
-  - `Popover.Arrow`
-    - [x] `Popover.Content` 안에서 사용해야 한다.
+    - `Popover.Title`
+      - [x] `Popover.Content` 안에서 사용해야 한다.
+      - [x] `asChild` 패턴을 지원한다.
+    - `Popover.Close`
+      - [x] `Popover.Content` 안에서 사용해야 한다.
+      - [x] `asChild` 패턴을 지원한다.
+    - `Popover.Arrow`
+      - [x] `Popover.Content` 안에서 사용해야 한다.
   - `Popover.Trigger`
     - [x] `Popover` 안에서 사용해야 한다.
     - [x] `Popover.Content` 안에서 사용하면 dev mode에서는 경고를 발생시킨다.
