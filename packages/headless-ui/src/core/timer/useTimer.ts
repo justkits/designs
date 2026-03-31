@@ -17,6 +17,7 @@ export function useTimer(
   const resumeTimer = useCallback(() => {
     if (remainingRef.current === "infinite" || remainingRef.current <= 0)
       return;
+    if (timerRef.current) return; // 타이머가 이미 실행 중이면, 중복해서 시작하지 않는다.
 
     startedAtRef.current = Date.now();
     timerRef.current = setTimeout(
