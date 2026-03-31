@@ -32,11 +32,14 @@
 - Auto Dismiss
   - [x] `duration` prop에 설정된 시간(ms)이 지나면 자동으로 닫힌다.
   - [x] 마우스가 `Toast.Content` 위에 올라와 있는 동안은 자동 닫힘 타이머가 일시 정지되고, 다시 벗어나면 타이머가 재개된다.
+  - [x] 단, 호버가 벗어났을 때, Keyboard 포커스가 남아있다면 타이머는 일시정지 상태가 유지되어야 한다.
 - Keyboard
   - [x] 포커스가 `Toast.Content` 내부에 있을 때 `Escape` 키를 누르면 토스트가 닫힌다.
 - Focus
   - [x] 포커스는 `Toast.Content` 안으로 trap되지 않는다. (`Tab` 키는 정상적으로 다음 요소로 이동한다.)
   - [x] 포커스는 Toast가 열린다고 해서 자동으로 Toast.Content로 이동하지 않는다.
+  - [x] `Toast.Content`가 포커스되면 자동 닫힘 타이머가 일시 정지되고, 다시 벗어나면 자동 dismiss 타이머가 재개된다.
+  - [x] 단, 포커스가 벗어날 때, 마우스 호버가 `Toast.Content`에 남아있다면, 타이머는 일시정지 상태가 유지되어야 한다.
 - Touch (Swipe to Dismiss)
   - [x] `swipeDirection` prop에 지정한 방향으로 `swipeThreshold` prop에 지정한 거리 이상 스와이프하면 토스트가 닫힌다.
 
