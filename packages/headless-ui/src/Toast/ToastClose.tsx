@@ -1,4 +1,9 @@
-import { type ButtonHTMLAttributes, type MouseEvent, useContext } from "react";
+import {
+  type ButtonHTMLAttributes,
+  type MouseEvent,
+  useContext,
+  useEffect,
+} from "react";
 
 import { AsChild } from "@/core/asChild";
 import { ContentContext, useToast } from "./internals/contexts";
@@ -25,6 +30,10 @@ export function ToastClose({
   if (!isInsideContent) {
     throw new Error("Toast.Close must be used within Toast.Content.");
   }
+
+  useEffect(() => {
+    return () => setPending(false);
+  }, [setPending]);
 
   const handleClick = async (e: MouseEvent<HTMLButtonElement>) => {
     const result = onClick?.(e);
