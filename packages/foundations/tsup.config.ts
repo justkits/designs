@@ -4,6 +4,7 @@ export default defineConfig({
   entry: {
     index: "src/index.ts",
     reset: "src/reset.css",
+    theme: "src/theme.css",
   },
   format: ["esm"],
   dts: {
