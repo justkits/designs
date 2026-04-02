@@ -29,21 +29,24 @@ interface Props {
 function applyTheme(targetResolved: ResolvedTheme) {
   // light-dark() 설정이 제대로 적용되도록
   document.documentElement.dataset.theme = targetResolved;
+  // color-scheme 설정
+  document.documentElement.style.colorScheme = targetResolved;
+  document.documentElement.classList.add("theme-ready");
 }
 
 export function ThemeProvider({ children }: Readonly<Props>) {
   const mode = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
   useEffect(() => {
+    // 사용자가 시스템 모드를 따르도록 설정한 경우, 시스템 테마에 맞춰 적용
     if (mode === "system") {
       applyTheme(getSystemTheme());
     } else {
       // 그렇지 않다면, 지정한 모드로 고정
       applyTheme(mode);
     }
-  }, [mode]);
 
-  useEffect(() => {
+    // 시스템 테마 변경 구독 (사용자가 시스템 모드를 따르도록 설정한 경우에만)
     return subscribeToSystemTheme((theme) => {
       if (mode === "system") {
         applyTheme(theme);
