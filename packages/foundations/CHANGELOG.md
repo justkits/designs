@@ -1,5 +1,13 @@
 # @justkits/design-foundations
 
+## 1.2.3
+
+### Patch Changes
+
+- [#76](https://github.com/justkits/design-system/pull/76) [`7c901f2`](https://github.com/justkits/design-system/commit/7c901f2d8368cabbdc32325fd1bb0e7254ed6347) Thanks [@justwon0307](https://github.com/justwon0307)! - Remove theme.css from exports, and let ThemeProvider auto import it
+
+- [#76](https://github.com/justkits/design-system/pull/76) [`7c901f2`](https://github.com/justkits/design-system/commit/7c901f2d8368cabbdc32325fd1bb0e7254ed6347) Thanks [@justwon0307](https://github.com/justwon0307)! - Fix theme-ready and colorscheme not changing bug in client side
+
 ## 1.2.2
 
 ### Patch Changes
