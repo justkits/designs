@@ -1,5 +1,11 @@
 # @justkits/design-foundations
 
+## 1.2.1
+
+### Patch Changes
+
+- [#64](https://github.com/justkits/design-system/pull/64) [`f4dbbee`](https://github.com/justkits/design-system/commit/f4dbbeec91c9f63fb13fac45dfc3e204f27554f4) Thanks [@justwon0307](https://github.com/justwon0307)! - Bugfix: compile theme.css correctly
+
 ## 1.2.0
 
 ### Minor Changes
