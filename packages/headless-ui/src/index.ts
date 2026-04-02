@@ -1,4 +1,7 @@
 // Atoms
+export { Button } from "./Button";
+export type { ButtonProps } from "./Button";
+
 export { Code, Quote, Text } from "./Texts";
 export type { TagOptions, TextVariants } from "./Texts";
 
