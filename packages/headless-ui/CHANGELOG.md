@@ -1,5 +1,11 @@
 # @justkits/headless-ui
 
+## 0.4.0
+
+### Minor Changes
+
+- [#66](https://github.com/justkits/design-system/pull/66) [`932c004`](https://github.com/justkits/design-system/commit/932c0041a1eccfd11f252ae93db0eb09ca2f7a60) Thanks [@justwon0307](https://github.com/justwon0307)! - Release the new Text, Code and Quote components!
+
 ## 0.3.0
 
 ### Minor Changes
