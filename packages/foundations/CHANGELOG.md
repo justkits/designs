@@ -1,5 +1,11 @@
 # @justkits/design-foundations
 
+## 1.2.2
+
+### Patch Changes
+
+- [#74](https://github.com/justkits/design-system/pull/74) [`23dd5f4`](https://github.com/justkits/design-system/commit/23dd5f44c6421024335ae70b29df2a8fa836a733) Thanks [@justwon0307](https://github.com/justwon0307)! - Switch build tool from tsup to tsdown to prevent unexpected treeshaking
+
 ## 1.2.1
 
 ### Patch Changes
