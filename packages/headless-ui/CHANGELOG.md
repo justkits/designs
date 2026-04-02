@@ -1,5 +1,11 @@
 # @justkits/headless-ui
 
+## 0.6.0
+
+### Minor Changes
+
+- [#80](https://github.com/justkits/design-system/pull/80) [`daa1ef7`](https://github.com/justkits/design-system/commit/daa1ef7cac8427b9d0a05613f1118323f3ec8c8a) Thanks [@justwon0307](https://github.com/justwon0307)! - Release the new Divider component!
+
 ## 0.5.0
 
 ### Minor Changes
