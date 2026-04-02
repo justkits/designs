@@ -1,6 +1,7 @@
 import { fireEvent, render, waitFor } from "@testing-library/react";
 
-import { ThemeProvider, useTheme } from "@/theme";
+import { ThemeProvider } from "@/theme/ThemeProvider";
+import { useTheme } from "@/theme/useTheme";
 import { setMode } from "@/theme/manager";
 
 const TestComponent = () => {
@@ -71,6 +72,12 @@ describe("ThemeProvider", () => {
 
     expect(getByText("Current Theme Mode: system")).toBeTruthy();
     expect(container.ownerDocument.documentElement.dataset.theme).toBe("light");
+    expect(container.ownerDocument.documentElement.style.colorScheme).toBe(
+      "light",
+    );
+    expect(
+      container.ownerDocument.documentElement.classList.contains("theme-ready"),
+    ).toBe(true);
   });
 
   it("should handle local storage correctly", async () => {

@@ -15,6 +15,8 @@ export type { RadiusTokens } from "./tokens/radius";
 export type { SpacingTokens } from "./tokens/spacing";
 
 // Theme system
-export { ThemeProvider, ThemeScript, useTheme } from "./theme";
+export { ThemeProvider } from "./theme/ThemeProvider";
+export { ThemeScript } from "./theme/ThemeScript";
+export { useTheme } from "./theme/useTheme";
 // Theme system types
-export type { ThemeMode, ResolvedTheme } from "./theme";
+export type { ThemeMode, ResolvedTheme } from "./theme/types";

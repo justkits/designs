@@ -1,6 +1,6 @@
 import { render } from "@testing-library/react";
 
-import { ThemeScript } from "@/theme";
+import { ThemeScript } from "@/theme/ThemeScript";
 
 describe("ThemeScript", () => {
   it("should render children correctly (default)", () => {
