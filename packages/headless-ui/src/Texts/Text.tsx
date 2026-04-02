@@ -1,6 +1,6 @@
 import { type HTMLAttributes, type JSX } from "react";
 
-type TagOptions = Pick<
+export type TagOptions = Pick<
   JSX.IntrinsicElements,
   "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span"
 >;

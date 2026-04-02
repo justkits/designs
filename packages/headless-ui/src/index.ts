@@ -1,6 +1,6 @@
 // Atoms
 export { Code, Quote, Text } from "./Texts";
-export type { TextVariants } from "./Texts";
+export type { TagOptions, TextVariants } from "./Texts";
 
 // Compound Components
 export { Alert } from "./Alert";
