@@ -15,8 +15,7 @@
       "types": "./dist/index.d.mts",
       "import": "./dist/index.mjs"
     },
-    "./reset.css": "./dist/reset.css",
-    "./theme.css": "./dist/theme.css"
+    "./reset.css": "./dist/reset.css"
   },
   "files": [
     "dist",
