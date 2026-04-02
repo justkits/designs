@@ -1,5 +1,11 @@
 # @justkits/headless-ui
 
+## 0.5.0
+
+### Minor Changes
+
+- [#72](https://github.com/justkits/design-system/pull/72) [`3750066`](https://github.com/justkits/design-system/commit/37500669a754af07807f806e0e44c845b06a2146) Thanks [@justwon0307](https://github.com/justwon0307)! - Release the new Button component!
+
 ## 0.4.1
 
 ### Patch Changes
