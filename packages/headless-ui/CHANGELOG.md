@@ -1,5 +1,11 @@
 # @justkits/headless-ui
 
+## 0.8.0
+
+### Minor Changes
+
+- [#84](https://github.com/justkits/design-system/pull/84) [`24a8db9`](https://github.com/justkits/design-system/commit/24a8db91bfeca432af62eb6cc23251b1110ad060) Thanks [@justwon0307](https://github.com/justwon0307)! - Release the new TextInput component
+
 ## 0.7.0
 
 ### Minor Changes
