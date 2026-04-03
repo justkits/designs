@@ -215,10 +215,10 @@ describe("Alert - interactions", () => {
 
       it("closes on resolve", async () => {
         let resolveAction!: () => void;
-        const onClose = () =>
-          new Promise<void>((r) => {
-            resolveAction = r;
-          });
+        const pendingPromise = new Promise<void>((resolve) => {
+          resolveAction = resolve;
+        });
+        const onClose = vi.fn().mockReturnValue(pendingPromise);
         const { getByTestId, queryByTestId } = render(
           <TestComponent onClose={onClose} />,
         );
