@@ -14,15 +14,15 @@ export function ModalTitle({
   asChild = false,
   ...rest
 }: ModalTitleProps) {
-  const { setTitleId } = useModal();
   const titleId = useId();
-
-  const isInsideContent = useContext(ContentContext);
+  const { setTitleId } = useModal();
 
   useLayoutEffect(() => {
     setTitleId(titleId);
     return () => setTitleId(undefined);
   }, [titleId, setTitleId]);
+
+  const isInsideContent = useContext(ContentContext);
 
   if (!isInsideContent) {
     throw new Error("Modal.Title must be used within Modal.Content");
