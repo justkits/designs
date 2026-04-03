@@ -2,7 +2,7 @@ import { type ReactNode, useMemo, useState } from "react";
 
 import { TextInputContext } from "./internals/contexts";
 
-type TextInputProps = {
+export type TextInputProps = {
   children: ReactNode;
   type?: "text" | "password" | "email" | "url" | "search";
   required?: boolean;
