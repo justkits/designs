@@ -1,5 +1,11 @@
 # @justkits/headless-ui
 
+## 0.8.1
+
+### Patch Changes
+
+- [#86](https://github.com/justkits/design-system/pull/86) [`793ba2b`](https://github.com/justkits/design-system/commit/793ba2ba48a9376ea21f237d2f598209bbb11f5b) Thanks [@justwon0307](https://github.com/justwon0307)! - Export TextInputProps type
+
 ## 0.8.0
 
 ### Minor Changes
