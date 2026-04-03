@@ -12,6 +12,7 @@ export type { DividerProps } from "./Divider";
 export { Alert } from "./Alert";
 export { Modal } from "./Modal";
 export { Popover } from "./Popover";
+export { TextInput } from "./TextInput";
 export { Toast } from "./Toast";
 export { Tooltip } from "./Tooltip";
 
