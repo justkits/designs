@@ -1,5 +1,5 @@
 import { Alerter } from "@/alert/Alerter";
-import { AlertComponentProps, ConfirmComponentProps } from "@/alert/types";
+import type { AlertComponentProps, ConfirmComponentProps } from "@/alert/types";
 
 function TestAlert({ alert }: Readonly<AlertComponentProps>) {
   return (

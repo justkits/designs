@@ -1,4 +1,4 @@
-import { ToastObject } from "./types";
+import { type ToastObject } from "./types";
 
 let toasts: ToastObject[] = [];
 const listeners = new Set<() => void>();

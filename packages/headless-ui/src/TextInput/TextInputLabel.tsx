@@ -1,4 +1,4 @@
-import { LabelHTMLAttributes } from "react";
+import { type LabelHTMLAttributes } from "react";
 
 import { AsChild } from "@/core/asChild";
 import { useTextInput } from "./internals/contexts";

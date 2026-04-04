@@ -1,7 +1,11 @@
-import { CSSProperties } from "react";
+import { type CSSProperties } from "react";
 
 import { generateStyleFromPreset } from "@/utils/generateStyleFromPreset";
-import { LoopAnimationOptions, resolveDuration, resolveTiming } from "./lib";
+import {
+  type LoopAnimationOptions,
+  resolveDuration,
+  resolveTiming,
+} from "./lib";
 
 export function loop({
   name,
@@ -16,7 +20,7 @@ export function loop({
   let resolvedIterations = iterations;
 
   if (resolvedIterations !== "infinite" && resolvedIterations <= 0) {
-    resolvedIterations = "infinite";
+    resolvedIterations = "infinite"; // NOSONAR
     if (process.env.NODE_ENV !== "production") {
       console.warn(
         `Invalid iteration value for animation "${name}". Defaulting to "infinite".`,

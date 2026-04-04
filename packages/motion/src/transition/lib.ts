@@ -1,6 +1,6 @@
-import { AnimationDelay } from "@/tokens/delay";
-import { AnimationDuration } from "@/tokens/duration";
-import { AnimationEasingOptions } from "@/tokens/easing";
+import { type AnimationDelay } from "@/tokens/delay";
+import { type AnimationDuration } from "@/tokens/duration";
+import { type AnimationEasingOptions } from "@/tokens/easing";
 
 export type TransitionAnimationNames =
   | "fade"

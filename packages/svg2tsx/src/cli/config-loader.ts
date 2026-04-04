@@ -2,7 +2,7 @@ import { existsSync } from "node:fs";
 import { resolve } from "node:path";
 import { createJiti } from "jiti";
 
-import { SvgsConfig } from "./types";
+import { type SvgsConfig } from "./types";
 
 const DEFAULT_FILE_PATH = "svg2tsx.config.ts";
 

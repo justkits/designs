@@ -1,12 +1,12 @@
-import { AnimationDelay } from "@/tokens/delay";
-import { AnimationDuration } from "@/tokens/duration";
+import { type AnimationDelay } from "@/tokens/delay";
+import { type AnimationDuration } from "@/tokens/duration";
 import {
-  AnimationEasingOptions,
-  AnimationTimingFunction,
+  type AnimationEasingOptions,
+  type AnimationTimingFunction,
   resolveEasing,
 } from "@/tokens/easing";
-import { AnimationIterations } from "@/tokens/iterations";
-import { PresetKeyframesNames } from "@/tokens/name";
+import { type AnimationIterations } from "@/tokens/iterations";
+import { type PresetKeyframesNames } from "@/tokens/name";
 
 export type LoopAnimationNames = Extract<
   PresetKeyframesNames,

@@ -1,5 +1,5 @@
 import { basename, dirname, join, relative } from "node:path";
-import { Config } from "@svgr/core";
+import { type Config } from "@svgr/core";
 
 import { BaseSvgBuilder } from "./base";
 import { logger } from "@lib/logger";

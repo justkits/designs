@@ -1,6 +1,6 @@
 import { renderHook } from "@testing-library/react";
 
-import { useFocusTrap } from "@/core/focus/useFocusTrap";
+import { useFocusTrap } from "@/core/keyboard/useFocusTrap";
 
 describe("useFocusTrap - cornercases", () => {
   it("when Tab is pressed on a middle element", () => {

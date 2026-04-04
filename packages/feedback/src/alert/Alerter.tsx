@@ -1,8 +1,8 @@
-import { ComponentType, Fragment, useSyncExternalStore } from "react";
+import { type ComponentType, Fragment, useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
 
 import { getSnapshot, subscribe } from "./state";
-import { AlertComponentProps, ConfirmComponentProps } from "./types";
+import { type AlertComponentProps, type ConfirmComponentProps } from "./types";
 
 type AlerterProps = {
   AlertComponent: ComponentType<AlertComponentProps>;

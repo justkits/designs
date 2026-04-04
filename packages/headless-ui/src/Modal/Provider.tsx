@@ -1,7 +1,8 @@
 import { type ReactNode, useMemo, useRef, useState } from "react";
 
 import { useClickOutside } from "@/core/clicks/useClickOutside";
-import { useFocusTrap } from "@/core/focus/useFocusTrap";
+import { useAutoFocus } from "@/core/keyboard/useAutoFocus";
+import { useFocusTrap } from "@/core/keyboard/useFocusTrap";
 import { useOutsideInert } from "@/core/inert/useOutsideInert";
 import { useKeyboardEvent } from "@/core/keyboard/useKeyboardEvent";
 import { useBackgroundScrollLock } from "@/core/scroll-lock/useBackgroundScrollLock";
@@ -32,7 +33,8 @@ export function Provider({
 
   useClickOutside(floatingRef, closeModal, isOpen, triggerRef);
   useKeyboardEvent("Escape", closeModal, isOpen);
-  useFocusTrap(floatingRef, isOpen, triggerRef);
+  useAutoFocus(floatingRef, isOpen, triggerRef);
+  useFocusTrap(floatingRef, isOpen);
   useBackgroundScrollLock(isOpen);
   useOutsideInert(floatingRef, isOpen);
 

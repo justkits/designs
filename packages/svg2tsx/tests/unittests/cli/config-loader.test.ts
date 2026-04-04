@@ -4,7 +4,7 @@ import { resolve } from "node:path";
 import { createJiti } from "jiti";
 
 import { loadConfig } from "@cli/config-loader";
-import { SvgsConfig } from "@cli/types";
+import { type SvgsConfig } from "@cli/types";
 import {
   defaultConfig,
   mockBaseDir,

@@ -1,4 +1,4 @@
-import { AlerterObject } from "./types";
+import { type AlerterObject } from "./types";
 
 let alert: AlerterObject | null = null;
 const listeners = new Set<() => void>();

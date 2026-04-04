@@ -1,6 +1,7 @@
 import { type ReactNode, useId, useMemo, useRef, useState } from "react";
 
-import { useFocusTrap } from "@/core/focus/useFocusTrap";
+import { useAutoFocus } from "@/core/keyboard/useAutoFocus";
+import { useFocusTrap } from "@/core/keyboard/useFocusTrap";
 import { useOutsideInert } from "@/core/inert/useOutsideInert";
 import { useBackgroundScrollLock } from "@/core/scroll-lock/useBackgroundScrollLock";
 import { useOpenState } from "@/core/states/useOpenState";
@@ -36,7 +37,8 @@ export function Provider({
   const triggerRef = useRef<HTMLElement | null>(null);
 
   useBackgroundScrollLock(isOpen);
-  useFocusTrap(wrapperRef, isOpen, triggerRef);
+  useAutoFocus(wrapperRef, isOpen, triggerRef);
+  useFocusTrap(wrapperRef, isOpen);
   useOutsideInert(wrapperRef, isOpen);
 
   const contextValue = useMemo(

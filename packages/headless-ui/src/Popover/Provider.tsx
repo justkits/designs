@@ -1,7 +1,8 @@
 import { type ReactNode, useMemo, useRef, useState } from "react";
 
 import { useClickOutside } from "@/core/clicks/useClickOutside";
-import { useFocusTrap } from "@/core/focus/useFocusTrap";
+import { useAutoFocus } from "@/core/keyboard/useAutoFocus";
+import { useFocusTrap } from "@/core/keyboard/useFocusTrap";
 import { useKeyboardEvent } from "@/core/keyboard/useKeyboardEvent";
 import { type FloatingPlacement } from "@/core/placement/types";
 import { useFloatingPosition } from "@/core/placement/useFloatingPosition";
@@ -39,7 +40,8 @@ export function Provider({
 
   useClickOutside(floatingRef, hidePopover, isOpen, triggerRef);
   useKeyboardEvent("Escape", hidePopover, isOpen);
-  useFocusTrap(floatingRef, isOpen, triggerRef);
+  useAutoFocus(floatingRef, isOpen, triggerRef);
+  useFocusTrap(floatingRef, isOpen);
 
   const { container, arrow } = useFloatingPosition(
     triggerRef,

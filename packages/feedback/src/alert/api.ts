@@ -1,5 +1,5 @@
 import { dispatch } from "./state";
-import { AlertObject, ConfirmObject } from "./types";
+import { type AlertObject, type ConfirmObject } from "./types";
 
 type AlertOptions = Partial<Pick<AlertObject, "onClose" | "closeText">>;
 

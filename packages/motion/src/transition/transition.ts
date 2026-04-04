@@ -1,9 +1,9 @@
-import { CSSProperties } from "react";
+import { type CSSProperties } from "react";
 
 import { resolveEasing } from "@/tokens/easing";
-import { PresetKeyframesNames } from "@/tokens/name";
+import { type PresetKeyframesNames } from "@/tokens/name";
 import { generateStyleFromPreset } from "@/utils/generateStyleFromPreset";
-import { resolveDuration, TransitionAnimationOptions } from "./lib";
+import { resolveDuration, type TransitionAnimationOptions } from "./lib";
 
 export function transition({
   name,

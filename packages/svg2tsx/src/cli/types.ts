@@ -1,4 +1,4 @@
-import { Config } from "@svgr/core";
+import { type Config } from "@svgr/core";
 
 export type BuilderType = "family" | "standalone";
 

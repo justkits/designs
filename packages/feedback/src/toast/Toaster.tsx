@@ -1,8 +1,8 @@
-import { ComponentType, useSyncExternalStore } from "react";
+import { type ComponentType, useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
 
 import { getSnapshot, subscribe } from "./state";
-import { ToastsComponentProps } from "./types";
+import { type ToastsComponentProps } from "./types";
 
 type ToasterProps = {
   ToastsComponent: ComponentType<ToastsComponentProps>;

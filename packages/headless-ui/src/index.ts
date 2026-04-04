@@ -15,6 +15,9 @@ export { Popover } from "./Popover";
 export { Toast } from "./Toast";
 export { Tooltip } from "./Tooltip";
 
+export { Select } from "./Select";
+export type { SelectProps } from "./Select";
+
 export { TextInput } from "./TextInput";
 export type { TextInputProps } from "./TextInput";
 

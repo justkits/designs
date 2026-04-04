@@ -1,6 +1,6 @@
 import { resolve } from "node:path";
 
-import { SvgsConfig } from "@cli/types";
+import { type SvgsConfig } from "@cli/types";
 
 export const mockBaseDir = "/mock/base/dir";
 export const mockAssetsDir = resolve(mockBaseDir, "assets");

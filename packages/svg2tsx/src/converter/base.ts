@@ -4,7 +4,7 @@ import { performance } from "node:perf_hooks";
 import { createHash } from "node:crypto";
 import fg from "fast-glob";
 import pLimit from "p-limit";
-import { Config, transform } from "@svgr/core";
+import { type Config, transform } from "@svgr/core";
 
 import { logger } from "@lib/logger";
 import { kebabToPascal } from "@lib/kebabToPascal";
