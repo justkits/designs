@@ -1,5 +1,11 @@
 # @justkits/design-foundations
 
+## 1.4.0
+
+### Minor Changes
+
+- [#90](https://github.com/justkits/design-system/pull/90) [`1045fb5`](https://github.com/justkits/design-system/commit/1045fb5a03851881a7a45a195ef05980e6f8aacb) Thanks [@justwon0307](https://github.com/justwon0307)! - Rework Spacing Tokens
+
 ## 1.3.0
 
 ### Minor Changes
