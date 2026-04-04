@@ -1,9 +1,9 @@
-import { CSSProperties } from "react";
+import { type CSSProperties } from "react";
 
-import { AnimationDelay, resolveDelay } from "@/tokens/delay";
-import { AnimationTimingFunction } from "@/tokens/easing";
-import { AnimationIterations } from "@/tokens/iterations";
-import { PresetKeyframesNames } from "@/tokens/name";
+import { type AnimationDelay, resolveDelay } from "@/tokens/delay";
+import { type AnimationTimingFunction } from "@/tokens/easing";
+import { type AnimationIterations } from "@/tokens/iterations";
+import { type PresetKeyframesNames } from "@/tokens/name";
 import { prefersReducedMotion } from "./reduced-motion";
 
 export function generateStyleFromPreset(

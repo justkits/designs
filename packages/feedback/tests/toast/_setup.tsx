@@ -1,5 +1,5 @@
 import { Toaster } from "@/toast/Toaster";
-import { ToastsComponentProps, ToastObject } from "@/toast/types";
+import { type ToastsComponentProps, type ToastObject } from "@/toast/types";
 
 function TestToastGroup({ toasts }: Readonly<ToastsComponentProps>) {
   const handleDismiss = (toast: ToastObject) => {

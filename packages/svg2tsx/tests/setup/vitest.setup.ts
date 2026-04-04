@@ -1,9 +1,10 @@
 import { vi } from "vitest";
+import type * as FsPromises from "node:fs/promises";
 
 import { mockAssetsDir } from "./mocks";
 
 vi.mock("node:fs/promises", async (importOriginal) => {
-  const original = await importOriginal<typeof import("node:fs/promises")>();
+  const original = await importOriginal<typeof FsPromises>();
   return {
     ...original,
     readFile: vi.fn().mockImplementation((filePath: string) => {

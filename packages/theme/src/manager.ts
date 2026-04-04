@@ -1,4 +1,4 @@
-import { ResolvedTheme, ThemeMode } from "./types";
+import { type ResolvedTheme, type ThemeMode } from "./types";
 
 //#region ==================== 로컬 스토리지 관련 ==================== //
 

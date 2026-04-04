@@ -1,4 +1,4 @@
-import { Config } from "@svgr/core";
+import { type Config } from "@svgr/core";
 import jsxPlugin from "@svgr/plugin-jsx";
 import svgoPlugin from "@svgr/plugin-svgo";
 

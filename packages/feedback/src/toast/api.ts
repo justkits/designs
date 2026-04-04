@@ -1,5 +1,5 @@
 import { addToast, removeToast } from "./state";
-import { ToastObject, ToastType } from "./types";
+import { type ToastObject, type ToastType } from "./types";
 
 function showToast(
   type: ToastType,

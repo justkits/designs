@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
-import { AnimationDuration } from "@/tokens/duration";
+import { type AnimationDuration } from "@/tokens/duration";
 import { useReducedMotion } from "@/utils/reduced-motion";
 import { resolveDuration } from "./lib";
 
