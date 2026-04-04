@@ -1,5 +1,11 @@
 # @justkits/headless-ui
 
+## 0.9.0
+
+### Minor Changes
+
+- [#88](https://github.com/justkits/design-system/pull/88) [`f724999`](https://github.com/justkits/design-system/commit/f7249998c2035f153e32e82f492eef994b533517) Thanks [@justwon0307](https://github.com/justwon0307)! - Release the new Select component!
+
 ## 0.8.1
 
 ### Patch Changes
