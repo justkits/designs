@@ -28,7 +28,7 @@ function showToast(
     return;
   }
 
-  const id = crypto.randomUUID();
+  const id = Date.now().toString(36) + Math.random().toString(36).substring(2);
 
   const dismiss = () => removeToast(id);
 
