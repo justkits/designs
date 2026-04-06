@@ -1,5 +1,11 @@
 # @justkits/design-foundations
 
+## 1.6.1
+
+### Patch Changes
+
+- [#100](https://github.com/justkits/design-system/pull/100) [`2fc0153`](https://github.com/justkits/design-system/commit/2fc0153a6a48ff2e55766d51aa99def8c6d0f555) Thanks [@justwon0307](https://github.com/justwon0307)! - Add notSmall and notLarge breakpoint queries
+
 ## 1.6.0
 
 ### Minor Changes
