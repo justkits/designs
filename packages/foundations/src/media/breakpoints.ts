@@ -9,6 +9,8 @@ export const breakpointQueries = {
     small: `screen and (max-width: ${sm}px)`,
     medium: `screen and (min-width: ${sm + 1}px) and (max-width: ${lg}px)`,
     large: `screen and (min-width: ${lg + 1}px)`,
+    notSmall: `screen and (min-width: ${sm + 1}px)`,
+    notLarge: `screen and (max-width: ${lg}px)`,
   },
   only: {
     mobilePortrait: `screen and (max-width: ${xs}px)`,
