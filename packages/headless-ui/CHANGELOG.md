@@ -1,5 +1,11 @@
 # @justkits/headless-ui
 
+## 0.10.0
+
+### Minor Changes
+
+- [#96](https://github.com/justkits/design-system/pull/96) [`a9f7e58`](https://github.com/justkits/design-system/commit/a9f7e5877b1e49615f0d5719fcb79b5119b0af91) Thanks [@justwon0307](https://github.com/justwon0307)! - Release the new Form component!
+
 ## 0.9.0
 
 ### Minor Changes
