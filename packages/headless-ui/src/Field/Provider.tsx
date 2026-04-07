@@ -2,7 +2,7 @@ import { type ReactNode, useId, useMemo, useState } from "react";
 
 import { FormFieldContext } from "./internals/contexts";
 
-type FieldProps = {
+export type FieldProps = {
   children: ReactNode;
   required?: boolean;
   disabled?: boolean;

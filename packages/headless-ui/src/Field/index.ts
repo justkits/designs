@@ -4,6 +4,8 @@ import { FieldLabel } from "./FieldLabel";
 import { FieldDescription } from "./FieldDescription";
 import { FieldErrorMessage } from "./FieldErrorMessage";
 
+export type { FieldProps } from "./Provider";
+
 export const Field = Object.assign(Provider, {
   Control: FieldControl,
   Label: FieldLabel,

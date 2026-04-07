@@ -17,7 +17,10 @@ export { Popover } from "./Popover";
 export { Toast } from "./Toast";
 export { Tooltip } from "./Tooltip";
 
-export { Form, Field } from "./Form";
+export { Field } from "./Field";
+export type { FieldProps } from "./Field";
+
+export { Form } from "./Form";
 export type { FormProps } from "./Form";
 
 export { Select } from "./Select";
