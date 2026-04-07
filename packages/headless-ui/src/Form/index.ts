@@ -8,6 +8,8 @@ import { Provider } from "./Provider";
 import { FormSubmit } from "./FormSubmit";
 import { FormError } from "./FormError";
 
+export type { FormProps } from "./Provider";
+
 export const Form = Object.assign(Provider, {
   Submit: FormSubmit,
   Error: FormError,

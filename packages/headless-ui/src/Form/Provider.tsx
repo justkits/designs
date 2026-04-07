@@ -1,6 +1,5 @@
 import {
   type FormHTMLAttributes,
-  type ReactNode,
   type SubmitEvent,
   useMemo,
   useRef,
@@ -11,7 +10,6 @@ import { useSubmitOnEnter } from "@/core/keyboard/useSubmitOnEnter";
 import { FormContext } from "./internals/contexts";
 
 export type FormProps = {
-  children: ReactNode;
   onSubmit: (formData?: FormData) => void | Promise<void>;
   disabled?: boolean;
 } & Omit<FormHTMLAttributes<HTMLFormElement>, "onSubmit" | "noValidate">;
