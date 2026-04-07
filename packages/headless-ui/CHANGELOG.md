@@ -1,5 +1,11 @@
 # @justkits/headless-ui
 
+## 0.10.1
+
+### Patch Changes
+
+- [#102](https://github.com/justkits/design-system/pull/102) [`869477b`](https://github.com/justkits/design-system/commit/869477b9572310da8a50bcbcffe90d5a6e7b10bc) Thanks [@justwon0307](https://github.com/justwon0307)! - Export Portal
+
 ## 0.10.0
 
 ### Minor Changes
