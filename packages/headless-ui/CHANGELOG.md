@@ -1,5 +1,11 @@
 # @justkits/headless-ui
 
+## 0.10.2
+
+### Patch Changes
+
+- [#106](https://github.com/justkits/design-system/pull/106) [`af240ab`](https://github.com/justkits/design-system/commit/af240abd68a0f313c6eed652ebbc449f38641b7b) Thanks [@justwon0307](https://github.com/justwon0307)! - Fix bug: remove position: "relative" from alert styles
+
 ## 0.10.1
 
 ### Patch Changes
