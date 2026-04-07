@@ -18,6 +18,7 @@ export { Toast } from "./Toast";
 export { Tooltip } from "./Tooltip";
 
 export { Form, Field } from "./Form";
+export type { FormProps } from "./Form";
 
 export { Select } from "./Select";
 export type { SelectProps } from "./Select";
