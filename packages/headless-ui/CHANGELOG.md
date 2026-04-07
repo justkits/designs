@@ -1,5 +1,11 @@
 # @justkits/headless-ui
 
+## 0.10.3
+
+### Patch Changes
+
+- [#108](https://github.com/justkits/design-system/pull/108) [`5be5e9d`](https://github.com/justkits/design-system/commit/5be5e9d63352767c2a5a8a7e0e025291e759f810) Thanks [@justwon0307](https://github.com/justwon0307)! - Export FormProps type
+
 ## 0.10.2
 
 ### Patch Changes
