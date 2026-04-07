@@ -16,14 +16,26 @@ type AsChildLabelProps = {
 type FieldLabelProps = (NormalLabelProps | AsChildLabelProps) &
   Omit<LabelHTMLAttributes<HTMLLabelElement>, "id" | "htmlFor">;
 
-export function FieldLabel({ asChild = false, children }: FieldLabelProps) {
+export function FieldLabel({
+  asChild = false,
+  children,
+  ...rest
+}: FieldLabelProps) {
   const { controlId } = useField(
     "Field.Label must be used within the Field wrapper.",
   );
 
   if (asChild) {
-    return <AsChild htmlFor={controlId}>{children}</AsChild>;
+    return (
+      <AsChild {...rest} htmlFor={controlId}>
+        {children}
+      </AsChild>
+    );
   }
 
-  return <label htmlFor={controlId}>{children}</label>;
+  return (
+    <label {...rest} htmlFor={controlId}>
+      {children}
+    </label>
+  );
 }
