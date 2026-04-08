@@ -4,8 +4,8 @@
   "type": "module",
   "private": true,
   "exports": {
-    "./next": "./next.js",
-    "./react": "./react.js"
+    "./next": "./next.ts",
+    "./react": "./react.ts"
   },
   "peerDependencies": {
     "eslint": "catalog:"

@@ -3,7 +3,7 @@ import nextVitals from "eslint-config-next/core-web-vitals";
 import nextTs from "eslint-config-next/typescript";
 import reactRefresh from "eslint-plugin-react-refresh";
 
-import { baseEslintConfig } from "./_base.js";
+import { baseEslintConfig } from "./_base";
 
 export const nextEslintConfig = defineConfig([
   {
