@@ -44,11 +44,9 @@
     "typecheck": "tsc --noEmit"
   },
   "peerDependencies": {
-    "react": "^19.0.0"
+    "react": "^19"
   },
   "devDependencies": {
-    "@justkits/tsconfig": "workspace:*",
-    "tsup": "^8.5.1",
-    "typescript": "~5.9.3"
+    "tsup": "^8.5.1"
   }
 }

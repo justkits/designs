@@ -41,10 +41,6 @@
     "typecheck": "tsc --noEmit"
   },
   "peerDependencies": {
-    "react": "^19.0.0"
-  },
-  "devDependencies": {
-    "@justkits/tsconfig": "workspace:*",
-    "typescript": "catalog:"
+    "react": "^19"
   }
 }

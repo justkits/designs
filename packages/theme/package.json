@@ -41,9 +41,5 @@
   },
   "peerDependencies": {
     "react": "^19"
-  },
-  "devDependencies": {
-    "@justkits/tsconfig": "workspace:*",
-    "typescript": "catalog:"
   }
 }

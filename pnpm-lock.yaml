@@ -75,7 +75,7 @@ importers:
         specifier: ^2.9.5
         version: 2.9.5
       typescript:
-        specifier: ~5.9.3
+        specifier: 'catalog:'
         version: 5.9.3
       vitest:
         specifier: ^4.1.2
@@ -141,72 +141,47 @@ importers:
   packages/feedback:
     dependencies:
       react:
-        specifier: ^19.0.0
+        specifier: ^19
         version: 19.2.4
       react-dom:
-        specifier: ^19.0.0
+        specifier: ^19
         version: 19.2.4(react@19.2.4)
     devDependencies:
-      '@justkits/tsconfig':
-        specifier: workspace:*
-        version: link:../../configs/typescript
       tsup:
         specifier: ^8.5.1
         version: 8.5.1(jiti@2.6.1)(postcss@8.5.8)(typescript@5.9.3)(yaml@2.8.3)
-      typescript:
-        specifier: ~5.9.3
-        version: 5.9.3
 
   packages/foundations:
     dependencies:
       react:
-        specifier: ^19.0.0
+        specifier: ^19
         version: 19.2.4
-    devDependencies:
-      '@justkits/tsconfig':
-        specifier: workspace:*
-        version: link:../../configs/typescript
-      typescript:
-        specifier: 'catalog:'
-        version: 5.9.3
 
   packages/headless-ui:
     dependencies:
       react:
-        specifier: ^19.0.0
+        specifier: ^19
         version: 19.2.4
       react-dom:
-        specifier: ^19.0.0
+        specifier: ^19
         version: 19.2.4(react@19.2.4)
     devDependencies:
-      '@justkits/tsconfig':
-        specifier: workspace:*
-        version: link:../../configs/typescript
       '@testing-library/user-event':
         specifier: ^14.6.1
         version: 14.6.1(@testing-library/dom@10.4.1)
       tsup:
         specifier: 'catalog:'
         version: 8.5.1(jiti@2.6.1)(postcss@8.5.8)(typescript@5.9.3)(yaml@2.8.3)
-      typescript:
-        specifier: 'catalog:'
-        version: 5.9.3
 
   packages/motion:
     dependencies:
       react:
-        specifier: ^19.0.0
+        specifier: ^19
         version: 19.2.4
     devDependencies:
-      '@justkits/tsconfig':
-        specifier: workspace:*
-        version: link:../../configs/typescript
       tsup:
         specifier: ^8.5.1
         version: 8.5.1(jiti@2.6.1)(postcss@8.5.8)(typescript@5.9.3)(yaml@2.8.3)
-      typescript:
-        specifier: ~5.9.3
-        version: 5.9.3
 
   packages/svg2tsx:
     dependencies:
@@ -235,28 +210,15 @@ importers:
         specifier: ^7.3.0
         version: 7.3.0
     devDependencies:
-      '@justkits/tsconfig':
-        specifier: workspace:*
-        version: link:../../configs/typescript
       tsup:
         specifier: 'catalog:'
         version: 8.5.1(jiti@2.6.1)(postcss@8.5.8)(typescript@5.9.3)(yaml@2.8.3)
-      typescript:
-        specifier: 'catalog:'
-        version: 5.9.3
 
   packages/theme:
     dependencies:
       react:
         specifier: ^19
         version: 19.2.4
-    devDependencies:
-      '@justkits/tsconfig':
-        specifier: workspace:*
-        version: link:../../configs/typescript
-      typescript:
-        specifier: 'catalog:'
-        version: 5.9.3
 
 packages:
 
