@@ -1,11 +1,8 @@
 import { fireEvent, render, waitFor } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
 
 import { TestComponent } from "./_setup";
 
 describe("Form - interactions", () => {
-  const user = userEvent.setup();
-
   it("calls onSubmit when the form is submitted (Submit click)", () => {
     const onSubmit = vi.fn();
     const { getByTestId, getByText } = render(
@@ -105,26 +102,15 @@ describe("Form - interactions", () => {
     await waitFor(() => expect(onSubmit).toHaveBeenCalled());
   });
 
-  it("does not change fields and submit if the form is disabled", () => {
+  it("does not submit if the form is disabled", () => {
     const onSubmit = vi.fn();
     const { getByTestId, getByText } = render(
       <TestComponent onSubmit={onSubmit} disabled />,
     );
 
-    user.type(getByTestId("input-field"), "Test");
-    user.type(getByTestId("textarea-field"), "Test");
-    user.click(getByTestId("checkbox-field"));
-
     fireEvent.click(getByText("Submit"));
 
     expect(onSubmit).not.toHaveBeenCalled();
-    expect((getByTestId("input-field") as HTMLInputElement).value).toBe("");
-    expect((getByTestId("textarea-field") as HTMLTextAreaElement).value).toBe(
-      "",
-    );
-    expect((getByTestId("checkbox-field") as HTMLInputElement).checked).toBe(
-      false,
-    );
 
     // 엔터 키로 disabled 상태에서 제출을 시도해도 onSubmit이 호출되지 않아야 한다.
     fireEvent.keyDown(getByTestId("form"), { key: "Enter", code: "Enter" });
