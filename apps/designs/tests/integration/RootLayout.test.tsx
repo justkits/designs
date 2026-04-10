@@ -1,8 +1,11 @@
-import { fireEvent, render } from "@testing-library/react";
+import { render } from "@testing-library/react";
 
 import { RootLayout } from "@app/root";
+import { rootLayoutSetup } from "../_setup";
 
 describe("RootLayout", () => {
+  rootLayoutSetup();
+
   it("renders header, main and footer correctly", () => {
     const { getByRole, getByText } = render(
       <RootLayout>
@@ -35,7 +38,7 @@ describe("RootLayout", () => {
       </RootLayout>,
     );
 
-    fireEvent.click(getByTestId("home-link"));
+    expect(getByTestId("home-link").getAttribute("href")).toBe("/"); // 로고 클릭 시 홈으로 이동해야 함
   });
 
   it("handles link clicks correctly", () => {
@@ -45,6 +48,6 @@ describe("RootLayout", () => {
       </RootLayout>,
     );
 
-    fireEvent.click(getByText("Primitives"));
+    expect(getByText("Primitives").getAttribute("href")).toBe("/primitives"); // Primitives 링크가 올바른 href를 가지고 있어야 함
   });
 });

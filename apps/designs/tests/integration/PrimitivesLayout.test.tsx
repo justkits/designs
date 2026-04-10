@@ -2,8 +2,11 @@ import { fireEvent, render } from "@testing-library/react";
 
 import { PrimitivesLayout } from "@app/primitives";
 import { RootLayout } from "@app/root";
+import { rootLayoutSetup } from "../_setup";
 
 describe("PrimitivesLayout", () => {
+  rootLayoutSetup();
+
   // Sidebar가 렌더링 되려면, RootLayout으로 감싸야한다.
   it("renders sidebar and contents (children) correctly", () => {
     const { getByTestId, getByText } = render(

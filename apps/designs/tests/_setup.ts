@@ -1,13 +1,19 @@
-export function setupConsoleSpy(env: string) {
-  const warnSpy = vi.spyOn(console, "warn").mockImplementation(() => {});
-  const errorSpy = vi.spyOn(console, "error").mockImplementation(() => {});
-
-  beforeAll(() => vi.stubEnv("NODE_ENV", env));
-  afterEach(() => {
-    warnSpy.mockClear();
-    errorSpy.mockClear();
+export function rootLayoutSetup() {
+  const originalError = console.error;
+  // RootLayout이 html을 반환해서 발생하는 경고 무시
+  beforeAll(() => {
+    console.error = (...args: Parameters<typeof console.error>) => {
+      if (
+        typeof args[0] === "string" &&
+        args[0].includes("cannot be a child of")
+      ) {
+        return;
+      }
+      originalError.call(console, ...args);
+    };
   });
-  afterAll(() => vi.unstubAllEnvs());
 
-  return { warnSpy, errorSpy };
+  afterAll(() => {
+    console.error = originalError;
+  });
 }
