@@ -4,6 +4,10 @@
   "type": "module",
   "private": true,
   "exports": {
+    "./next": "./next.ts",
     "./shared": "./shared.js"
+  },
+  "devDependencies": {
+    "@vanilla-extract/vite-plugin": "^5.2.2"
   }
 }
