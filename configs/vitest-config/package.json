@@ -4,12 +4,8 @@
   "type": "module",
   "private": true,
   "exports": {
-    "./next": "./next.ts",
-    "./shared": {
-      "require": "./shared.cjs",
-      "import": "./shared.mjs",
-      "default": "./shared.mjs"
-    }
+    "./next": "./next.js",
+    "./shared": "./shared.js"
   },
   "devDependencies": {
     "@vanilla-extract/vite-plugin": "^5.2.2",
