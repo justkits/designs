@@ -1,0 +1,29 @@
+{
+  "name": "@justkits/toast",
+  "description": "JustKits Design Primitives - Toast",
+  "version": "0.0.0",
+  "private": false,
+  "type": "module",
+  "keywords": [
+    "toast",
+    "notification",
+    "feedback",
+    "imperative-ui",
+    "react",
+    "typescript"
+  ],
+  "author": "JustWon",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/justkits/designs.git",
+    "directory": "primitives/toast"
+  },
+  "license": "UNLICENSED",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "restricted",
+    "registry": "https://npm.pkg.github.com/"
+  }
+}
