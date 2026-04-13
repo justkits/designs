@@ -1,6 +1,5 @@
 import { type ReactNode } from "react";
 
-import { Sidebar } from "@entities/sidebar";
 import { styles } from "./styles.css";
 
 type Props = {
@@ -8,10 +7,5 @@ type Props = {
 };
 
 export function PrimitivesLayout({ children }: Readonly<Props>) {
-  return (
-    <div className={styles.page}>
-      <Sidebar />
-      {children}
-    </div>
-  );
+  return <div className={styles.page}>{children}</div>;
 }
