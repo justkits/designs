@@ -1,0 +1,29 @@
+{
+  "name": "@justkits/alert",
+  "description": "JustKits Design Primitives - Alert",
+  "version": "0.0.0",
+  "private": false,
+  "type": "module",
+  "keywords": [
+    "alert",
+    "notification",
+    "feedback",
+    "imperative-ui",
+    "react",
+    "typescript"
+  ],
+  "author": "JustWon",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/justkits/designs.git",
+    "directory": "primitives/alert"
+  },
+  "license": "UNLICENSED",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "restricted",
+    "registry": "https://npm.pkg.github.com/"
+  }
+}

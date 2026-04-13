@@ -1,0 +1,27 @@
+{
+  "name": "@justkits/svg2tsx",
+  "description": "JustKits Design Primitives - svg2tsx (icon transformer)",
+  "version": "0.0.0",
+  "private": false,
+  "keywords": [
+    "svg",
+    "tsx",
+    "icons",
+    "react",
+    "typescript"
+  ],
+  "author": "JustWon",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/justkits/designs.git",
+    "directory": "primitives/svg2tsx"
+  },
+  "license": "UNLICENSED",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "restricted",
+    "registry": "https://npm.pkg.github.com/"
+  }
+}

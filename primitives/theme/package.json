@@ -1,0 +1,27 @@
+{
+  "name": "@justkits/theme",
+  "description": "JustKits Design Primitives - Theme",
+  "version": "0.0.0",
+  "private": false,
+  "type": "module",
+  "keywords": [
+    "theme",
+    "design",
+    "react",
+    "typescript"
+  ],
+  "author": "JustWon",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/justkits/designs.git",
+    "directory": "primitives/theme"
+  },
+  "license": "UNLICENSED",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "restricted",
+    "registry": "https://npm.pkg.github.com/"
+  }
+}

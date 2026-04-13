@@ -1,0 +1,29 @@
+{
+  "name": "@justkits/design-foundations",
+  "description": "JustKits Design Primitives - Design Foundations",
+  "version": "0.0.0",
+  "private": false,
+  "type": "module",
+  "keywords": [
+    "cli",
+    "design",
+    "tokens",
+    "reset-css",
+    "react",
+    "typescript"
+  ],
+  "author": "JustWon",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/justkits/designs.git",
+    "directory": "primitives/foundations"
+  },
+  "license": "UNLICENSED",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "restricted",
+    "registry": "https://npm.pkg.github.com/"
+  }
+}
