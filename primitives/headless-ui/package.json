@@ -1,0 +1,27 @@
+{
+  "name": "@justkits/headless-ui",
+  "description": "JustKits Design Primitives - Headless UI",
+  "version": "0.0.0",
+  "private": false,
+  "type": "module",
+  "keywords": [
+    "headless-ui",
+    "components",
+    "react",
+    "typescript"
+  ],
+  "author": "JustWon",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/justkits/designs.git",
+    "directory": "primitives/headless-ui"
+  },
+  "license": "UNLICENSED",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "restricted",
+    "registry": "https://npm.pkg.github.com/"
+  }
+}
