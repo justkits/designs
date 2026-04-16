@@ -14,12 +14,26 @@ export const baseEslintConfig = defineConfig([
     "**/build/**",
     "**/coverage/**",
   ]),
-  // JS/TS
+  // JS
   {
-    files: ["**/*.{js,mjs,cjs,ts,mts,cts}"],
-    extends: [js.configs.recommended, tseslint.configs.recommended],
+    files: ["**/*.{js,mjs,cjs}"],
+    extends: [js.configs.recommended],
     languageOptions: {
       globals: globals.node,
+    },
+  },
+  // TS
+  {
+    files: ["**/*.{ts,mts,cts}"],
+    extends: [tseslint.configs.recommended],
+    languageOptions: {
+      globals: globals.node,
+    },
+    rules: {
+      "@typescript-eslint/consistent-type-imports": [
+        "error",
+        { prefer: "type-imports", fixStyle: "inline-type-imports" },
+      ],
     },
   },
   // JSON

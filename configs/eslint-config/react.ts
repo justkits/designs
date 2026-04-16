@@ -22,24 +22,12 @@ export const reactPackageEslintConfig = defineConfig([
     languageOptions: {
       globals: globals.browser,
     },
-    rules: {
-      "@typescript-eslint/consistent-type-imports": [
-        "error",
-        { prefer: "type-imports", fixStyle: "inline-type-imports" },
-      ],
-    },
   },
   {
     files: ["**/tests/**/*.{ts,tsx}"],
     extends: [js.configs.recommended, tseslint.configs.recommended],
     languageOptions: {
       globals: globals.browser,
-    },
-    rules: {
-      "@typescript-eslint/consistent-type-imports": [
-        "error",
-        { prefer: "type-imports", fixStyle: "inline-type-imports" },
-      ],
     },
   },
 ]);
