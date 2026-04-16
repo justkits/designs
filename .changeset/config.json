@@ -10,5 +10,10 @@
   "access": "restricted",
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
-  "ignore": ["@justkits/designs"]
+  "ignore": [
+    "@justkits/designs",
+    "@justkits/tsconfig",
+    "@justkits/eslint-config",
+    "@justkits/vitest-config"
+  ]
 }
