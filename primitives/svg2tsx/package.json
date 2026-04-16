@@ -1,7 +1,7 @@
 {
   "name": "@justkits/svg2tsx",
   "description": "JustKits Design Primitives - svg2tsx (icon transformer)",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": false,
   "keywords": [
     "svg",
