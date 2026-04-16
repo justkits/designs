@@ -31,7 +31,9 @@ export class Family {
     // facade 파일과 iconMap 파일은 facade 모드이거나 both 모드일 때 생성
     if (this.shouldWriteFacade) {
       this.facadeComponentName =
-        kebabToPascal(name) + ConfigManager.config.suffix;
+        name === ""
+          ? ConfigManager.config.facadeSuffix
+          : kebabToPascal(name) + ConfigManager.config.facadeSuffix;
       this.iconMapFile = new IconMapFile(name);
       this.facadeFile = new FacadeComponentFile(
         this.name,
