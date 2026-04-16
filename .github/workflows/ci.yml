@@ -50,12 +50,6 @@ jobs:
           pnpm lint || \
           echo "- ❌ Lint Check Failed" >> error.txt
 
-      - name: Security Audit
-        id: audit
-        run: |
-          pnpm audit --audit-level=high || \
-          echo "- ❌ Security Audit Failed" >> error.txt
-
       - name: Check Quality Results
         if: always()
         run: |

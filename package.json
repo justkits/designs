@@ -33,7 +33,7 @@
     "prettier": "^3.8.1",
     "tsdown": "^0.21.7",
     "turbo": "^2.9.5",
-    "typescript": "5.9.3",
+    "typescript": "6.0.2",
     "vitest": "^4.1.4"
   },
   "lint-staged": {
