@@ -1,7 +1,5 @@
 {
-  "compilerOptions": {
-    "types": ["node"]
-  },
-  "include": ["*.ts", "*.tsx"],
+  "extends": "@justkits/tsconfig/base.json",
+  "include": ["**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules", "dist"]
 }

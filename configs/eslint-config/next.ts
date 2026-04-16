@@ -3,23 +3,14 @@ import nextVitals from "eslint-config-next/core-web-vitals";
 import nextTs from "eslint-config-next/typescript";
 import reactRefresh from "eslint-plugin-react-refresh";
 
-import { baseEslintConfig } from "./_base";
+import { reactPackageEslintConfig } from "./react";
 
 export const nextEslintConfig = defineConfig([
   {
-    extends: [baseEslintConfig, reactRefresh.configs.next],
+    extends: [reactPackageEslintConfig, reactRefresh.configs.next],
   },
   ...nextVitals,
   ...nextTs,
-  {
-    files: ["**/src/**/*.{ts,tsx}"],
-    rules: {
-      "@typescript-eslint/consistent-type-imports": [
-        "error",
-        { prefer: "type-imports", fixStyle: "inline-type-imports" },
-      ],
-    },
-  },
   // Override default ignores of eslint-config-next.
   globalIgnores([
     // Default ignores of eslint-config-next:
