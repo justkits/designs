@@ -12,7 +12,6 @@ export class FacadeComponentFile extends FileToWrite {
     );
 
     const content = [
-      `import React from "react";`,
       `import type { IconProps } from "@justkits/svg2tsx";`,
       "",
       `import { iconMap, type IconName } from "./iconMap";`,

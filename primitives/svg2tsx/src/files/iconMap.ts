@@ -41,9 +41,9 @@ export class IconMapFile extends FileToWrite {
     const fullContent = [
       ...this.lines,
       "",
-      ...(this.iconNameTypeLines.join("\n") + ";"),
+      this.iconNameTypeLines.join("\n") + ";",
       "",
-      ...(this.iconMapRecordLines.join("\n") + "};"),
+      this.iconMapRecordLines.join("\n") + "};",
     ];
     this.content = fullContent.join("\n");
   }
