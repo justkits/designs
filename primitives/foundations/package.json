@@ -5,13 +5,20 @@
   "private": false,
   "type": "module",
   "keywords": [
-    "cli",
     "design",
     "tokens",
     "reset-css",
+    "foundations",
     "react",
     "typescript"
   ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    },
+    "./reset.css": "./dist/reset.css"
+  },
   "author": "JustWon",
   "repository": {
     "type": "git",
@@ -25,5 +32,15 @@
   "publishConfig": {
     "access": "restricted",
     "registry": "https://npm.pkg.github.com/"
+  },
+  "scripts": {
+    "prebuild": "rm -rf dist",
+    "build": "tsdown",
+    "dev": "tsdown --watch",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "react": "^19"
   }
 }
