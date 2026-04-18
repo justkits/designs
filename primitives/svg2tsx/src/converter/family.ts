@@ -32,7 +32,7 @@ export class Family {
     if (this.shouldWriteFacade) {
       this.facadeComponentName =
         name === ""
-          ? ConfigManager.config.facadeSuffix
+          ? ConfigManager.config.facadeName
           : kebabToPascal(name) + ConfigManager.config.facadeSuffix;
       this.iconMapFile = new IconMapFile(name);
       this.facadeFile = new FacadeComponentFile(
