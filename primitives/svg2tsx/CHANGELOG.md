@@ -1,5 +1,11 @@
 # @justkits/svg2tsx
 
+## 0.0.2
+
+### Patch Changes
+
+- [#129](https://github.com/justkits/designs/pull/129) [`d6a0a74`](https://github.com/justkits/designs/commit/d6a0a74a6b7af7f6cadba091ba66f86435b61560) Thanks [@justwon0307](https://github.com/justwon0307)! - Add facadeName option for flat directory facade component
+
 ## 0.0.1
 
 ### Patch Changes
