@@ -13,7 +13,7 @@
   "author": "JustWon",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/justkits/designs.git",
+    "url": "git+https://github.com/justkits/justkits.git",
     "directory": "primitives/theme"
   },
   "license": "UNLICENSED",
