@@ -141,17 +141,17 @@ importers:
         specifier: ^29.0.2
         version: 29.0.2
 
-  primitives/alert: {}
+  design/primitives/alert: {}
 
-  primitives/foundations:
+  design/primitives/foundations:
     dependencies:
       react:
         specifier: ^19
         version: 19.2.4
 
-  primitives/headless-ui: {}
+  design/primitives/headless-ui: {}
 
-  primitives/svg2tsx:
+  design/primitives/svg2tsx:
     dependencies:
       jiti:
         specifier: ^2.6.1
@@ -179,9 +179,9 @@ importers:
         specifier: ^7.3.0
         version: 7.3.0
 
-  primitives/theme: {}
+  design/primitives/theme: {}
 
-  primitives/toast: {}
+  design/primitives/toast: {}
 
 packages:
 

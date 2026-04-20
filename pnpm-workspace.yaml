@@ -1,8 +1,8 @@
 packages:
   - apps/*
   - configs/*
-  - design-system/*
-  - primitives/*
+  - design/primitives/*
+  - design/system/*
 
 ignoredBuiltDependencies:
   - sharp
