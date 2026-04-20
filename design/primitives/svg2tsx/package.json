@@ -14,7 +14,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/justkits/justkits.git",
-    "directory": "primitives/svg2tsx"
+    "directory": "design/primitives/svg2tsx"
   },
   "license": "UNLICENSED",
   "files": [
