@@ -23,8 +23,6 @@ jobs:
 
       - name: Setup Project
         uses: ./.github/actions/prepare
-        env:
-          NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create Release Pull Request or Publish
         id: changesets
