@@ -36,7 +36,24 @@
   },
   "scripts": {
     "prebuild": "rm -rf dist",
+    "build": "tsdown",
     "dev": "tsdown --watch",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "chokidar": "^5.0.0",
+    "gray-matter": "^4.0.3"
+  },
+  "peerDependencies": {
+    "next": "^16",
+    "react": "^19",
+    "react-dom": "^19"
+  },
+  "lint-staged": {
+    "*": [
+      "eslint",
+      "prettier --check"
+    ]
   }
 }
