@@ -5,7 +5,8 @@ import { sharedConfig } from "@justkits/vitest-config/shared";
 const config = defineProject({
   test: {
     root: __dirname,
-    environment: "jsdom",
+    environment: "node",
+    setupFiles: ["tests/mocks.ts"],
   },
 });
 
