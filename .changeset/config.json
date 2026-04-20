@@ -11,7 +11,7 @@
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
   "ignore": [
-    "@justkits/designs",
+    "@justkits/home",
     "@justkits/tsconfig",
     "@justkits/eslint-config",
     "@justkits/vitest-config"
