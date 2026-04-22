@@ -18,11 +18,15 @@ export interface TypographyTokens {
 
   fontWeight: {
     regular: string;
-    medium: string;
     semibold: string;
     bold: string;
   };
-  fontFamily: Record<string, string>;
+  fontFamily: {
+    brand: string;
+    normal: string;
+    code: string;
+    quote: string;
+  };
 }
 
 export interface TextTokens {

@@ -14,6 +14,7 @@ export interface ColorTokens {
   info: string;
   // Background colors
   background: string;
+  backgroundHover: string;
   surface: string;
   overlay: string;
   // Text colors

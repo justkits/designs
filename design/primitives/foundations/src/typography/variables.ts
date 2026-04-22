@@ -45,7 +45,6 @@ export const typographyVariables: TypographyTokens = {
   },
   fontWeight: {
     regular: "font-weight-regular",
-    medium: "font-weight-medium",
     semibold: "font-weight-semibold",
     bold: "font-weight-bold",
   },
@@ -76,7 +75,6 @@ export const typographyCSSVariables: TypographyTokens = {
   },
   fontWeight: {
     regular: "var(--font-weight-regular)",
-    medium: "var(--font-weight-medium)",
     semibold: "var(--font-weight-semibold)",
     bold: "var(--font-weight-bold)",
   },
