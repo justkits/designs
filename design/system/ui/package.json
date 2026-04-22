@@ -1,0 +1,8 @@
+{
+  "name": "@justkits/ui",
+  "type": "module",
+  "peerDependencies": {
+    "react": "^19",
+    "react-dom": "^19"
+  }
+}
