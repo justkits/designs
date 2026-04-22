@@ -12,7 +12,7 @@ export default defineConfig({
       exclude: [
         "**/index.ts",
         "**/cli.ts",
-        "**/vanilla-reset.css.ts",
+        "**/*.css.ts",
         "**/scanner/watch.ts",
         "**/*/tests/*",
         "**/dist/*",
