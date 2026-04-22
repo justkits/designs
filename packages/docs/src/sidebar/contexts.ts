@@ -19,6 +19,7 @@ export function useSidebar() {
 }
 
 type InternalContextValue = {
+  isMounted: boolean;
   mountSidebar: () => void;
   unmountSidebar: () => void;
 };

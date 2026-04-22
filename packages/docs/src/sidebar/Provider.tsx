@@ -7,12 +7,13 @@ type SidebarProps = {
 };
 
 export function SidebarProvider({ children }: Readonly<SidebarProps>) {
-  const [isExpanded, setIsExpanded] = useState<boolean>(true);
-  const isMounted = useRef<boolean>(false);
+  const [isExpanded, setIsExpanded] = useState<boolean>(false);
+  const [isMounted, setIsMounted] = useState<boolean>(false);
+  const isMountedRef = useRef<boolean>(false);
   const contentId = useId();
 
   const mountSidebar = useCallback(() => {
-    if (isMounted.current) {
+    if (isMountedRef.current) {
       if (process.env.NODE_ENV !== "production") {
         console.warn(
           "Multiple sidebars detected. Please ensure only one sidebar is mounted at a time.",
@@ -20,17 +21,19 @@ export function SidebarProvider({ children }: Readonly<SidebarProps>) {
       }
       return;
     }
-    isMounted.current = true;
+    isMountedRef.current = true;
+    setIsMounted(true);
     setIsExpanded(true);
   }, []);
 
   const unmountSidebar = useCallback(() => {
-    isMounted.current = false;
+    isMountedRef.current = false;
+    setIsMounted(false);
     setIsExpanded(false);
   }, []);
 
   const toggleSidebar = useCallback(() => {
-    if (!isMounted.current) {
+    if (!isMountedRef.current) {
       if (process.env.NODE_ENV !== "production") {
         console.warn(
           "Sidebar is not mounted. Please mount the Sidebar before toggling.",
@@ -44,19 +47,20 @@ export function SidebarProvider({ children }: Readonly<SidebarProps>) {
 
   const contextValue = useMemo(
     () => ({
-      isExpanded,
+      isExpanded: isExpanded && isMounted,
       toggleSidebar,
       contentId,
     }),
-    [isExpanded, toggleSidebar, contentId],
+    [isExpanded, isMounted, toggleSidebar, contentId],
   );
 
   const internalValue = useMemo(
     () => ({
+      isMounted,
       mountSidebar,
       unmountSidebar,
     }),
-    [mountSidebar, unmountSidebar],
+    [isMounted, mountSidebar, unmountSidebar],
   );
 
   return (
