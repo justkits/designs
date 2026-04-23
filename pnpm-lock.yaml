@@ -189,6 +189,8 @@ importers:
         specifier: ^7.3.0
         version: 7.3.0
 
+  design/primitives/theme: {}
+
   design/primitives/toast: {}
 
   design/system/ui:
