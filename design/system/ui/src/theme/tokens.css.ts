@@ -1,13 +1,15 @@
 import { createGlobalThemeContract } from "@vanilla-extract/css";
-import { createSimpleBreakpointQueries } from "@justkits/design-foundations/queries";
+import { createSimpleBreakpointQueries } from "@justkits/design-foundations/breakpoints";
+import { colorVariables } from "@justkits/design-foundations/colors";
+import { elevationVariables } from "@justkits/design-foundations/elevation";
+import { radiusVariables } from "@justkits/design-foundations/radius";
+import { spacingVariables } from "@justkits/design-foundations/spacing";
 import {
-  colorVariables,
-  elevationVariables,
-  radiusVariables,
-  spacingVariables,
   textVariables,
   typographyVariables,
-} from "@justkits/design-foundations/tokens";
+} from "@justkits/design-foundations/typography";
+
+export { colorWithOpacity } from "@justkits/design-foundations/colors";
 
 export const tokens = createGlobalThemeContract({
   colors: { ...colorVariables },
@@ -25,5 +27,3 @@ export const media = {
   }),
   hoverable: "(hover: hover) and (pointer: fine)",
 };
-
-export { colorWithOpacity } from "@justkits/design-foundations/utils";

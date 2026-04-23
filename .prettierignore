@@ -1,7 +1,8 @@
-node_modules/*
-dist/*
-build/*
-coverage/*
+**/node_modules/*
+**/dist/*
+**/build/*
+**/coverage/*
+**/.next/*
 
 pnpm-lock.yaml
 pnpm-workspace.yaml

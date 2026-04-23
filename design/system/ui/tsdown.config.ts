@@ -13,28 +13,26 @@ export default defineConfig([
     },
   },
   {
+    entry: ["src/Provider.tsx"],
+    plugins: [vanillaExtractPlugin()],
+    format: ["esm"],
+    dts: true,
+    clean: false,
+    deps: {
+      onlyBundle: false,
+    },
+    banner: "'use client';\nimport './styles.css';",
+    css: {
+      fileName: "styles.css",
+    },
+  },
+  {
     entry: ["src/theme/tokens.css.ts"],
     format: ["esm"],
     dts: true,
     clean: false,
     deps: {
       neverBundle: ["@vanilla-extract/css"],
-    },
-  },
-  {
-    entry: ["src/styles.css.ts"],
-    plugins: [
-      vanillaExtractPlugin({
-        extract: {
-          name: "styles.css",
-          sourcemap: false,
-        },
-      }),
-    ],
-    format: ["esm"],
-    clean: false,
-    outputOptions: {
-      assetFileNames: "styles.css",
     },
   },
 ]);
