@@ -1,9 +1,9 @@
+import type { ColorTokens } from "@justkits/design-foundations/colors";
+import type { ElevationTokens } from "@justkits/design-foundations/elevation";
 import type {
-  ColorTokens,
-  ElevationTokens,
   TextTokens,
   TypographyTokens,
-} from "@justkits/design-foundations/tokens";
+} from "@justkits/design-foundations/typography";
 
 // #region colors
 const baseColors = {
