@@ -1,7 +1,7 @@
 import { render } from "@testing-library/react";
 
-import { AppIcon } from "@/icons";
-import { iconMap, IconName } from "@/icons/iconMap";
+import { AppIcon } from "@/atoms/Icons";
+import { iconMap, IconName } from "@/atoms/Icons/iconMap";
 
 vi.unmock("@/icons");
 

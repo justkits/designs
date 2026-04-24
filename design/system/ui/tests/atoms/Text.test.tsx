@@ -1,6 +1,6 @@
 import { render } from "@testing-library/react";
 
-import { Text } from "@/components/Texts";
+import { Text } from "@/atoms/Texts";
 
 describe("Text", () => {
   it("renders the text with the correct content", () => {
