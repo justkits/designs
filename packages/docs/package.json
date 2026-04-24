@@ -1,7 +1,7 @@
 {
   "name": "@justkits/docs",
   "description": "JustKits Docs - Automated Sidebar Generation for Documentation Websites",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "private": false,
   "type": "module",
   "keywords": [

@@ -1,5 +1,11 @@
 # @justkits/docs
 
+## 0.0.3
+
+### Patch Changes
+
+- [#152](https://github.com/justkits/justkits/pull/152) [`cf759d2`](https://github.com/justkits/justkits/commit/cf759d223b3a98c017f8593e24ff7ac9e3192a3a) Thanks [@justwon0307](https://github.com/justwon0307)! - Bugfix: Fix handling of NextJS dev/prod modes for correctly running the watch mode.
+
 ## 0.0.2
 
 ### Patch Changes
