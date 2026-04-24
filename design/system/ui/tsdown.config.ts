@@ -3,7 +3,7 @@ import { vanillaExtractPlugin } from "@vanilla-extract/rollup-plugin";
 
 export default defineConfig([
   {
-    entry: ["src/components/*/index.ts", "src/icons/index.ts"],
+    entry: ["src/atoms/*/index.ts", "src/components/*/index.ts"],
     plugins: [vanillaExtractPlugin()],
     format: ["esm"],
     dts: true,

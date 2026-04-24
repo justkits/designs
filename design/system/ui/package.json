@@ -17,9 +17,17 @@
       "types": "./dist/Provider.d.mts",
       "default": "./dist/Provider.mjs"
     },
+    "./Buttons": {
+      "types": "./dist/atoms/Buttons/index.d.mts",
+      "default": "./dist/atoms/Buttons/index.mjs"
+    },
     "./Icons": {
-      "types": "./dist/icons/index.d.mts",
-      "default": "./dist/icons/index.mjs"
+      "types": "./dist/atoms/Icons/index.d.mts",
+      "default": "./dist/atoms/Icons/index.mjs"
+    },
+    "./Texts": {
+      "types": "./dist/atoms/Texts/index.d.mts",
+      "default": "./dist/atoms/Texts/index.mjs"
     },
     "./*": {
       "types": "./dist/components/*/index.d.mts",
@@ -36,7 +44,7 @@
     "dev": "tsdown --watch",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
-    "icons": "svg2tsx && prettier --write ./src/icons/ --log-level silent"
+    "icons": "svg2tsx && prettier --write ./src/atoms/Icons/ --log-level silent"
   },
   "devDependencies": {
     "@justkits/design-foundations": "workspace:*",
