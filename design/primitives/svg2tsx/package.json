@@ -37,7 +37,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "jiti": "^2.6.1"
+    "jiti": "^2.7.0"
   },
   "devDependencies": {
     "@svgr/core": "^8.1.0",

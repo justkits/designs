@@ -10,7 +10,8 @@ catalog:
   "@vanilla-extract/recipes": "0.5.7"
   "@vanilla-extract/rollup-plugin": "1.5.3"
   clsx: "2.1.1"
-
-ignoredBuiltDependencies:
-  - sharp
-  - unrs-resolver
+allowBuilds:
+  '@swc/core': true
+  esbuild: true
+  sharp: false
+  unrs-resolver: false
