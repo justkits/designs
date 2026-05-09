@@ -36,6 +36,10 @@
     "./tokens.css": {
       "types": "./dist/tokens.css.d.mts",
       "default": "./dist/tokens.css.mjs"
+    },
+    "./utils": {
+      "types": "./dist/utils.d.mts",
+      "default": "./dist/utils.mjs"
     }
   },
   "scripts": {
@@ -51,6 +55,7 @@
     "@justkits/headless-ui": "workspace:*",
     "@justkits/svg2tsx": "workspace:*",
     "@vanilla-extract/css": "catalog:",
+    "@vanilla-extract/dynamic": "^2.1.5",
     "@vanilla-extract/recipes": "catalog:",
     "@vanilla-extract/rollup-plugin": "catalog:",
     "clsx": "catalog:"
