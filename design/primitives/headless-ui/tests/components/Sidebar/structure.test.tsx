@@ -35,6 +35,22 @@ describe("Sidebar - structure", () => {
     });
   });
 
+  describe("Sidebar.Nav", () => {
+    it("must be used inside Sidebar.Content", () => {
+      expect(() => render(<Sidebar.Nav>네비게이션</Sidebar.Nav>)).toThrow(
+        "Sidebar.Nav must be used inside Sidebar.Content.",
+      );
+    });
+  });
+
+  describe("Sidebar.Link", () => {
+    it("must be used inside Sidebar.Nav", () => {
+      expect(() => render(<Sidebar.Link href="#">링크</Sidebar.Link>)).toThrow(
+        "Sidebar.Link must be used inside Sidebar.Nav.",
+      );
+    });
+  });
+
   describe("Sidebar.Toggle", () => {
     it("must be used inside the Sidebar wrapper", () => {
       expect(() => render(<Sidebar.Toggle>토글</Sidebar.Toggle>)).toThrow(

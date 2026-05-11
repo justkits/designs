@@ -5,7 +5,9 @@ export function TestSidebar({ children, ...rest }: Readonly<SidebarProps>) {
     <Sidebar {...rest}>
       <Sidebar.Toggle>Toggle</Sidebar.Toggle>
       <Sidebar.Content data-testid="sidebar-content">
-        {children}
+        <div>Sidebar Header</div>
+        <Sidebar.Nav>{children}</Sidebar.Nav>
+        <div>Sidebar Footer</div>
       </Sidebar.Content>
     </Sidebar>
   );
