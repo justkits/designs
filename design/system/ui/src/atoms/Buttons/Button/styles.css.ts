@@ -35,7 +35,7 @@ const button = recipe({
     variant: {
       primary: {
         flex: 1,
-        height: "36px",
+        padding: `${tokens.spacing.lg} 0`,
         font: tokens.font.bodyLarge,
         backgroundColor: tokens.colors.primary,
         color: tokens.colors.onPrimary,
@@ -47,7 +47,7 @@ const button = recipe({
       },
       subtle: {
         flex: 1,
-        height: "36px",
+        padding: `${tokens.spacing.lg} 0`,
         font: tokens.font.bodyLarge,
         backgroundColor: tokens.colors.surface,
         color: tokens.colors.textMuted,
@@ -63,12 +63,6 @@ const button = recipe({
             border: `1px solid ${tokens.colors.borderMuted}`,
           },
         },
-      },
-      transparent: {
-        padding: tokens.spacing.sm,
-        font: tokens.font.bodyMedium,
-        backgroundColor: "transparent",
-        color: tokens.colors.primary,
       },
     },
   },
