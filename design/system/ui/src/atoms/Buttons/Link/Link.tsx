@@ -7,25 +7,19 @@ import { clsx } from "clsx";
 import { styles } from "./styles.css";
 
 export type LinkProps = HeadlessProps & {
-  variant?: "text" | "icon" | "tab";
+  variant?: "text" | "icon";
 };
 
 export function Link({
   children,
-  variant = "text",
   className,
-  active = false,
+  variant = "text",
   ...rest
 }: Readonly<LinkProps>) {
   return (
     <HeadlessLink
       {...rest}
-      className={clsx(
-        variant === "text" && styles.textLink,
-        variant === "tab" && styles.tabLink({ active }),
-        variant === "icon" && styles.iconLink,
-        className,
-      )}
+      className={clsx(styles.link({ variant }), className)}
     >
       {children}
     </HeadlessLink>

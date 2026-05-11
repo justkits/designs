@@ -1,7 +1,8 @@
 import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
-import { media, tokens } from "@/theme/tokens.css";
+import { tokens } from "@/tokens.css";
+import { media } from "@/utils";
 
 const button = recipe({
   base: {

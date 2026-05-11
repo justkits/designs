@@ -27,7 +27,7 @@ export default defineConfig([
     },
   },
   {
-    entry: ["src/theme/tokens.css.ts"],
+    entry: ["src/tokens.css.ts", "src/utils.ts"],
     format: ["esm"],
     dts: true,
     clean: false,

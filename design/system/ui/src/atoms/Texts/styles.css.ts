@@ -1,9 +1,8 @@
 import { recipe } from "@vanilla-extract/recipes";
 
-import { tokens } from "@/theme/tokens.css";
+import { tokens } from "@/tokens.css";
 
 const text = recipe({
-  base: {},
   variants: {
     variant: {
       hero: { font: tokens.font.hero, color: tokens.colors.primary },

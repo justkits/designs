@@ -1,5 +1,6 @@
-import { tokens } from "@/theme/tokens.css";
 import { style } from "@vanilla-extract/css";
+
+import { tokens } from "@/tokens.css";
 
 const badge = style({
   display: "inline-block",
