@@ -1,6 +1,7 @@
 import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
-import { colorWithOpacity, media, tokens } from "@justkits/ui/tokens.css";
+import { tokens } from "@justkits/ui/tokens.css";
+import { colorWithOpacity, media } from "@justkits/ui/utils";
 
 import { HEADER_HEIGHT, SIDEBAR_WIDTH } from "../styles.css";
 

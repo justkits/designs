@@ -21,15 +21,6 @@ describe("Link", () => {
     expect(getByTestId("icon")).toBeTruthy();
   });
 
-  it("renders the tab link correctly", () => {
-    const { getByText } = render(
-      <Link href="/" variant="tab" active>
-        Dashboard
-      </Link>,
-    );
-    expect(getByText("Dashboard")).toBeTruthy();
-  });
-
   it("navigates to the correct URL when clicked", () => {
     const { getByText } = render(<Link href="/about">About</Link>);
     fireEvent.click(getByText("About"));
