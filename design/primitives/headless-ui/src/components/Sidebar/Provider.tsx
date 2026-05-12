@@ -20,7 +20,7 @@ export function SidebarProvider({
     isOpen: isExpanded,
     show: expand,
     hide: collapse,
-  } = useOpenState(controlledExpanded, onExpandedChange, false);
+  } = useOpenState(controlledExpanded, onExpandedChange, true);
   const contentId = useId();
 
   const toggleSidebar = useCallback(() => {

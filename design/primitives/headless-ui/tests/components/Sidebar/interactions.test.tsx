@@ -14,16 +14,16 @@ describe("Sidebar - interactions", () => {
     const toggleButton = getByText("Toggle");
     const content = getByTestId("sidebar-content");
 
-    // 초기에는 사이드바가 닫혀 있어야 한다.
-    expect(content.dataset.state).toBe("collapsed");
-
-    // 토글 버튼을 클릭하면 사이드바가 열려야 한다.
-    fireEvent.click(toggleButton);
+    // 초기에는 사이드바가 열려 있어야 한다.
     expect(content.dataset.state).toBe("expanded");
 
-    // 다시 클릭하면 사이드바가 닫혀야 한다.
+    // 토글 버튼을 클릭하면 사이드바가 닫혀야 한다.
     fireEvent.click(toggleButton);
     expect(content.dataset.state).toBe("collapsed");
+
+    // 다시 클릭하면 사이드바가 열려야 한다.
+    fireEvent.click(toggleButton);
+    expect(content.dataset.state).toBe("expanded");
   });
 
   it("should handle disabled link correctly", () => {
