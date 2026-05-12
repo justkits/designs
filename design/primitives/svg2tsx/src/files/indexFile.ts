@@ -18,6 +18,7 @@ export class IndexFile extends FileToWrite {
 
   public addFacadeExport(componentName: string) {
     this.addLine(`export { ${componentName} } from "./${componentName}";`);
+    this.addLine(`export type { IconName } from "./iconMap";`);
   }
 
   public prepare(): void {
