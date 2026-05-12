@@ -3,6 +3,11 @@ import { fireEvent, render } from "@testing-library/react";
 import { Link } from "@/atoms/Buttons";
 
 describe("Link", () => {
+  beforeAll(() => {
+    // Not Implemented: navigation to another Document 경고 무시
+    globalThis.window.addEventListener("click", (e) => e.preventDefault());
+  });
+
   it("renders the text link correctly", () => {
     const { getByText } = render(
       <Link href="/" variant="text">
