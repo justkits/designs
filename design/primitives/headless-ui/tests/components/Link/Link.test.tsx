@@ -139,7 +139,7 @@ describe("Link", () => {
     const button = getByText("Button Link");
     expect(button).toBeTruthy();
     expect(button.tagName).toBe("BUTTON");
-    expect(button.getAttribute("href")).toBe("/test");
+    expect(button.getAttribute("href")).toBe(null); // disabled 상태에서는 href가 제거되어야 한다.
     expect(button.getAttribute("target")).toBe("_blank");
     expect(button.getAttribute("rel")).toBe("noopener noreferrer");
     expect(button.getAttribute("aria-disabled")).toBe("true");

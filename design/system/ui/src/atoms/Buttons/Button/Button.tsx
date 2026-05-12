@@ -7,13 +7,13 @@ import { clsx } from "clsx";
 import { styles } from "./styles.css";
 
 type Props = {
-  variant?: "primary" | "subtle" | "outline" | "transparent";
+  variant?: "primary" | "subtle" | "outline";
 } & ButtonProps;
 
 export function Button({
   children,
   className,
-  variant = "transparent",
+  variant = "outline",
   isLoading = false,
   ...rest
 }: Readonly<Props>) {

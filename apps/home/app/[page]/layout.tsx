@@ -4,4 +4,4 @@ export function generateStaticParams() {
   return [{ page: "primitives" }, { page: "design-system" }];
 }
 
-export { DocsLayout as default } from "@/domains/docs";
+export { DocsLayout as default } from "@/pages/docs";

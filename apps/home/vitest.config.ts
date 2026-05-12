@@ -5,7 +5,6 @@ const appConfig = defineProject({
   test: {
     setupFiles: [
       "./tests/mocks/ui.tsx",
-      "./tests/mocks/navigation.tsx",
       "./tests/mocks/docs.ts",
       "./tests/mocks/rest.ts",
     ],

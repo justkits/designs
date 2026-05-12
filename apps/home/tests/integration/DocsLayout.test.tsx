@@ -1,8 +1,7 @@
 import { render } from "@testing-library/react";
 import * as Navigation from "next/navigation";
-import { SidebarProvider } from "@justkits/navigation";
 
-import { DocsLayout } from "@/domains/docs";
+import { DocsLayout } from "@/pages/docs";
 import { rootLayoutSetup } from "../_setup";
 
 describe("DocsLayout", () => {
@@ -18,7 +17,7 @@ describe("DocsLayout", () => {
       params: Promise.resolve({ page: "primitives" }),
       children: <div>Component Content</div>,
     });
-    const { getByText } = render(<SidebarProvider>{jsx}</SidebarProvider>);
+    const { getByText } = render(jsx);
 
     expect(getByText("Component Content")).toBeTruthy();
     expect(getByText("Introduction")).toBeTruthy();

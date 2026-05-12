@@ -1,1 +1,1 @@
-export { DocsPage as default } from "@/domains/docs";
+export { DocsPage as default } from "@/pages/docs";

@@ -1,5 +1,5 @@
 type ZIndexTokens = {
-  hide: number;
+  hidden: number;
   sticky: number;
   menu: number;
   dropdown: number;
@@ -12,7 +12,7 @@ type ZIndexTokens = {
 };
 
 export const zIndex: ZIndexTokens = {
-  hide: -1,
+  hidden: -1,
   sticky: 100,
   menu: 200,
   dropdown: 200,

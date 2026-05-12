@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@justkits/docs": "workspace:*",
-    "@justkits/navigation": "workspace:*",
     "@justkits/ui": "workspace:*",
     "@vanilla-extract/css": "catalog:",
     "@vanilla-extract/recipes": "catalog:",

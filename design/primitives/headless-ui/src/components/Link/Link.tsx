@@ -1,10 +1,19 @@
 import { AsChild } from "@/core/asChild";
-import type { LinkProps } from "./types";
+
+export interface LinkProps extends Omit<
+  React.AnchorHTMLAttributes<HTMLAnchorElement>,
+  "target" | "rel" | "aria-disabled" | "aria-current"
+> {
+  asChild?: boolean;
+  active?: boolean;
+  disabled?: boolean;
+  external?: boolean;
+}
 
 export function Link({
   children,
   href,
-  onClick: _onClick,
+  onClick,
   external,
   active = false,
   disabled = false,
@@ -14,38 +23,19 @@ export function Link({
   const isExternal =
     href?.startsWith("http://") || href?.startsWith("https://");
   const isNewTab = external || (isExternal && external !== false);
+  const Component = asChild ? AsChild : "a";
 
-  const onClick = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
-    if (disabled) {
-      event.preventDefault();
-      return;
-    }
-    _onClick?.(event);
+  const doNothing = (
+    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+  ) => {
+    event.preventDefault();
   };
 
-  if (asChild) {
-    return (
-      <AsChild
-        {...rest}
-        href={href}
-        onClick={onClick}
-        disabled={disabled}
-        target={isNewTab ? "_blank" : undefined}
-        rel={isNewTab ? "noopener noreferrer" : undefined}
-        aria-disabled={disabled || undefined}
-        aria-current={active ? "page" : undefined}
-        tabIndex={disabled ? -1 : undefined}
-      >
-        {children}
-      </AsChild>
-    );
-  }
-
   return (
-    <a
+    <Component
       {...rest}
-      href={href}
-      onClick={onClick}
+      href={disabled ? undefined : href}
+      onClick={disabled ? doNothing : onClick}
       target={isNewTab ? "_blank" : undefined}
       rel={isNewTab ? "noopener noreferrer" : undefined}
       aria-disabled={disabled || undefined}
@@ -53,6 +43,6 @@ export function Link({
       tabIndex={disabled ? -1 : undefined}
     >
       {children}
-    </a>
+    </Component>
   );
 }
