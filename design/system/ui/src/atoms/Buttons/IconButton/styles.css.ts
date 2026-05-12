@@ -50,11 +50,17 @@ const icon = recipe({
           [`${iconButton}[data-state=open] &`]: {
             transform: "rotate(90deg)",
           },
+          [`${iconButton}[data-expanded=true] &`]: {
+            transform: "rotate(90deg)",
+          },
         },
       },
       rotate180: {
         selectors: {
           [`${iconButton}[data-state=open] &`]: {
+            transform: "rotate(180deg)",
+          },
+          [`${iconButton}[data-expanded=true] &`]: {
             transform: "rotate(180deg)",
           },
         },
@@ -64,11 +70,17 @@ const icon = recipe({
           [`${iconButton}[data-state=open] &`]: {
             transform: "scaleX(-1)",
           },
+          [`${iconButton}[data-expanded=true] &`]: {
+            transform: "scaleX(-1)",
+          },
         },
       },
       spin: {
         selectors: {
           [`${iconButton}[data-state=open] &`]: {
+            transform: "rotate(360deg)",
+          },
+          [`${iconButton}[data-expanded=true] &`]: {
             transform: "rotate(360deg)",
           },
         },
