@@ -1,1 +1,1 @@
-export { HeroPage as default } from "@/domains/root";
+export { HeroPage as default } from "@/pages/hero";
