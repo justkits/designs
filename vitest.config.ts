@@ -5,7 +5,9 @@ export default defineConfig({
     projects: [
       "apps/*",
       "design/primitives/*",
-      "design/system/*",
+      "design-system/components/*",
+      "design-system/primitives/*",
+      "design-system/ui",
       "packages/*",
     ],
     coverage: {

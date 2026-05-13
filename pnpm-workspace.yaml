@@ -2,7 +2,7 @@ packages:
   - apps/*
   - configs/*
   - design/primitives/*
-  - design/system/*
+  - design-system/**/*
   - packages/*
 
 catalog:
