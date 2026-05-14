@@ -5,15 +5,14 @@ body {
     color 0.3s ease;
 }
 
-/* 개인 취향에 따른 스타일링: 다크 모드 지원 */
 html {
   color-scheme: light dark;
 }
 
-html[data-theme="dark"] {
+html[data-color-scheme="dark"] {
   color-scheme: dark;
 }
 
-html[data-theme="light"] {
+html[data-color-scheme="light"] {
   color-scheme: light;
 }

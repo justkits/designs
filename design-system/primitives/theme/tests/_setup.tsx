@@ -1,18 +1,6 @@
-import { useColorScheme } from "@/colors/scheme";
+import { useTheme } from "@/light-dark";
 
-export function TestComponent() {
-  const { mode, updateMode } = useColorScheme();
-
-  return (
-    <div>
-      Current Theme Mode: {mode}
-      <button onClick={() => updateMode("light")}>Set Light Mode</button>
-      <button onClick={() => updateMode("dark")}>Set Dark Mode</button>
-      <button onClick={() => updateMode("system")}>Set System Mode</button>
-    </div>
-  );
-}
-
+// #region mocks
 export function mockMatchMedia({ preferDark }: { preferDark?: boolean } = {}) {
   let changeListener: ((e: MediaQueryListEvent) => void) | null = null;
 
@@ -40,4 +28,20 @@ export function mockMatchMedia({ preferDark }: { preferDark?: boolean } = {}) {
       changeListener?.({ matches: prefersDark } as MediaQueryListEvent);
     },
   };
+}
+// #endregion
+
+// Test component
+export function TestComponent() {
+  const { mode, selectMode, resolvedTheme } = useTheme();
+
+  return (
+    <div>
+      <span>Current Theme Mode: {mode}</span>
+      <span>Resolved Theme: {resolvedTheme}</span>
+      <button onClick={() => selectMode("light")}>Set Light Mode</button>
+      <button onClick={() => selectMode("dark")}>Set Dark Mode</button>
+      <button onClick={() => selectMode("system")}>Set System Mode</button>
+    </div>
+  );
 }

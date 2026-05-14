@@ -1,6 +1,5 @@
 import { assignInlineVars } from "@vanilla-extract/dynamic";
 import { type ColorTokens } from "@justkits/design-foundations/colors";
-import { ColorSchemeProvider } from "@justkits/design-foundations/colors/scheme";
 import { type ElevationTokens } from "@justkits/design-foundations/elevation";
 import {
   defaultRadius,
@@ -14,13 +13,13 @@ import {
   type TextTokens,
   type TypographyTokens,
 } from "@justkits/design-foundations/typography";
+import { ThemeProvider } from "@justkits/theme/light-dark";
 
-import { tokens } from "./tokens.css";
-import "@justkits/design-foundations/color-scheme.css";
 import "@justkits/design-foundations/reset.css";
+import "@justkits/theme/color-scheme.css";
+import { tokens } from "./tokens.css";
 
-// eslint-disable-next-line react-refresh/only-export-components
-export { useColorScheme } from "@justkits/design-foundations/colors/scheme";
+export { useTheme } from "@justkits/theme/light-dark";
 
 type Props = {
   children: React.ReactNode;
@@ -123,9 +122,9 @@ export function UIProvider({
   });
 
   return (
-    <ColorSchemeProvider>
+    <ThemeProvider withSystem defaultMode="system">
       <div style={style}>{children}</div>
-    </ColorSchemeProvider>
+    </ThemeProvider>
   );
 }
 
@@ -142,7 +141,7 @@ const baseColors = {
   },
   BLUE: {
     light: "#3B82F6",
-    dark: "#1647e8",
+    dark: "#1647E8",
   },
   GOLD: "#A78C29",
   SILVER: "#888888",

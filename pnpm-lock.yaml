@@ -178,6 +178,12 @@ importers:
         specifier: workspace:*
         version: link:../../primitives/svg2tsx
 
+  design-system/primitives/foundations:
+    dependencies:
+      react:
+        specifier: ^19
+        version: 19.2.6
+
   design-system/primitives/svg2tsx:
     dependencies:
       jiti:
@@ -206,6 +212,12 @@ importers:
         specifier: ^7.3.0
         version: 7.3.0
 
+  design-system/primitives/theme:
+    dependencies:
+      react:
+        specifier: ^19
+        version: 19.2.6
+
   design-system/ui:
     dependencies:
       react:
@@ -217,7 +229,7 @@ importers:
     devDependencies:
       '@justkits/design-foundations':
         specifier: workspace:*
-        version: link:../../design/primitives/foundations
+        version: link:../primitives/foundations
       '@justkits/headless-ui':
         specifier: workspace:*
         version: link:../../design/primitives/headless-ui
@@ -227,6 +239,9 @@ importers:
       '@justkits/svg2tsx':
         specifier: workspace:*
         version: link:../primitives/svg2tsx
+      '@justkits/theme':
+        specifier: workspace:*
+        version: link:../primitives/theme
       '@vanilla-extract/css':
         specifier: 'catalog:'
         version: 1.20.1
@@ -244,12 +259,6 @@ importers:
         version: 2.1.1
 
   design/primitives/alert: {}
-
-  design/primitives/foundations:
-    dependencies:
-      react:
-        specifier: ^19
-        version: 19.2.6
 
   design/primitives/headless-ui:
     dependencies:

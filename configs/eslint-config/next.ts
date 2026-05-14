@@ -12,6 +12,9 @@ export const nextEslintConfig = defineConfig([
   {
     files: ["**/src/**/*.{ts,tsx}"],
     extends: [reactRefresh.configs.next],
+    rules: {
+      "react-refresh/only-export-components": "error",
+    },
   },
   ...nextVitals,
   ...nextTs,

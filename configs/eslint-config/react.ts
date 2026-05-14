@@ -27,6 +27,7 @@ export const reactPackageEslintConfig = defineConfig([
         "error",
         { prefer: "type-imports", fixStyle: "inline-type-imports" },
       ],
+      "react-refresh/only-export-components": "off",
     },
   },
   {

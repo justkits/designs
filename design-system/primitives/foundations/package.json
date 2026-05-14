@@ -7,8 +7,8 @@
   "keywords": [
     "design",
     "tokens",
-    "reset-css",
     "foundations",
+    "reset-css",
     "react",
     "typescript"
   ],
@@ -17,18 +17,13 @@
       "types": "./dist/*/index.d.mts",
       "import": "./dist/*/index.mjs"
     },
-    "./colors/scheme": {
-      "types": "./dist/colors/scheme.d.mts",
-      "import": "./dist/colors/scheme.mjs"
-    },
-    "./color-scheme.css": "./dist/color-scheme.css",
     "./reset.css": "./dist/reset.css"
   },
   "author": "JustWon",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/justkits/justkits.git",
-    "directory": "design/primitives/foundations"
+    "directory": "design-system/primitives/foundations"
   },
   "license": "UNLICENSED",
   "files": [

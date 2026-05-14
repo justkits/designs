@@ -1,0 +1,49 @@
+{
+  "name": "@justkits/theme",
+  "description": "JustKits Design Primitives - Theme",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "keywords": [
+    "design",
+    "theme",
+    "colors",
+    "react",
+    "typescript"
+  ],
+  "exports": {
+    "./light-dark": {
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.mts"
+    },
+    "./light-dark/server": {
+      "import": "./dist/server.mjs",
+      "types": "./dist/server.d.mts"
+    },
+    "./color-scheme.css": "./dist/color-scheme.css"
+  },
+  "author": "JustWon",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/justkits/justkits.git",
+    "directory": "design-system/primitives/theme"
+  },
+  "license": "UNLICENSED",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "restricted",
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "scripts": {
+    "prebuild": "rm -rf dist",
+    "build": "tsdown",
+    "dev": "tsdown --watch",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "react": "^19"
+  }
+}

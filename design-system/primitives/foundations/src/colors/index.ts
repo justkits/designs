@@ -6,6 +6,3 @@ export type { ColorTokens, ColorMode } from "./types";
 
 // 유틸리티
 export { colorWithOpacity } from "./utils";
-
-// 테마 관련
-export { ColorSchemeScript } from "./scheme/script";
